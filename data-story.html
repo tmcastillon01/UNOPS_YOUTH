@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Three published numbers about youth, climate and decision-making, designed as scannable dot charts.">
+<title>Data story · Timothy Castillon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+.story{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:900px){.story{grid-template-columns:1fr}}
+.sc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:var(--r);padding:.9rem 1.1rem .8rem;display:flex;flex-direction:column;gap:.55rem}
+.sc:nth-child(2){border-top-color:var(--amber)}.sc:nth-child(3){border-top-color:var(--green)}
+.sc .q{font-family:var(--fh);font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-dk)}
+.sc .big{font-family:var(--fh);font-weight:800;font-size:3.1rem;line-height:1;color:var(--navy)}
+.sc .big small{font-size:1.1rem;margin-left:.15rem}
+.sc p{font-size:.95rem;color:#2f3a47}
+.waf{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin:.2rem 0}
+.waf.c6{grid-template-columns:repeat(6,1fr);max-width:62%}
+.waf i{aspect-ratio:1;border-radius:50%;background:#D5DDE3;transition:background .35s}
+.waf i.on{background:var(--navy)}
+.sc:nth-child(2) .waf i.on{background:var(--amber)}
+.sc:nth-child(3) .waf i.on{background:var(--green)}
+.waf i.part{background:linear-gradient(90deg,var(--amber) 80%,#D5DDE3 80%)}
+.leg{display:flex;gap:1rem;flex-wrap:wrap;font-size:.76rem;color:var(--muted)}
+.leg span::before{content:"";display:inline-block;width:.7em;height:.7em;border-radius:50%;margin-right:.4em;background:#D5DDE3}
+.leg span.a::before{background:var(--navy)}.sc:nth-child(2) .leg span.a::before{background:var(--amber)}.sc:nth-child(3) .leg span.a::before{background:var(--green)}
+.sc .src{margin-top:auto;padding-top:.4rem;border-top:1px solid var(--line)}
+.line{margin-top:.9rem;padding:.9rem 1.1rem;background:var(--navy);color:#fff;border-left:5px solid var(--amber);border-radius:0 var(--r) var(--r) 0;font-size:1rem}
+.line b{color:var(--amber-lt)}
+.notes{display:grid;grid-template-columns:1.1fr 1fr;gap:1.5rem}
+@media(max-width:860px){.notes{grid-template-columns:1fr}}
+.type-demo{font-family:var(--fh);font-weight:800;text-transform:uppercase;font-size:1.35rem;line-height:1.15;color:var(--navy);margin-bottom:.25rem}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Sample work"><a class="brand" href="sample-work.html" aria-label="Sample work home"><span class="mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a><ul class="series"><li><a href="data-story.html" aria-current="page"><b>01</b><span>Data story</span></a></li><li><a href="orientation-deck.html"><b>02</b><span>Orientation deck</span></a></li><li><a href="social-package.html"><b>03</b><span>Social package</span></a></li><li><a href="content-calendar.html"><b>04</b><span>Content calendar</span></a></li></ul><a class="back" href="sample-work.html">All samples</a></nav>
+<header class="hero">
+<p class="eyebrow">Output 01 &middot; Data story</p>
+<h1>Half the world is under 30. <em>Who is in the room?</em></h1>
+<p class="lede">Three published numbers, drawn as dots you can count. Built to read in ten seconds on a phone, with the source on every card.</p>
+<div class="brief"><div><b>Goal</b>Show I can turn policy data into one clear visual for a young audience.</div><div><b>Audience</b>Young followers on LinkedIn and Instagram; UN Youth Office and UNOPS comms teams.</div><div><b>Skills shown</b>Data storytelling, visual identity, accessible design.</div></div>
+</header>
+<section id="story"><div class="k">The story</div>
+<h2>Who is affected, who is heard, who now has a seat</h2>
+<p class="sub">One idea per card. Each dot is 1% (or, on the third card, one advisor). Tap or scroll a card to see it fill.</p>
+<div class="story" id="story-grid">
+<article class="sc" data-n="88" data-mode="pct">
+  <div class="q">1 &middot; Who is affected</div>
+  <div class="big"><span data-count="88">88</span><small>%</small></div>
+  <p>Almost 9 in 10 young people (aged 15&ndash;24) live in developing countries, where climate and development needs are greatest.</p>
+  <div class="waf" role="img" aria-label="100 dots, 88 filled: almost 88 percent of the world's youth live in developing countries."></div>
+  <div class="leg"><span class="a">Developing countries</span><span>Other countries</span></div>
+  <span class="src">Source: <a href="https://www.fao.org/rural-employment/work-areas/youth-employment" target="_blank" rel="noopener">FAO, citing UN data</a></span>
+</article>
+<article class="sc" data-n="2.8" data-mode="pct">
+  <div class="q">2 &middot; Who is heard</div>
+  <div class="big"><span data-count="2.8">2.8</span><small>%</small></div>
+  <p>of the world&rsquo;s parliamentarians are 30 or under, unchanged since 2023. More than a third of chambers have none.</p>
+  <div class="waf" role="img" aria-label="100 dots, 2.8 filled: only 2.8 percent of members of parliament worldwide are aged 30 or under."></div>
+  <div class="leg"><span class="a">MPs aged 30 and under</span><span>All other MPs</span></div>
+  <span class="src">Source: <a href="https://www.ipu.org/news/press-releases/2026-04/youth-representation-in-parliament-flatlines-first-time-in-12-years" target="_blank" rel="noopener">IPU, Youth participation in national parliaments 2025</a></span>
+</article>
+<article class="sc" data-n="30" data-mode="seats">
+  <div class="q">3 &middot; Who now has a seat</div>
+  <div class="big"><span data-count="30">30</span></div>
+  <p>advisors, all under 30, sit on the UNOPS Youth Engagement Platform and advise its leadership on climate action, resilience and development.</p>
+  <div class="waf c6" role="img" aria-label="30 dots, all filled: the 30 members of the UNOPS Youth Engagement Platform."></div>
+  <div class="leg"><span class="a">One advisor under 30</span></div>
+  <span class="src">Source: <a href="https://www.unops.org/youth-at-the-table-practical-solutions-on-the-agenda" target="_blank" rel="noopener">UNOPS, Youth at the table</a></span>
+</article>
+</div>
+<p class="line"><b>The gap is wide, and so is the response.</b> Half the world is under 30, most of them in developing countries, yet under 3% of MPs are. Advisory seats and the UN Youth Office&rsquo;s Youth Compass are two ways to narrow it.</p>
+</section>
+
+<section class="alt" id="design"><div class="notes"><div>
+<div class="k">Design notes</div>
+<h2>One look, built to be reused</h2>
+<div class="cols" style="grid-template-columns:1fr 1fr">
+<div class="item"><h3>Countable shapes</h3><p>One dot, one unit. No 3D, no decoration. A reader can verify the number by looking.</p></div>
+<div class="item"><h3>Amber marks people</h3><p>Navy gives context, amber or green highlights the group the story is about.</p></div>
+<div class="item"><h3>Readable by all</h3><p>Every chart has alt text, a text legend and a visible number, so colour is never the only cue.</p></div>
+<div class="item"><h3>Sourced on the card</h3><p>The source sits on the card, so a screenshot stays honest when it travels.</p></div>
+</div></div>
+<div><div class="k">Palette <span style="text-transform:none;letter-spacing:0;font-weight:500">(click to copy)</span></div>
+<div class="sw" id="sw"></div>
+<p class="type-demo" style="margin-top:1rem">Montserrat ExtraBold</p><p style="font-size:.88rem;color:var(--muted)">for headlines, with DM Sans for text, labels and sources.</p></div></div></section>
+
+<section id="adapt"><div class="k">Reuse</div><h2>Same data, four places</h2>
+<p class="sub">The same facts run through every sample, so the whole package tells one story.</p>
+<div class="scroll"><table><tr><th>Where</th><th>Format</th><th>What changes</th><th>Sample</th></tr><tr><td>Orientation deck</td><td>6 slides</td><td>All three numbers on slide 1, the 30 advisors drawn as dots on slide 3</td><td><a href="orientation-deck.html">Output 02</a></td></tr><tr><td>LinkedIn</td><td>5-card carousel</td><td>Half the world is under 30 (card 2) and 30 advisors (card 4); the question sits in the caption</td><td><a href="social-package.html#posts">Output 03</a></td></tr><tr><td>Instagram, Facebook, X</td><td>One image each</td><td>One fact or one question per post</td><td><a href="social-package.html#posts">Output 03</a></td></tr><tr><td>Reels and TikTok</td><td>9:16, four scenes</td><td>Hook, platform, three themes, question</td><td><a href="social-package.html#posts">Output 03</a></td></tr><tr><td>Calendar</td><td>Content board</td><td>The series becomes a planned card in Q4 2026</td><td><a href="content-calendar.html">Output 04</a></td></tr></table></div>
+</section>
+
+<section class="alt" id="sources"><div class="k">Sources</div><h2>Published information only</h2>
+<div class="cols">
+<div class="item"><h3>Youth in developing countries</h3><p>FAO: &ldquo;almost 88 percent&rdquo; of the world&rsquo;s youth, citing UN data.</p><span class="src"><a href="https://www.fao.org/rural-employment/work-areas/youth-employment" target="_blank" rel="noopener">fao.org</a></span></div>
+<div class="item"><h3>Young MPs</h3><p>IPU: 2.8% of MPs are 30 or under; 37.1% of chambers have none (April 2026).</p><span class="src"><a href="https://www.ipu.org/news/press-releases/2026-04/youth-representation-in-parliament-flatlines-first-time-in-12-years" target="_blank" rel="noopener">ipu.org</a></span></div>
+<div class="item"><h3>Youth Engagement Platform</h3><p>30 advisors, all under 30; second cohort announced; first cohort at COP30 and Sevilla.</p><span class="src"><a href="https://www.unops.org/youth-at-the-table-practical-solutions-on-the-agenda" target="_blank" rel="noopener">unops.org</a></span></div>
+<div class="item"><h3>UN Youth Compass</h3><p>Flagship initiative of the UN Youth Office to make meaningful youth participation the norm.</p><span class="src"><a href="https://www.un.org/youthaffairs/en/un-youth-compass" target="_blank" rel="noopener">un.org/youthaffairs</a></span></div>
+</div></section>
+<footer><p><b>&copy; 2026 Timothy Earl Mateo Castillon.</b> Independent sample prepared for the Communications Officer (Graphic Design &amp; Social Media) role. Not official United Nations Youth Office or UNOPS material; no UN or UNOPS logo is used.</p><nav aria-label="Next and previous sample"><a href="orientation-deck.html">Orientation deck &rarr;</a></nav></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show')},2200)}
+function copy(txt,msg){try{navigator.clipboard.writeText(txt).then(function(){toast(msg||'Copied')})}catch(e){var a=document.createElement('textarea');a.value=txt;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();toast(msg||'Copied')}}
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var COL=[['Navy','#0F2942','#fff'],['Amber','#E08E26','#0B1420'],['Green','#1B6B4A','#fff'],['Fog','#F7F9F8','#0B1420'],['Light amber','#F6C376','#0B1420']];
+  var sw=document.getElementById('sw');
+  COL.forEach(function(c){var b=document.createElement('button');b.style.background=c[1];b.style.color=c[2];b.innerHTML='<b>'+c[0]+'</b>'+c[1];b.onclick=function(){copy(c[1],c[0]+' '+c[1]+' copied')};sw.appendChild(b)});
+  document.querySelectorAll('.sc').forEach(function(card){
+    var w=card.querySelector('.waf'),n=parseFloat(card.dataset.n),total=card.dataset.mode==='seats'?30:100,dots=[];
+    for(var i=0;i<total;i++){var d=document.createElement('i');w.appendChild(d);dots.push(d)}
+    function fill(){
+      dots.forEach(function(d){d.className=''});
+      var full=Math.floor(n),part=n-full,k=0;
+      (function step(){
+        if(k<full){dots[k].className='on';k++;reduce?step():setTimeout(step,Math.max(8,700/full))}
+        else if(part>0&&dots[full]){dots[full].className='part'}
+      })();
+    }
+    if(reduce){fill()}else{
+      var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){fill();io.disconnect()}},{threshold:.4});io.observe(card);
+      card.addEventListener('click',fill);
+    }
+  });
+})();
+</script>
+</body></html>

@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Content calendar · Timothy Castillon</title>
+  <meta name="description" content="Sample editorial and social media calendar prepared by Timothy Castillon for the Communications Officer (Graphic Design &amp; Social Media) role at the UN Youth Office / UNOPS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── PORTFOLIO DESIGN TOKENS (100% COORDINATED) ──────────── */
+    :root{--ink:#0B1420;--fog:#F7F9F8;--white:#fff;--sage:#0F2942;--sage-lt:#E8EEF3;--gold:#E08E26;--gold-lt:#F6C376;--muted:#556170;--border:#DCE3E0;--radius:8px;--nav-h:56px;
+ --navy:#0F2942;--navy-lt:#E8EEF3;--amber:#E08E26;--amber-dk:#9A5B07;--amber-lt:#F6C376;--green:#1B6B4A;--green-lt:#E3F0E9;--line:#DCE3E0;--r:8px;--wrap:1120px;
+ --fh:'Montserrat',system-ui,sans-serif;--fb:'DM Sans',system-ui,sans-serif}
+
+    /* ─── RESET & BASE ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body {
+      background: var(--fog);
+      color: var(--ink);
+      font-family: var(--fb);
+      line-height: 1.65;
+      overflow-x: clip;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font-family: inherit; }
+
+    /* ── nav ───────────────────────────── */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--nav-h);display:flex;align-items:center;gap:1.2rem;padding:0 max(5vw,calc((100vw - var(--wrap))/2));background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;font-family:var(--fh);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);white-space:nowrap}
+.mark{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--navy);color:#fff;font-family:var(--fh);font-weight:800;font-size:.82rem;letter-spacing:0;box-shadow:0 3px 0 var(--amber);margin-bottom:3px}
+.series{display:flex;gap:.25rem;margin-left:auto;list-style:none}
+.series a{display:block;padding:.35rem .7rem;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;color:var(--muted);white-space:nowrap}
+.series a b{font-family:var(--fh);font-weight:800;color:var(--amber-dk);margin-right:.3rem}
+.series a:hover{background:var(--navy-lt);color:var(--navy)}
+.series a[aria-current=page]{background:var(--navy);color:#fff}
+.series a[aria-current=page] b{color:var(--amber-lt)}
+.back{font-size:.78rem;font-weight:700;text-decoration:none;color:var(--navy);padding:.4rem .9rem;border:1px solid var(--navy);border-radius:var(--r);white-space:nowrap}
+.back:hover{background:var(--navy);color:#fff}
+@media(max-width:860px){.brand span:last-child{display:none}.series a{padding:.35rem .5rem}.series a span{display:none}}
+@media(max-width:480px){.back{display:none}.series{margin-left:auto}}
+
+
+/* ─── MAIN SPLIT LAYOUT ──────────────────────────────────── */
+    .split-shell {
+      padding-top: var(--nav-h);
+      display: grid;
+      grid-template-columns: 380px minmax(0, 1fr);
+      flex: 1;
+      min-height: 100vh;
+    }
+    @media (max-width: 1060px) {
+      .split-shell {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── LEFT CONTEXT SIDEBAR ───────────────────────────────── */
+    .context-sidebar {
+      background: var(--white);
+      border-right: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      padding: 1.2rem 1.4rem 1.4rem;
+      position: sticky;
+      top: var(--nav-h);
+      height: calc(100vh - var(--nav-h));
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+    @media (max-width: 1060px) {
+      .context-sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+    .sidebar-eyebrow {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber-dk);
+    }
+    .sidebar-title {
+      font-family: var(--fh); font-weight: 800;
+      font-size: 1.35rem;
+      line-height: 1.18;
+      color: var(--ink);
+      
+    }
+    .sidebar-copy {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .sidebar-card-note {
+      background: var(--fog);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.9rem 1rem;
+      font-size: 0.82rem;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .sidebar-card-note-label {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.67rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.35rem;
+      display: block;
+      font-weight: 700;
+    }
+    .sample-quick-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-top: 0.6rem;
+    }
+    .sample-jump-btn {
+      width: 100%;
+      text-align: left;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      padding: 0.5rem 0.7rem;
+      font-size: 0.78rem;
+      color: var(--sage);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .sample-jump-btn:hover {
+      background: var(--sage);
+      color: var(--white);
+      border-color: var(--sage);
+    }
+
+    /* Pillar Filter Group */
+    .filter-section {
+      border-top: 1px solid var(--border);
+      padding-top: 1.1rem;
+    }
+    .filter-label {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .pill-btn {
+      font-size: 0.74rem;
+      font-weight: 500;
+      padding: 0.35rem 0.72rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+    }
+    .pill-btn:hover {
+      transform: translateY(-1px);
+    }
+    .pill-btn.active {
+      box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--sage);
+    }
+    .pill-all { background: var(--white); color: var(--ink); }
+    .pill-compass { background: var(--sage); color: var(--white); border-color: var(--sage); }
+    .pill-leaders { background: var(--gold); color: var(--white); border-color: var(--amber-dk); }
+    .pill-wellbeing { background: var(--sage-lt); color: var(--sage); border-color: var(--sage); }
+    .pill-unops { background: var(--gold-lt); color: var(--ink); border-color: var(--amber-dk); }
+
+    /* ─── RIGHT WORKSPACE ────────────────────────────────────── */
+    .workspace-area {
+      background: var(--fog);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      position: relative;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    /* Subtle Diagonal Deterrence Watermark */
+    .watermark-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 15;
+      overflow: hidden;
+      opacity: 0.032;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-around;
+      justify-content: space-around;
+      gap: 4rem;
+      transform: rotate(-18deg) scale(1.2);
+    }
+    .watermark-text {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      white-space: nowrap;
+    }
+
+    /* Workspace Toolbar */
+    .workspace-toolbar {
+      background: var(--sage);
+      color: var(--white);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      border-bottom: 2px solid var(--gold);
+      position: relative;
+      z-index: 20;
+    }
+    .toolbar-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .workspace-heading {
+      font-family: var(--fh); font-weight: 800;
+      font-size: 1.25rem;
+      
+      color: var(--white);
+    }
+    .applicant-tag {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      border: 1px solid rgba(226, 198, 140, 0.35);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+    .view-toggle {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 3px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .view-btn {
+      font-size: 0.76rem;
+      font-weight: 500;
+      padding: 0.38rem 0.85rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .view-btn.active {
+      background: var(--white);
+      color: var(--sage);
+      font-weight: 600;
+    }
+
+    /* ─── BOARD VIEW (TRELLO-STYLE COLUMNS) ─────────────────── */
+    .board-container {
+      padding: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.15rem;
+      overflow-x: auto;
+      flex: 1;
+      position: relative;
+      z-index: 20;
+    }
+    .board-container::-webkit-scrollbar { height: 10px; }
+    .board-container::-webkit-scrollbar-track { background: rgba(0, 33, 71, 0.07); border-radius: 6px; }
+    .board-container::-webkit-scrollbar-thumb { background: rgba(0, 33, 71, 0.26); border-radius: 6px; }
+
+    .trello-list {
+      width: 288px;
+      flex-shrink: 0;
+      background: var(--sage-lt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100vh - 165px);
+    }
+    @media (max-width: 1060px) {
+      .trello-list { max-height: 620px; }
+    }
+    .list-header {
+      padding: 0.85rem 1rem 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .list-title {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .list-count {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.7rem;
+      color: var(--sage);
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+    }
+    .list-cards {
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      overflow-y: auto;
+    }
+    .list-cards::-webkit-scrollbar { width: 5px; }
+    .list-cards::-webkit-scrollbar-thumb { background: rgba(0, 33, 71, 0.2); border-radius: 4px; }
+
+    /* Trello Card */
+    .t-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--sage);
+      border-radius: var(--radius);
+      padding: 0.9rem;
+      cursor: pointer;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      box-shadow: 0 2px 6px rgba(11, 20, 32, 0.05);
+    }
+    .t-card.is-sample {
+      border-top: 3px solid var(--gold);
+      background: linear-gradient(to bottom, rgba(226, 198, 140, 0.14), var(--white) 42%);
+    }
+    .t-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0, 33, 71, 0.12);
+      border-color: var(--amber-dk);
+    }
+    .t-card-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .t-pill {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.16rem 0.48rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .t-pill-compass { background: var(--sage); color: var(--white); }
+    .t-pill-leaders { background: var(--gold); color: var(--white); }
+    .t-pill-wellbeing { background: var(--sage-lt); color: var(--sage); border: 1px solid rgba(0, 33, 71, 0.2); }
+    .t-pill-unops { background: var(--gold-lt); color: var(--ink); }
+    .t-pill-sample { background: var(--ink); color: var(--gold-lt); }
+
+    .t-card-title {
+      font-family: var(--fh); font-weight: 800;
+      font-size: 1.05rem;
+      line-height: 1.28;
+      color: var(--ink);
+      
+    }
+    .t-card-excerpt {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .t-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-top: 0.45rem;
+      border-top: 1px solid var(--fog);
+      margin-top: 0.15rem;
+    }
+    .t-date-badge {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.66rem;
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .t-date-scheduled {
+      background: var(--sage-lt);
+      color: var(--sage);
+    }
+    .t-date-approved {
+      background: var(--gold-lt);
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .t-meta-right {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .t-attach-count {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.66rem;
+      color: var(--muted);
+    }
+    .t-avatar {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: var(--white);
+      font-family: var(--fh); font-weight: 800;
+      font-size: 0.65rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold);
+    }
+
+    /* ─── CALENDAR VIEW ──────────────────────────────────────── */
+    .calendar-container {
+      padding: 1rem;
+      display: none;
+      flex-direction: column;
+      gap: 1.1rem;
+      position: relative;
+      z-index: 20;
+    }
+    .calendar-container.active {
+      display: flex;
+    }
+    .cal-header-bar {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .cal-month-heading {
+      font-family: var(--fh); font-weight: 800;
+      font-size: 1.45rem;
+      color: var(--ink);
+      
+    }
+    .cal-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cal-select {
+      background: var(--fog);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    .cal-grid-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+    }
+    .cal-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(110px, 1fr));
+      background: var(--sage-lt);
+      border-bottom: 1px solid var(--border);
+    }
+    .cal-weekday {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sage);
+      text-align: center;
+      padding: 0.6rem 0.25rem;
+      font-weight: 700;
+    }
+    .cal-days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(110px, 1fr));
+    }
+    .cal-cell {
+      min-height: 112px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      background: var(--white);
+    }
+    .cal-cell:nth-child(7n) { border-right: none; }
+    .cal-cell.is-empty { background: var(--fog); opacity: 0.6; }
+    .cal-day-num {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .cal-cell.has-event .cal-day-num {
+      color: var(--sage);
+      font-weight: 700;
+    }
+    .cal-event-chip {
+      width: 100%;
+      text-align: left;
+      background: var(--sage);
+      color: var(--white);
+      border: none;
+      border-left: 3px solid var(--gold);
+      border-radius: 5px;
+      padding: 0.38rem 0.5rem;
+      font-size: 0.72rem;
+      line-height: 1.3;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .cal-event-chip.is-sample {
+      background: var(--gold);
+      color: var(--white);
+      border-left-color: var(--sage);
+    }
+    .cal-event-chip:hover {
+      background: var(--ink);
+    }
+
+    /* ─── GPC-STYLE TRELLO CARD MODAL ────────────────────────── */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(11, 20, 32, 0.68);
+      backdrop-filter: blur(3px);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem 1rem;
+      overflow-y: auto;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal-card {
+      background: var(--white);
+      width: 100%;
+      max-width: 920px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 28px 65px rgba(11, 20, 32, 0.38);
+      margin: auto;
+    }
+
+    /* Top Cover Header */
+    .modal-cover {
+      position: relative;
+      height: 155px;
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 3px solid var(--gold);
+      overflow: hidden;
+    }
+    .modal-cover-center {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(226, 198, 140, 0.3);
+      border-radius: var(--radius);
+      padding: 1rem 1.75rem;
+      text-align: center;
+      color: var(--white);
+      max-width: 440px;
+      z-index: 2;
+    }
+    .modal-cover-eyebrow {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 0.35rem;
+    }
+    .modal-cover-sub {
+      font-family: var(--fh); font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+    .modal-list-pill {
+      position: absolute;
+      top: 14px; left: 16px;
+      background: var(--white);
+      color: var(--sage);
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
+      z-index: 3;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 14px; right: 16px;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--ink);
+      border: none;
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      transition: background 0.15s, color 0.15s;
+    }
+    .modal-close-btn:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* Modal Two-Column Body */
+    .modal-body-grid {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+    }
+    @media (max-width: 820px) {
+      .modal-body-grid { grid-template-columns: 1fr; }
+    }
+    .modal-main-col {
+      padding: 1.75rem 2rem;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 1.45rem;
+    }
+    .modal-title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .status-check-circle {
+      margin-top: 0.35rem;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--sage);
+      background: var(--white);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .status-check-circle.approved {
+      background: var(--gold);
+      border-color: var(--amber-dk);
+    }
+    .modal-title-text {
+      font-family: var(--fh); font-weight: 800;
+      font-size: 1.55rem;
+      line-height: 1.22;
+      color: var(--ink);
+      
+    }
+    .modal-sublist-line {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+    .modal-sublist-line span {
+      text-decoration: underline;
+      color: var(--sage);
+      font-weight: 500;
+    }
+
+    /* Metadata Row (Members, Due Date, Labels) */
+    .modal-meta-row {
+      padding-left: 2.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .meta-block-label {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .member-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--fog);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.65rem 0.25rem 0.3rem;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .member-chip-circle {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: var(--white);
+      font-family: var(--fh); font-weight: 800;
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .due-date-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--fog);
+      border: 1px solid var(--border);
+      padding: 0.32rem 0.7rem;
+      border-radius: 6px;
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.74rem;
+      color: var(--ink);
+    }
+    .status-toggle-tag {
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.66rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+    }
+    .status-toggle-tag.scheduled {
+      background: var(--sage-lt);
+      color: var(--sage);
+    }
+    .status-toggle-tag.approved {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* Description & Copy Box */
+    .modal-section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.55rem;
+    }
+    .modal-section-title {
+      font-family: var(--fh); font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--ink);
+      
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .copy-sample-btn {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: var(--sage);
+      color: var(--white);
+      border: none;
+      padding: 0.38rem 0.75rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .copy-sample-btn:hover {
+      background: var(--gold);
+    }
+    .modal-desc-wrap {
+      padding-left: 2.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .modal-textarea {
+      width: 100%;
+      min-height: 130px;
+      background: var(--fog);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.9rem 1rem;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--ink);
+      resize: vertical;
+      -webkit-user-select: text;
+      user-select: text;
+    }
+    .modal-textarea:focus {
+      outline: none;
+      border-color: var(--sage);
+      background: var(--white);
+    }
+    .coord-callout {
+      background: var(--sage-lt);
+      border-left: 3px solid var(--sage);
+      padding: 0.65rem 0.85rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.78rem;
+      color: var(--sage);
+      line-height: 1.5;
+    }
+
+    /* Attachments */
+    .attachments-grid {
+      padding-left: 2.1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.65rem;
+    }
+    .attachment-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--fog);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.75rem;
+    }
+    .att-badge {
+      background: var(--sage);
+      color: var(--gold-lt);
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.66rem;
+      font-weight: 700;
+      padding: 0.45rem 0.55rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .att-info {
+      min-width: 0;
+    }
+    .att-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .att-meta {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    /* Right Activity Column */
+    .modal-side-col {
+      background: var(--fog);
+      border-left: 1px solid var(--border);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    @media (max-width: 820px) {
+      .modal-side-col {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+    }
+    .activity-heading {
+      font-family: var(--fh); font-weight: 800;
+      font-size: 1.08rem;
+      color: var(--ink);
+      
+    }
+    .comment-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.6rem;
+    }
+    .comment-input {
+      width: 100%;
+      border: none;
+      font-size: 0.8rem;
+      color: var(--ink);
+      resize: none;
+      outline: none;
+      background: transparent;
+      -webkit-user-select: text;
+      user-select: text;
+    }
+    .comment-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.4rem;
+    }
+    .comment-save-btn {
+      background: var(--sage);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      padding: 0.32rem 0.75rem;
+      font-size: 0.74rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .comment-save-btn:hover {
+      background: var(--gold);
+    }
+    .activity-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-height: 310px;
+      overflow-y: auto;
+    }
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+    .act-avatar {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: var(--white);
+      font-family: var(--fh); font-weight: 800;
+      font-size: 0.68rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .act-bubble {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 0.65rem;
+      margin-top: 0.25rem;
+      color: var(--ink);
+    }
+    .act-time {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.64rem;
+      color: var(--muted);
+      display: block;
+      margin-top: 0.15rem;
+    }
+
+    /* Toast */
+    .toast-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 300;
+      background: var(--sage);
+      color: var(--white);
+      border-left: 4px solid var(--gold);
+      padding: 0.7rem 1.1rem;
+      border-radius: var(--radius);
+      font-size: 0.8rem;
+      box-shadow: 0 12px 28px rgba(11, 20, 32, 0.25);
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .toast-banner.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── footer ────────────────────────── */
+footer{background:var(--navy);color:rgba(255,255,255,.72);padding:1rem max(5vw,calc((100vw - var(--wrap))/2)) calc(1.4rem + env(safe-area-inset-bottom));font-size:.8rem;display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;align-items:center}
+footer p{max-width:70ch}footer b{color:var(--amber-lt)}
+footer nav{display:flex;gap:1.2rem}footer a{color:#fff;font-weight:700;text-decoration:none}footer a:hover{color:var(--amber-lt)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:300;background:var(--navy);color:#fff;font-size:.82rem;padding:.55rem 1rem;border-radius:var(--r);border-bottom:3px solid var(--amber);opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+
+/* brand harmonisation */
+.pill-leaders,.t-pill-leaders{color:var(--ink)}
+.pill-wellbeing{background:var(--green-lt);color:#14513a;border-color:var(--green)}
+.t-pill-wellbeing{background:var(--green-lt);color:#14513a;border:1px solid rgba(27,107,74,.35)}
+.copy-sample-btn:hover,.comment-save-btn:hover{color:var(--ink)}
+.sidebar-title,.workspace-heading,.t-card-title,.cal-month-heading,.modal-title-text{text-transform:none}
+.sidebar-goal{display:grid;gap:.35rem;font-size:.82rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.7rem}
+.sidebar-goal b{font-family:var(--fh);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber-dk);margin-right:.35rem}
+</style>
+
+<style id="tcx-process-css">.tcx{background:var(--fog);color:var(--ink);font-family:var(--fb);padding:1.5rem 5vw;border-top:1px solid var(--line);line-height:1.55;position:relative;z-index:21;width:100%}
+.tcx *,.tcx *::before,.tcx *::after{box-sizing:border-box}
+.tcx-wrap{max-width:var(--wrap);margin:0 auto;display:grid;gap:1.2rem;grid-template-columns:1.3fr 1fr;align-items:start}
+@media(max-width:860px){.tcx-wrap{grid-template-columns:1fr}}
+.tcx-k{font-family:var(--fh);font-weight:700;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-dk);margin-bottom:.3rem}
+.tcx-note h2{font-family:var(--fh);font-weight:800;font-size:1.3rem;line-height:1.2;margin-bottom:.6rem;color:var(--navy)}
+.tcx-note ul{list-style:none;display:grid;gap:.5rem}
+.tcx-note li{position:relative;padding-left:1.1rem;font-size:.9rem;color:#2f3a47}
+.tcx-note li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--amber)}
+.tcx-disc{background:var(--navy);color:rgba(255,255,255,.88);border-left:5px solid var(--amber);padding:1rem 1.2rem;font-size:.86rem}
+.tcx-disc .tcx-k{color:var(--amber-lt)}
+.tcx-disc p+p{margin-top:.5rem;font-size:.82rem;color:rgba(255,255,255,.72)}</style>
+
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<meta name="googlebot" content="noindex, nofollow" />
+<style id="tcx-protect-css">
+  html, body { -webkit-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, select, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
+  img { -webkit-user-drag: none; user-drag: none; }
+</style>
+<script id="tcx-protect-js">
+  /* Deterrence only. It stops casual saving and copying, not a determined person. */
+  (function () {
+    var msg = 'Application sample by Timothy Castillon. Source download is disabled.';
+    function toast() {
+      var t = document.getElementById('tcxToast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'tcxToast'; t.setAttribute('role', 'status');
+        t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99999;background:#002147;color:#fff;font:500 13px/1.4 Inter,system-ui,sans-serif;padding:10px 16px;border-radius:8px;border-bottom:3px solid #ab7d2c;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg; t.style.opacity = '1';
+      clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = '0'; }, 2200);
+    }
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); toast(); });
+    document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+      var k = (e.key || '').toLowerCase();
+      var mod = e.ctrlKey || e.metaKey;
+      var block =
+        e.key === 'F12' ||
+        (mod && e.shiftKey && (k === 'i' || k === 'j' || k === 'c')) ||
+        (e.metaKey && e.altKey && (k === 'i' || k === 'j' || k === 'c' || k === 'u')) ||
+        (mod && (k === 'u' || k === 's' || k === 'p'));
+      if (block) { e.preventDefault(); toast(); }
+    });
+  })();
+</script>
+
+<style id="tc-compact-board">
+  :root { --board-h: min(600px, calc(100vh - 150px)); }
+  .split-shell { max-width: 1320px; margin: 0 auto; width: 100%; min-height: 0; align-items: start; gap: 1.5rem;
+    grid-template-columns: minmax(300px, 380px) minmax(0, 1fr); padding: calc(var(--nav-h) + 1.5rem) 1.5rem 2.5rem; }
+  .context-sidebar { position: static; height: auto; overflow: visible; border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: 12px; }
+  .workspace-area { position: sticky; top: calc(var(--nav-h) + 1rem); height: var(--board-h); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 14px 36px rgba(0,33,71,.12); }
+  .board-container { padding: 1rem; overflow: auto; min-height: 0; align-items: stretch; }
+  .trello-list { width: 260px; max-height: none; }
+  .workspace-toolbar { padding: .7rem 1rem; }
+  .workspace-heading { font-size: 1.1rem; }
+  @media (max-width: 1060px) {
+    .split-shell { grid-template-columns: 1fr; padding: calc(var(--nav-h) + 1rem) 1rem 2rem; }
+    .workspace-area { position: relative; top: 0; height: min(560px, 75vh); }
+    .context-sidebar { border-right: 1px solid var(--border); }
+    .trello-list { width: 240px; }
+  }
+  @media (max-width: 560px) {
+    .split-shell { padding-left: .6rem; padding-right: .6rem; gap: 1rem; }
+    .workspace-area { height: min(520px, 78vh); border-radius: 10px; }
+    .trello-list { width: 82vw; }
+  }
+</style>
+
+<style id="tc-sidebar-short">
+  .context-sidebar{gap:.9rem;padding:1.4rem 1.4rem 1.5rem}
+  .context-sidebar .sidebar-title{font-size:1.5rem}
+  .context-sidebar .sidebar-copy{font-size:.92rem;line-height:1.5;color:var(--ink)}
+  .context-sidebar .sidebar-card-note{padding:.75rem .85rem}
+  .context-sidebar .sample-quick-links{margin-top:.35rem}
+  .sidebar-more{border:1px solid var(--border);border-radius:var(--radius);background:var(--fog);font-size:.85rem;line-height:1.5;color:var(--ink)}
+  .sidebar-more summary{cursor:pointer;padding:.65rem .85rem;min-height:44px;display:flex;align-items:center;font-family:var(--fh);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--sage)}
+  .sidebar-more p{padding:0 .85rem .75rem}
+  .sidebar-disc{font-size:.78rem;line-height:1.45;color:var(--muted)}
+  .sidebar-disc strong{color:var(--sage);font-weight:600}
+</style>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Sample work"><a class="brand" href="sample-work.html" aria-label="Sample work home"><span class="mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a><ul class="series"><li><a href="data-story.html"><b>01</b><span>Data story</span></a></li><li><a href="orientation-deck.html"><b>02</b><span>Orientation deck</span></a></li><li><a href="social-package.html"><b>03</b><span>Social package</span></a></li><li><a href="content-calendar.html" aria-current="page"><b>04</b><span>Content calendar</span></a></li></ul><a class="back" href="sample-work.html">All samples</a></nav>
+
+  <!-- TWO-COLUMN SPLIT SHELL -->
+  <div class="split-shell">
+
+    <!-- LEFT CONTEXT SIDEBAR -->
+    <aside class="context-sidebar" aria-label="Calendar overview and editorial notes">
+      <div>
+        <p class="sidebar-eyebrow">Output 04 &middot; Content calendar</p>
+        <h1 class="sidebar-title">A year of youth content, planned</h1>
+      </div>
+
+      <p class="sidebar-copy">
+        A proposed year-round editorial board linking <strong>UN Youth Office flagship initiatives</strong> with <strong>UN global observances &amp; UNOPS delivery milestones</strong>.
+      </p>
+
+      <div class="sidebar-goal"><span><b>Goal</b>Show I can plan a year of posts around UN dates, flagship initiatives and UNOPS delivery.</span><span><b>Audience</b>UN Youth Office and UNOPS comms teams, interns, partners.</span><span><b>Skills shown</b>Editorial planning, sign-off workflows, multi-platform scheduling.</span></div>
+
+      <div class="filter-section">
+        <span class="filter-label">Filter by pillar</span>
+        <div class="filter-pills">
+          <button type="button" class="pill-btn pill-all active" data-filter="all" onclick="setFilter('all')">All Cards</button>
+          <button type="button" class="pill-btn pill-compass" data-filter="compass" onclick="setFilter('compass')">Youth Mandate &amp; Compass</button>
+          <button type="button" class="pill-btn pill-leaders" data-filter="leaders" onclick="setFilter('leaders')">Young Leaders &amp; Voices</button>
+          <button type="button" class="pill-btn pill-wellbeing" data-filter="wellbeing" onclick="setFilter('wellbeing')">Well-being &amp; Future</button>
+          <button type="button" class="pill-btn pill-unops" data-filter="unops" onclick="setFilter('unops')">UNOPS &amp; System Sync</button>
+        </div>
+      </div>
+
+      <div class="sidebar-card-note">
+        <span class="sidebar-card-note-label">Two full sample posts</span>
+        <div class="sample-quick-links">
+          <button type="button" class="sample-jump-btn" onclick="openCardModal('q3_iyd')">
+            <span>01 · Aug 12: International Youth Day</span>
+            <span>Open →</span>
+          </button>
+          <button type="button" class="sample-jump-btn" onclick="openCardModal('q4_mental_health')">
+            <span>02 · Oct 10: World Mental Health Day</span>
+            <span>Open →</span>
+          </button>
+        </div>
+      </div>
+
+      <details class="sidebar-more">
+        <summary>Notes</summary>
+        <p><strong>Cohort &amp; summit dates marked TBC</strong> reflect annual UNGA/HLPF/COP scheduling windows; fixed UN observances follow official UN dates.</p>
+        <p>Posts are designed for multi-platform rollout (Instagram, TikTok, Threads, LinkedIn, X) in coordination with the Partnerships, Communications and Advocacy Section, the ASG for Youth Affairs, and UNOPS GPO/DSI focal points.</p>
+      </details>
+
+      <p class="sidebar-disc"><strong>Applicant sample only.</strong> Not an official United Nations Youth Office or UNOPS document.</p>
+    </aside>
+
+    <!-- RIGHT INTERACTIVE WORKSPACE -->
+    <main class="workspace-area" id="protectedWorkspace">
+
+      <!-- Faint Diagonal Deterrence Watermark -->
+      <div class="watermark-overlay" aria-hidden="true">
+        <span class="watermark-text">Timothy Castillon · UN Youth Office sample</span>
+        <span class="watermark-text">Timothy Castillon · UN Youth Office sample</span>
+        <span class="watermark-text">Timothy Castillon · UN Youth Office sample</span>
+        <span class="watermark-text">Timothy Castillon · UN Youth Office sample</span>
+        <span class="watermark-text">Timothy Castillon · UN Youth Office sample</span>
+        <span class="watermark-text">Timothy Castillon · UN Youth Office sample</span>
+      </div>
+
+      <!-- Workspace Header Bar -->
+      <div class="workspace-toolbar">
+        <div class="toolbar-left">
+          <h2 class="workspace-heading">Editorial Board &amp; Rollout Schedule</h2>
+          <span class="applicant-tag">© Timothy Castillon · Application Sample</span>
+        </div>
+
+        <div class="view-toggle" role="tablist" aria-label="Workspace view switcher">
+          <button type="button" id="btnBoardView" class="view-btn active" onclick="switchView('board')">Board View</button>
+          <button type="button" id="btnCalendarView" class="view-btn" onclick="switchView('calendar')">Calendar View</button>
+        </div>
+      </div>
+
+      <!-- BOARD VIEW -->
+      <div id="boardContainer" class="board-container"></div>
+
+      <!-- CALENDAR VIEW -->
+      <div id="calendarContainer" class="calendar-container">
+        <div class="cal-header-bar">
+          <div>
+            <h3 id="calMonthHeading" class="cal-month-heading">August 2027</h3>
+            <p style="font-size: 0.78rem; color: var(--muted);">Select any scheduled card on the grid to inspect sample copy, visual specs, or workflow notes.</p>
+          </div>
+          <div class="cal-controls">
+            <label for="calMonthSelect" style="font-family: var(--fh); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; color: var(--muted);">Month:</label>
+            <select id="calMonthSelect" class="cal-select" onchange="renderCalendar()">
+              <option value="2026-11">November 2026 (16 Days Kickoff)</option>
+              <option value="2026-12">December 2026 (UN Water &amp; Human Rights)</option>
+              <option value="2027-01">January 2027 (Education &amp; Clean Energy)</option>
+              <option value="2027-02">February 2027 (Women in Science)</option>
+              <option value="2027-03">March 2027 (International Women's Day)</option>
+              <option value="2027-04">April 2027 (Mother Earth Day)</option>
+              <option value="2027-05">May 2027 (UN STI Forum)</option>
+              <option value="2027-06">June 2027 (World Environment Day)</option>
+              <option value="2027-07">July 2027 (HLPF New York)</option>
+              <option value="2027-08" selected>August 2027 (Sample Post 01 · IYD)</option>
+              <option value="2027-09">September 2027 (UNGA 82 &amp; Peace Day)</option>
+              <option value="2027-10">October 2027 (Sample Post 02 · Mental Health)</option>
+              <option value="2027-11">November 2027 (COP32 &amp; Children's Day)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cal-grid-wrap">
+          <div class="cal-weekdays">
+            <div class="cal-weekday">Mon</div>
+            <div class="cal-weekday">Tue</div>
+            <div class="cal-weekday">Wed</div>
+            <div class="cal-weekday">Thu</div>
+            <div class="cal-weekday">Fri</div>
+            <div class="cal-weekday">Sat</div>
+            <div class="cal-weekday">Sun</div>
+          </div>
+          <div id="calDaysGrid" class="cal-days-grid"></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- GPC-STYLE TRELLO CARD MODAL -->
+  <div id="cardModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="if(event.target===this) closeCardModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+
+      <!-- Cover Header -->
+      <div class="modal-cover">
+        <span id="modalListPill" class="modal-list-pill">Q3 · Jul – Sep</span>
+        <div class="modal-cover-center">
+          <div id="modalCoverEyebrow" class="modal-cover-eyebrow">UN Youth Office · UNOPS Sample</div>
+          <div id="modalCoverSub" class="modal-cover-sub">Editorial &amp; Social Media Card</div>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeCardModal()" aria-label="Close card modal">&times;</button>
+      </div>
+
+      <!-- Two-Column Trello Body -->
+      <div class="modal-body-grid">
+
+        <!-- Left Main Column -->
+        <div class="modal-main-col">
+          <div class="modal-title-row">
+            <button type="button" id="modalStatusCircle" class="status-check-circle" onclick="toggleCardStatus()" title="Toggle Scheduled / Approved status" aria-label="Toggle status">✓</button>
+            <div>
+              <h2 id="modalTitle" class="modal-title-text">Card Title</h2>
+              <p class="modal-sublist-line">in list <span id="modalSublistText">Q3 · Jul – Sep</span></p>
+            </div>
+          </div>
+
+          <!-- Metadata Row (Members, Due Date, Labels) -->
+          <div class="modal-meta-row">
+            <div>
+              <div class="meta-block-label">Owner</div>
+              <div class="member-chip">
+                <span class="member-chip-circle">TC</span>
+                <span>Timothy Castillon (Applicant)</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="meta-block-label">Target Date &amp; Status</div>
+              <div class="due-date-pill">
+                <span id="modalDateDisplay">Aug 12, 2027</span>
+                <button type="button" id="modalStatusTag" class="status-toggle-tag scheduled" onclick="toggleCardStatus()">Scheduled</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description / Post Copy -->
+          <div>
+            <div class="modal-section-head">
+              <h3 class="modal-section-title">Description &amp; Post Copy</h3>
+              <button type="button" id="btnCopySample" class="copy-sample-btn" onclick="copySampleText()">Copy Sample Text</button>
+            </div>
+            <div class="modal-desc-wrap">
+              <textarea id="modalTextarea" class="modal-textarea" oninput="updateCardCopy(this.value)"></textarea>
+              <div class="coord-callout">
+                <strong>Coordination Note:</strong> Final copy, visual assets, and release timing would be cleared with the Partnerships, Communications and Advocacy Section (UN Youth Office), the Office of the ASG for Youth Affairs, and UNOPS GPO/DSI focal points prior to publication.
+              </div>
+            </div>
+          </div>
+
+          <!-- Attachments -->
+          <div>
+            <div class="modal-section-head">
+              <h3 class="modal-section-title">Planned Assets &amp; Attachments</h3>
+            </div>
+            <div id="modalAttachments" class="attachments-grid"></div>
+          </div>
+        </div>
+
+        <!-- Right Activity Column -->
+        <div class="modal-side-col">
+          <h4 class="activity-heading">Comments and activity</h4>
+
+          <div class="comment-box">
+            <textarea id="newCommentInput" class="comment-input" rows="2" placeholder="Add a review note or comment..."></textarea>
+            <div class="comment-actions">
+              <button type="button" class="comment-save-btn" onclick="addComment()">Save</button>
+            </div>
+          </div>
+
+          <div id="modalActivityList" class="activity-list"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastBanner" class="toast-banner" role="status" aria-live="polite">Sample post copy copied to clipboard.</div>
+
+
+<section class="tcx" aria-labelledby="tcxHeading">
+  <div class="tcx-wrap">
+    <div class="tcx-note">
+      <p class="tcx-k">Process note</p>
+      <h2 id="tcxHeading">How I built this</h2>
+      <ul>
+      <li>Each card pairs specific platforms with a clear communication job (reach, explain, engage, or invite questions), turning a list of dates into an actionable rollout plan.</li>
+      <li>Calendar moments anchor around the UN Youth Office’s mandate (the General Assembly resolution that created the Office) and flagship initiatives—including the <em>UN Youth Compass</em>, <em>Young Leaders for the SDGs</em>, and <em>Youth Mental Health and Well-being</em>.</li>
+      <li>Visual asset attachments specify deliverable formats (1080×1350 carousels, 9:16 vertical reels, Drupal web cards, and event toolkits) aligned with the role’s dual graphic design and social media scope.</li>
+      <li>The Q4 2026 series card links this board to the social package (Output 03), so the plan and the posts share one story, one look and one source rule.</li>
+      <li>Workflow protocols build in contributor guidance for interns and T-14 day sign-off checkpoints with UNOPS Global Portfolios Office (GPO) and UN system partners.</li>
+      </ul>
+    </div>
+    <aside class="tcx-disc" role="note" aria-label="Disclaimer">
+      <p class="tcx-k">Disclaimer</p>
+      <p>Prepared as a <strong>sample for a job application</strong> to the Communications Officer (Graphic Design &amp; Social Media) role supporting the United Nations Youth Office through UNOPS. It is independent work by Timothy Castillon.</p><p>It is not an official UN Youth Office or UNOPS product and has not been reviewed or endorsed by the United Nations, UNOPS, or any entity named on the page.</p>
+    </aside>
+  </div>
+</section>
+
+  
+
+  <script>
+    // =========================================================================
+    // 1. LISTS, PILLARS & EDITORIAL DATA
+    // =========================================================================
+    const LISTS = [
+      { id: 'sops', title: 'SOPs & Guardrails' },
+      { id: 'q4_26', title: 'Q4 2026 · Nov – Dec' },
+      { id: 'q1_27', title: 'Q1 2027 · Jan – Mar' },
+      { id: 'q2_27', title: 'Q2 2027 · Apr – Jun' },
+      { id: 'q3_27', title: 'Q3 2027 · Jul – Sep' },
+      { id: 'q4_27', title: 'Q4 2027 · Oct – Dec' }
+    ];
+
+    const PILLARS = {
+      compass:   { label: 'Youth Mandate & Compass', cls: 't-pill-compass' },
+      leaders:   { label: 'Young Leaders & Voices',  cls: 't-pill-leaders' },
+      wellbeing: { label: 'Well-being & Future',     cls: 't-pill-wellbeing' },
+      unops:     { label: 'UNOPS & System Sync',     cls: 't-pill-unops' }
+    };
+
+    const CARDS = [
+      // --- SOPs & Guardrails ---
+      {
+        id: 'sop_visual_identity',
+        listId: 'sops',
+        title: 'Visual Identity & Meaningful Youth Participation Guardrail',
+        date: '',
+        dateLabel: 'Ongoing Standard',
+        status: 'Approved',
+        pillars: ['compass', 'leaders'],
+        isSample: false,
+        coverTag: 'Brand & Editorial Protocol',
+        description: '[SOP — Visual Identity & Youth-First Standards]\n\n• Apply UN Youth Office typography, accessible color contrast, and modular Canva/Adobe templates across all digital and print deliverables. In this sample kit: navy, amber and green, a source line on every card, alt text on every image.\n• Center authentic youth agency—avoid tokenism by pairing policy milestones with direct youth quotes and actionable entry points.\n• Maintain consistent multi-language readiness (EN/FR/ES) and alt-text accessibility standards.',
+        attachments: [
+          { badge: 'SOP', name: 'UNYouthOffice_Visual_Identity_Checklist.pdf', meta: 'Brand & Accessibility Guide' },
+          { badge: 'FIG', name: 'Social_Card_Template_System_v1.fig', meta: '1080×1350 & 9:16 Master Kit' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added visual identity and accessibility guardrail to SOPs & Guardrails', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'sop_workflow',
+        listId: 'sops',
+        title: 'Intern Guidance & Inter-Agency Sign-off Workflow (T-14 Days)',
+        date: '',
+        dateLabel: 'T-14 Days Pre-Launch',
+        status: 'Scheduled',
+        pillars: ['unops', 'compass'],
+        isSample: false,
+        coverTag: 'Coordination & Trello Workflow',
+        description: '[SOP — Content Production & Clearance Pipeline]\n\n• T-14 Days: Brief interns and contributors on copywriting, visual formats, and editorial standards in Trello.\n• T-7 Days: Design review and copy alignment with Partnerships, Communications and Advocacy Section + Drupal web card prep.\n• T-3 Days: Cross-tagging confirmation with UNOPS GPO/DSI, ASG for Youth Affairs comms, and co-hosting UN entities.',
+        attachments: [
+          { badge: 'DOC', name: 'UNYouth_UNOPS_Clearance_Matrix.docx', meta: 'Editorial & Partner Sign-Off SOP' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added intern editorial guidance and clearance workflow', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+
+      // --- Q4 2026 · Nov – Dec ---
+      {
+        id: 'q4_26_yep',
+        listId: 'q4_26',
+        title: 'UNOPS Youth Engagement Platform: "30 below 30, to get to 2030" series',
+        date: '2026-11-30',
+        dateLabel: 'Nov 30, 2026',
+        status: 'Approved',
+        pillars: ['unops', 'leaders'],
+        isSample: false,
+        coverTag: 'Nov 30, 2026 · Series launch (Output 03)',
+        description: '[Channel Job: Explain & Engage — LinkedIn, Facebook, X, Threads, Instagram, Reels, TikTok]\n\nHalf the world is under 30. Launch the five-platform package from Output 03: LinkedIn carousel, one image each for Facebook, X and Instagram, and a 35-second reel. Every caption ends in one question; every card names its source.',
+        attachments: [
+          { badge: 'PDF', name: 'linkedin-carousel.pdf', meta: '5-card LinkedIn carousel' },
+          { badge: 'GIF', name: 'reel-preview.gif', meta: '9:16 reel preview' },
+          { badge: 'PNG', name: 'x-post.png', meta: 'Stat card, 1600×900' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'linked the Output 03 social package to a planned launch card in Q4 2026', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q4_26_16days',
+        listId: 'q4_26',
+        title: '16 Days of Activism — Youth Safety & Digital Space Protection',
+        date: '2026-11-25',
+        dateLabel: 'Nov 25, 2026',
+        status: 'Scheduled',
+        pillars: ['wellbeing', 'leaders'],
+        isSample: false,
+        coverTag: 'Nov 25, 2026 · 16 Days Kickoff',
+        description: '[Channel Job: Engage & Reach — Instagram, Threads, X, LinkedIn]\n\nHighlight young women and youth advocates working to eliminate gender-based violence offline and online. Pair high-contrast typographic quote cards with partner amplification across UN Women and UN Youth channels.',
+        attachments: [
+          { badge: 'PNG', name: '16Days_YouthSafety_Carousel_1080x1350.png', meta: '5-Slide IG/Threads Carousel' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'scheduled 16 Days of Activism kickoff card in Q4 2026', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q4_26_water',
+        listId: 'q4_26',
+        title: '2026 UN Water Conference — Youth Perspectives on Water Resilience',
+        date: '2026-12-02',
+        dateLabel: 'Dec 2–4, 2026',
+        status: 'Scheduled',
+        pillars: ['unops', 'leaders'],
+        isSample: false,
+        coverTag: 'Dec 2–4, 2026 · UN Water Conference',
+        description: '[Channel Job: Explain & Reach — TikTok, Instagram Reels, LinkedIn]\n\nTranslate water security and climate-resilient infrastructure priorities into youth-accessible takeaways. Feature on-the-ground youth delegate voices and UNOPS sustainable infrastructure intersections.',
+        attachments: [
+          { badge: 'MP4', name: 'UNWater2026_YouthVoices_9x16.mp4', meta: '45s Vertical Explainer Reel' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added 2026 UN Water Conference youth coverage card', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q4_26_human_rights',
+        listId: 'q4_26',
+        title: 'Human Rights Day — Youth Rights & Civic Space in UN Processes',
+        date: '2026-12-10',
+        dateLabel: 'Dec 10, 2026',
+        status: 'Scheduled',
+        pillars: ['compass'],
+        isSample: false,
+        coverTag: 'Dec 10, 2026 · Human Rights Day',
+        description: '[Channel Job: Engage — Instagram, Threads, X]\n\nConnect the General Assembly resolution that created the Office’s mandate on meaningful youth engagement with youth human rights defenders. Include interactive story stickers inviting youth followers to share civic participation priorities.',
+        attachments: [
+          { badge: 'PNG', name: 'HumanRightsDay_YouthCivicSpace_Set.png', meta: 'Typographic Manifesto Cards' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added Human Rights Day card to Q4 2026', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+
+      // --- Q1 2027 · Jan – Mar ---
+      {
+        id: 'q1_27_education',
+        listId: 'q1_27',
+        title: 'International Day of Education — Future-Ready Skills & SDG Access',
+        date: '2027-01-24',
+        dateLabel: 'Jan 24, 2027',
+        status: 'Scheduled',
+        pillars: ['wellbeing', 'compass'],
+        isSample: false,
+        coverTag: 'Jan 24, 2027 · Day of Education',
+        description: '[Channel Job: Explain & Invite Questions — Instagram, LinkedIn, TikTok]\n\nSpotlight equitable education access, green and digital skills, and youth-led learning initiatives. Pair clean data-visualization cards with a Threads/IG Q&A prompt on skills young people need most.',
+        attachments: [
+          { badge: 'PNG', name: 'IntlDayEducation_SkillsInfographic.png', meta: 'Data Visualization Carousel' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added International Day of Education card', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q1_27_clean_energy',
+        listId: 'q1_27',
+        title: 'International Day of Clean Energy — UNOPS & Youth Green Transition',
+        date: '2027-01-26',
+        dateLabel: 'Jan 26, 2027',
+        status: 'Scheduled',
+        pillars: ['unops', 'wellbeing'],
+        isSample: false,
+        coverTag: 'Jan 26, 2027 · UNOPS / System Sync',
+        description: '[Channel Job: Reach & Explain — LinkedIn, X, Instagram]\n\nCo-tagged campaign linking UNOPS Global Portfolios Office (GPO) climate and energy work with youth entrepreneurs and clean energy advocates driving just transitions.',
+        attachments: [
+          { badge: 'PNG', name: 'CleanEnergyDay_UNOPS_UNYouth_Card.png', meta: 'Co-Branded Social Graphic' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added International Day of Clean Energy co-tag card', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q1_27_women_science',
+        listId: 'q1_27',
+        title: 'International Day of Women and Girls in Science — Young Innovators',
+        date: '2027-02-11',
+        dateLabel: 'Feb 11, 2027',
+        status: 'Scheduled',
+        pillars: ['leaders'],
+        isSample: false,
+        coverTag: 'Feb 11, 2027 · Young Leaders Spotlight',
+        description: '[Channel Job: Engage — Instagram Reels, TikTok, LinkedIn]\n\nProfile young women researchers, climate technologists, and Young Leaders for the SDGs breaking barriers in STEM fields through short vertical portrait reels.',
+        attachments: [
+          { badge: 'MP4', name: 'WomenInScience_YoungLeaders_Reel.mp4', meta: 'Vertical Portrait Series' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added Women and Girls in Science spotlight card', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q1_27_iwd',
+        listId: 'q1_27',
+        title: 'International Women’s Day — Young Women at Decision-Making Tables',
+        date: '2027-03-08',
+        dateLabel: 'Mar 08, 2027',
+        status: 'Scheduled',
+        pillars: ['leaders', 'compass'],
+        isSample: false,
+        coverTag: 'Mar 08, 2027 · International Women’s Day',
+        description: '[Channel Job: Reach & Engage — All Channels + Drupal Web Feature]\n\nElevate young women’s leadership across UN intergovernmental spaces and local governance, linking to UN Youth Office advocacy toolkits.',
+        attachments: [
+          { badge: 'PNG', name: 'IWD2027_YoungWomenLeadership_Kit.png', meta: 'Multi-Channel Graphic Suite' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added International Women’s Day campaign card', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+
+      // --- Q2 2027 · Apr – Jun ---
+      {
+        id: 'q2_27_earth',
+        listId: 'q2_27',
+        title: 'International Mother Earth Day — Youth Climate Action & UN Youth Compass',
+        date: '2027-04-22',
+        dateLabel: 'Apr 22, 2027',
+        status: 'Scheduled',
+        pillars: ['compass', 'wellbeing'],
+        isSample: false,
+        coverTag: 'Apr 22, 2027 · Mother Earth Day',
+        description: '[Channel Job: Explain — Instagram, Threads, X, LinkedIn]\n\nVisual storytelling series mapping grassroots youth climate solutions to global policy pathways via the UN Youth Compass.',
+        attachments: [
+          { badge: 'PNG', name: 'EarthDay2027_YouthCompass_Map.png', meta: 'Illustrated Carousel + Web Card' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added Mother Earth Day card to Q2 2027', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q2_27_sti',
+        listId: 'q2_27',
+        title: 'UN Multi-Stakeholder STI Forum — Youth Digital & Tech Solutions',
+        date: '2027-05-05',
+        dateLabel: 'May 5–6, 2027 (TBC)',
+        status: 'Scheduled',
+        pillars: ['unops', 'leaders'],
+        isSample: false,
+        coverTag: 'May 2027 · UN STI Forum (NY)',
+        description: '[Channel Job: Reach — LinkedIn, X, Instagram]\n\nSupport ASG for Youth Affairs engagements and spotlight young innovators scaling digital public goods and SDG technologies.',
+        attachments: [
+          { badge: 'PDF', name: 'STIForum2027_EventComms_Runbook.pdf', meta: 'On-Ground Capture & Social Plan' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added UN STI Forum outreach card', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q2_27_env',
+        listId: 'q2_27',
+        title: 'World Environment Day — Cross-UN Youth Environmental Mobilization',
+        date: '2027-06-05',
+        dateLabel: 'Jun 05, 2027',
+        status: 'Scheduled',
+        pillars: ['unops', 'wellbeing'],
+        isSample: false,
+        coverTag: 'Jun 05, 2027 · World Environment Day',
+        description: '[Channel Job: Reach & Engage — Instagram Reels, TikTok, X]\n\nCo-brand and amplify youth environmental stewardship alongside UNEP and UNOPS climate action teams using modular quote cards and short-form video.',
+        attachments: [
+          { badge: 'PNG', name: 'WorldEnvDay_YouthMobilization_Card.png', meta: 'Co-Tag Social Asset' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added World Environment Day card to Q2 2027', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+
+      // --- Q3 2027 · Jul – Sep ---
+      {
+        id: 'q3_27_hlpf',
+        listId: 'q3_27',
+        title: 'UN High-Level Political Forum (HLPF) — Youth in SDG Reviews',
+        date: '2027-07-06',
+        dateLabel: 'Jul 6–15, 2027 (TBC)',
+        status: 'Scheduled',
+        pillars: ['compass', 'leaders'],
+        isSample: false,
+        coverTag: 'Jul 2027 · HLPF New York',
+        description: '[Channel Job: Reach & Explain — LinkedIn, X, Instagram, TikTok]\n\nDaily highlight graphics, behind-the-scenes reels from UNHQ, and spotlight features on Young Leaders for the SDGs participating in Voluntary National Reviews.',
+        attachments: [
+          { badge: 'PDF', name: 'HLPF2027_YouthDelegation_Toolkit.pdf', meta: 'Event Signage & Social Templates' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added HLPF 2027 coverage card to Q3 2027', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q3_iyd',
+        listId: 'q3_27',
+        title: 'International Youth Day (IYD) — Flagship Global Campaign & UN Youth Compass',
+        date: '2027-08-12',
+        dateLabel: 'Aug 12, 2027',
+        status: 'Approved',
+        pillars: ['compass', 'leaders'],
+        isSample: true,
+        coverTag: 'Sample Post 01 · Aug 12, 2027',
+        description: 'Young people aren’t waiting for the future—they’re shaping decisions today. 🌍✨\n\nThis #InternationalYouthDay, we’re spotlighting youth-led solutions across the globe and showing how young changemakers can navigate UN policy spaces with the UN Youth Compass.\n\nHow are you driving change in your community? Share your story in the comments or explore youth resources at the link in bio.\n\n#YouthLead #UNYouth #SDGs #MeaningfulYouthParticipation',
+        attachments: [
+          { badge: 'PNG', name: 'IYD2027_Hero_Carousel_1080x1350.png', meta: 'Sample Campaign Visual · Brand System' },
+          { badge: 'MP4', name: 'IYD2027_YouthVoices_Montage_9x16.mp4', meta: 'TikTok / IG Reel Cutdown' },
+          { badge: 'PDF', name: 'IYD2027_Partner_Amplification_Kit.pdf', meta: 'UNOPS & UN System Share Pack' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'Designed around UN Youth Office visual identity guidelines with clear CTA to UN Youth Compass and partner amplification assets for UNOPS & UN entities.', time: 'Sample Review Note', isComment: true },
+          { user: 'Timothy Castillon', text: 'added Sample Post 01 (International Youth Day) to Q3 2027', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q3_27_unga_peace',
+        listId: 'q3_27',
+        title: 'UNGA 82 High-Level Week & International Day of Peace',
+        date: '2027-09-21',
+        dateLabel: 'Sep 7–21, 2027 (TBC)',
+        status: 'Scheduled',
+        pillars: ['compass', 'unops'],
+        isSample: false,
+        coverTag: 'Sep 21, 2027 · UNGA 82 & Peace Day',
+        description: '[Channel Job: Reach — LinkedIn, X, Instagram, Drupal Newsroom]\n\nCapture and disseminate ASG for Youth Affairs engagements during UNGA High-Level Week alongside youth peacebuilding stories for International Day of Peace (Sep 21).',
+        attachments: [
+          { badge: 'PNG', name: 'UNGA82_PeaceDay_QuoteCards.png', meta: 'Rapid-Turnaround Event Templates' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added UNGA 82 & International Day of Peace card', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+
+      // --- Q4 2027 · Oct – Dec ---
+      {
+        id: 'q4_mental_health',
+        listId: 'q4_27',
+        title: 'World Mental Health Day — Youth Mental Health & Well-being Flagship',
+        date: '2027-10-10',
+        dateLabel: 'Oct 10, 2027',
+        status: 'Approved',
+        pillars: ['wellbeing', 'leaders'],
+        isSample: true,
+        coverTag: 'Sample Post 02 · Oct 10, 2027',
+        description: 'Well-being is foundational to youth leadership and thriving communities. 💚\n\nOn #WorldMentalHealthDay, we’re elevating youth voices, breaking stigma, and spotlighting why mental health support must be accessible to young people everywhere.\n\nWhat helps you stay grounded and supported? Drop a thought below or save this carousel to share with someone in your network.\n\n#YouthMentalHealth #Wellbeing #UNYouth #MentalHealthMatters',
+        attachments: [
+          { badge: 'PNG', name: 'WMHD2027_YouthWellbeing_Carousel.png', meta: 'Sample 6-Slide Accessible Carousel' },
+          { badge: 'PDF', name: 'Youth_Mental_Health_Resource_Card.pdf', meta: 'Global Support & Advocacy Brief' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'Aligned with the UN Youth Office flagship priority on Youth Mental Health and Well-being; uses calm, accessible visual hierarchy and community-safe engagement prompts.', time: 'Sample Review Note', isComment: true },
+          { user: 'Timothy Castillon', text: 'added Sample Post 02 (World Mental Health Day) to Q4 2027', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q4_27_cop32',
+        listId: 'q4_27',
+        title: 'UNFCCC COP32 — Frontline Youth Climate Voices & Policy Action',
+        date: '2027-11-08',
+        dateLabel: 'Nov 8–19, 2027 (TBC)',
+        status: 'Scheduled',
+        pillars: ['unops', 'wellbeing'],
+        isSample: false,
+        coverTag: 'Nov 2027 · UNFCCC COP32',
+        description: '[Channel Job: Reach & Explain — Instagram Reels, TikTok, X, LinkedIn]\n\nAmplify young climate negotiators and frontline youth advocates, translating COP32 outcomes into accessible visual explainers in coordination with UNOPS climate teams.',
+        attachments: [
+          { badge: 'PNG', name: 'COP32_YouthClimate_ExplainerDeck.png', meta: 'Carousel & Story Templates' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added UNFCCC COP32 youth coverage card', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      },
+      {
+        id: 'q4_27_childrens_day',
+        listId: 'q4_27',
+        title: 'World Children’s Day — Intergenerational Dialogue & Youth Transition',
+        date: '2027-11-20',
+        dateLabel: 'Nov 20, 2027',
+        status: 'Scheduled',
+        pillars: ['compass', 'unops'],
+        isSample: false,
+        coverTag: 'Nov 20, 2027 · World Children’s Day',
+        description: '[Channel Job: Reach & Engage — Instagram, LinkedIn, X]\n\nCo-amplify with UNICEF and UN partners to highlight intergenerational solidarity and the continuum from child rights to meaningful youth participation.',
+        attachments: [
+          { badge: 'PNG', name: 'WorldChildrensDay_Intergenerational_Card.png', meta: 'Co-Amplification Visual Card' }
+        ],
+        activity: [
+          { user: 'Timothy Castillon', text: 'added World Children’s Day card to Q4 2027', time: 'Application Sample · Nov 2026', isComment: false }
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // 2. APPLICATION STATE & RENDERING
+    // =========================================================================
+    let currentFilter = 'all';
+    let activeCardId = null;
+
+    function renderBoard() {
+      const board = document.getElementById('boardContainer');
+      board.innerHTML = '';
+
+      LISTS.forEach(list => {
+        const filteredCards = CARDS.filter(c => {
+          const inList = c.listId === list.id;
+          const matchesFilter = currentFilter === 'all' || c.pillars.includes(currentFilter);
+          return inList && matchesFilter;
+        });
+
+        const col = document.createElement('section');
+        col.className = 'trello-list';
+        col.setAttribute('aria-label', list.title);
+
+        col.innerHTML = `
+          <div class="list-header">
+            <h3 class="list-title">${list.title}</h3>
+            <span class="list-count">${filteredCards.length}</span>
+          </div>
+          <div class="list-cards">
+            ${filteredCards.map(card => renderBoardCard(card)).join('')}
+          </div>
+        `;
+        board.appendChild(col);
+      });
+    }
+
+    function renderBoardCard(card) {
+      const isApproved = card.status === 'Approved';
+      return `
+        <article class="t-card ${card.isSample ? 'is-sample' : ''}" onclick="openCardModal('${card.id}')" tabindex="0" onkeydown="if(event.key==='Enter') openCardModal('${card.id}')">
+          <div class="t-card-pills">
+            ${card.isSample ? `<span class="t-pill t-pill-sample">Sample Post</span>` : ''}
+            ${card.pillars.map(pKey => {
+              const p = PILLARS[pKey];
+              return p ? `<span class="t-pill ${p.cls}">${p.label}</span>` : '';
+            }).join('')}
+          </div>
+
+          <h4 class="t-card-title">${card.title}</h4>
+          <p class="t-card-excerpt">${card.description.replace(/\n+/g, ' ')}</p>
+
+          <div class="t-card-footer">
+            <span class="t-date-badge ${isApproved ? 't-date-approved' : 't-date-scheduled'}">
+              ${isApproved ? '✓' : '◷'} ${card.dateLabel}
+            </span>
+            <div class="t-meta-right">
+              <span class="t-attach-count">📎 ${card.attachments.length}</span>
+              <span class="t-avatar" title="Timothy Castillon">TC</span>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // =========================================================================
+    // 3. CALENDAR VIEW RENDERER
+    // =========================================================================
+    function renderCalendar() {
+      const monthStr = document.getElementById('calMonthSelect').value;
+      const [year, month] = monthStr.split('-').map(Number);
+
+      const firstDate = new Date(year, month - 1, 1);
+      document.getElementById('calMonthHeading').textContent = firstDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+      const startWeekday = (firstDate.getDay() + 6) % 7;
+      const daysInMonth = new Date(year, month, 0).getDate();
+
+      const grid = document.getElementById('calDaysGrid');
+      grid.innerHTML = '';
+
+      for (let i = 0; i < startWeekday; i++) {
+        grid.innerHTML += `<div class="cal-cell is-empty"></div>`;
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const iso = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const dayCards = CARDS.filter(c => c.date === iso && (currentFilter === 'all' || c.pillars.includes(currentFilter)));
+
+        grid.innerHTML += `
+          <div class="cal-cell ${dayCards.length ? 'has-event' : ''}">
+            <span class="cal-day-num">${day}</span>
+            ${dayCards.map(c => `
+              <button type="button" class="cal-event-chip ${c.isSample ? 'is-sample' : ''}" onclick="openCardModal('${c.id}')">
+                ${c.isSample ? '★ ' : ''}${c.title}
+              </button>
+            `).join('')}
+          </div>
+        `;
+      }
+    }
+
+    // =========================================================================
+    // 4. INTERACTIVE GPC-STYLE CARD MODAL
+    // =========================================================================
+    function openCardModal(cardId) {
+      activeCardId = cardId;
+      const card = CARDS.find(c => c.id === cardId);
+      if (!card) return;
+
+      const listObj = LISTS.find(l => l.id === card.listId);
+      const listName = listObj ? listObj.title : 'UN Youth Office';
+
+      document.getElementById('modalListPill').textContent = listName;
+      document.getElementById('modalSublistText').textContent = listName;
+      document.getElementById('modalCoverEyebrow').textContent = card.coverTag || 'UN Youth Office · UNOPS Sample';
+      document.getElementById('modalCoverSub').textContent = card.isSample ? 'Complete Sample Social Media Post' : 'Editorial & Visual Brief Card';
+      document.getElementById('modalTitle').textContent = card.title;
+      document.getElementById('modalDateDisplay').textContent = card.dateLabel;
+      document.getElementById('modalTextarea').value = card.description;
+
+      const copyBtn = document.getElementById('btnCopySample');
+      copyBtn.style.display = card.isSample ? 'inline-block' : 'none';
+
+      updateModalStatusUI(card.status);
+
+      document.getElementById('modalAttachments').innerHTML = card.attachments.map(att => `
+        <div class="attachment-item">
+          <span class="att-badge">${att.badge}</span>
+          <div class="att-info">
+            <div class="att-name">${att.name}</div>
+            <div class="att-meta">${att.meta}</div>
+          </div>
+        </div>
+      `).join('');
+
+      renderActivityList(card);
+      document.getElementById('cardModal').classList.add('open');
+    }
+
+    function updateModalStatusUI(status) {
+      const circle = document.getElementById('modalStatusCircle');
+      const tag = document.getElementById('modalStatusTag');
+      if (status === 'Approved') {
+        circle.classList.add('approved');
+        tag.className = 'status-toggle-tag approved';
+        tag.textContent = 'Approved';
+      } else {
+        circle.classList.remove('approved');
+        tag.className = 'status-toggle-tag scheduled';
+        tag.textContent = 'Scheduled';
+      }
+    }
+
+    function toggleCardStatus() {
+      const card = CARDS.find(c => c.id === activeCardId);
+      if (!card) return;
+      card.status = card.status === 'Approved' ? 'Scheduled' : 'Approved';
+      card.activity.unshift({
+        user: 'Reviewer',
+        text: `marked this card as ${card.status}`,
+        time: 'Just now',
+        isComment: false
+      });
+      updateModalStatusUI(card.status);
+      renderActivityList(card);
+      renderBoard();
+      renderCalendar();
+    }
+
+    function updateCardCopy(val) {
+      const card = CARDS.find(c => c.id === activeCardId);
+      if (!card) return;
+      card.description = val;
+    }
+
+    function renderActivityList(card) {
+      const container = document.getElementById('modalActivityList');
+      container.innerHTML = card.activity.map(item => `
+        <div class="activity-item">
+          <span class="act-avatar">${item.user.slice(0, 2).toUpperCase()}</span>
+          <div style="flex: 1; min-width: 0;">
+            ${item.isComment ? `
+              <div><strong>${item.user}</strong></div>
+              <div class="act-bubble">${item.text}</div>
+              <span class="act-time">${item.time}</span>
+            ` : `
+              <div><strong>${item.user}</strong> ${item.text}</div>
+              <span class="act-time">${item.time}</span>
+            `}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function addComment() {
+      const input = document.getElementById('newCommentInput');
+      const text = input.value.trim();
+      if (!text) return;
+      const card = CARDS.find(c => c.id === activeCardId);
+      if (!card) return;
+
+      card.activity.unshift({
+        user: 'Reviewer',
+        text,
+        time: 'Just now',
+        isComment: true
+      });
+      input.value = '';
+      renderActivityList(card);
+    }
+
+    function closeCardModal() {
+      document.getElementById('cardModal').classList.remove('open');
+      activeCardId = null;
+    }
+
+    // =========================================================================
+    // 5. NAVIGATION, FILTERS & DETERRENCE HELPERS
+    // =========================================================================
+    function switchView(mode) {
+      const board = document.getElementById('boardContainer');
+      const cal = document.getElementById('calendarContainer');
+      const btnB = document.getElementById('btnBoardView');
+      const btnC = document.getElementById('btnCalendarView');
+
+      if (mode === 'board') {
+        board.style.display = 'flex';
+        cal.classList.remove('active');
+        btnB.classList.add('active');
+        btnC.classList.remove('active');
+      } else {
+        board.style.display = 'none';
+        cal.classList.add('active');
+        btnC.classList.add('active');
+        btnB.classList.remove('active');
+        renderCalendar();
+      }
+    }
+
+    function setFilter(pillar) {
+      currentFilter = pillar;
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === pillar);
+      });
+      renderBoard();
+      renderCalendar();
+    }
+
+    function copySampleText() {
+      const textarea = document.getElementById('modalTextarea');
+      textarea.select();
+      document.execCommand('copy');
+      showToast('Sample post copy copied to clipboard.');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastBanner');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Subtle right-click deterrence on the protected workspace
+    document.getElementById('protectedWorkspace').addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+      showToast('© Timothy Castillon · Application Sample');
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeCardModal();
+    });
+
+    window.onload = function () {
+      renderBoard();
+      renderCalendar();
+    };
+  </script>
+<footer><p><b>&copy; 2026 Timothy Earl Mateo Castillon.</b> Independent sample prepared for the Communications Officer (Graphic Design &amp; Social Media) role. Not official United Nations Youth Office or UNOPS material; no UN or UNOPS logo is used.</p><nav aria-label="Next and previous sample"><a href="social-package.html">&larr; Social package</a><a href="sample-work.html">All samples &rarr;</a></nav></footer>
+</body>
+</html>
