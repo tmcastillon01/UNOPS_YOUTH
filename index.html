@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Timothy Earl Mateo Castillon – Communications Officer (Graphic Design &amp; Social Media), UN Youth Office</title>
+  <meta name="description" content="Communications, graphic design and digital content professional with 5+ years across the UN system. Applying for the Communications Officer (Graphic Design &amp; Social Media) role at the UN Youth Office, via UNOPS." />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --ink:     #0b1420;
+      --fog:     #f4f2ee;
+      --white:   #ffffff;
+      --sage:    #002147;       /* primary accent — Oxford blue */
+      --sage-lt: #e9edf3;
+      --gold:    #ab7d2c;       /* secondary accent — warm brass */
+      --gold-lt: #f3ead8;
+      --muted:   #656b76;
+      --muted-lt: rgba(255,255,255,0.68);  /* muted text sitting directly on the blue canvas */
+      --bg-alt:  #001a38;        /* subtle alternate tint for zebra rhythm on the blue canvas */
+      --border:  #e1ddd4;
+      --radius:  8px;
+      --nav-h:   64px;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body { background: var(--fog); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.65; }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .nav-links { display: flex; gap: clamp(0.9rem, 1.4vw, 1.7rem); list-style: none; margin: 0 auto; padding: 0 1.5rem; }
+    .nav-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; flex-shrink: 0;
+      background: var(--sage); color: var(--white);
+      border-radius: 9px;
+      box-shadow: 0 3px 0 var(--gold);   /* brass base */
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.15rem; font-weight: 700; letter-spacing: 0; line-height: 1;
+      margin-bottom: 3px;
+    }
+    .nav-logo, .nav-cta, .nav-links a { white-space: nowrap; }
+    .nav-logo { flex-shrink: 0; }
+    .nav-cta { flex-shrink: 0; }
+    @media (min-width: 1181px) { .nav-links .nav-extra { display: none; } }
+    .nav-links a {
+      font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sage); }
+    .nav-cta {
+      font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--sage); border-radius: var(--radius);
+      color: var(--sage); transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover { background: var(--sage); color: var(--white); }
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.4rem;
+    }
+    .nav-toggle span { width: 22px; height: 2px; background: var(--sage); transition: transform 0.25s, opacity 0.25s; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    #home {
+      min-height: 100vh;
+      padding: calc(var(--nav-h) + 5rem) 5vw 5rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+      background: var(--sage);
+    }
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+    .hero-text { min-width: 0; }
+    .hero-notice {
+      display: flex; align-items: center; gap: 0.6rem;
+      max-width: 100%;
+      margin-top: 1.6rem;
+      padding: 0.5rem 0.8rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.78rem; line-height: 1.45;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .hero-notice:hover { background: rgba(255, 255, 255, 0.07); border-color: rgba(165, 126, 58, 0.5); color: rgba(255, 255, 255, 0.85); }
+    .hero-notice-icon, .hero-notice-arrow { color: var(--gold); opacity: 0.8; flex-shrink: 0; }
+    .hero-notice-arrow { margin-left: auto; }
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.2rem, 2.4vw, 2.4rem);
+      line-height: 1.12; color: var(--white);
+      margin-bottom: 1.4rem;
+    }
+    .hero-name em { font-style: italic; color: var(--gold); }
+    .hero-name .ln { display: block; white-space: nowrap; }
+    @media (max-width: 900px) {
+      .hero-name { font-size: clamp(1rem, 5vw, 2.4rem); }
+    }
+    .hero-lead {
+      font-size: 1.05rem; color: rgba(255,255,255,0.78); max-width: 48ch;
+      margin-bottom: 2.2rem; line-height: 1.75;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 0.75rem 1.6rem;
+      background: var(--gold); color: var(--white);
+      border-radius: var(--radius); font-size: 0.88rem;
+      letter-spacing: 0.04em; transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-outline {
+      padding: 0.75rem 1.6rem;
+      border: 1px solid rgba(255,255,255,0.55); color: var(--white);
+      border-radius: var(--radius); font-size: 0.88rem;
+      letter-spacing: 0.04em; transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-outline:hover { background: var(--white); color: var(--sage); border-color: var(--white); }
+
+    /* avatar card */
+    .hero-card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    }
+    .hero-avatar {
+      width: 168px; height: 168px; border-radius: 50%;
+      background: var(--sage-lt);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.4rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem; color: var(--sage);
+      border: 3px solid var(--sage);
+      overflow: hidden;
+    }
+    .hero-avatar img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-card-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem; margin-bottom: 0.3rem;
+    }
+    .hero-card-role {
+      font-size: 0.82rem; color: var(--muted);
+      letter-spacing: 0.04em; margin-bottom: 1.6rem;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      border-top: 1px solid var(--border); padding-top: 1.4rem; gap: 0.5rem;
+    }
+    .stat-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.5rem; color: var(--sage); font-weight: 700;
+    }
+    .stat-lbl { font-size: 0.72rem; color: var(--muted); line-height: 1.3; }
+    .badge-row {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      justify-content: center; margin-bottom: 1.4rem;
+    }
+    .badge {
+      font-size: 0.72rem; padding: 0.28rem 0.7rem;
+      background: var(--sage-lt); color: var(--sage);
+      border-radius: 999px; letter-spacing: 0.03em;
+    }
+
+    /* ─── SECTION WRAPPER ────────────────────────────────────── */
+    section { padding: 6rem 5vw; }
+    section:nth-child(even) { background: var(--sage-lt); }
+
+    .section-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 0.8rem;
+      color: var(--ink);
+    }
+    .section-sub { color: var(--muted); font-size: 1rem; max-width: 55ch; margin-bottom: 3rem; }
+
+    /* ─── ABOUT ──────────────────────────────────────────────── */
+    .about-grid {
+      display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start;
+    }
+    .about-body p { color: var(--muted); margin-bottom: 1.2rem; }
+    .about-meta { display: flex; flex-direction: column; gap: 1.2rem; }
+    .meta-item { border-left: 3px solid var(--sage); padding-left: 1rem; }
+    .meta-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); }
+    .meta-value { font-size: 0.95rem; color: var(--ink); }
+
+    /* ─── SKILLS ─────────────────────────────────────────────── */
+    .skills-domains {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem;
+    }
+    .domain-block .domain-p { font-size: 0.92rem; color: var(--muted); line-height: 1.75; margin-bottom: 0.9rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1.6rem; }
+    .skill-tag {
+      font-size: 0.7rem; padding: 0.2rem 0.6rem;
+      background: var(--fog); border-radius: 4px; color: var(--muted);
+    }
+
+    /* ─── EXPERIENCE ─────────────────────────────────────────── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px; background: var(--border);
+    }
+    .tl-entry { position: relative; margin-bottom: 3rem; }
+    .tl-dot {
+      position: absolute; left: -2.45rem; top: 0.35rem;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--sage); border: 3px solid var(--fog);
+      box-shadow: 0 0 0 2px var(--sage);
+    }
+    .tl-period {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.08em; color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .tl-role { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.15rem; color: var(--ink); }
+    .tl-org {
+      font-family: 'DM Serif Display', serif; font-size: 1rem;
+      color: var(--sage); margin-bottom: 0.3rem;
+    }
+    .tl-loc { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .tl-ul { list-style: none; padding: 0; }
+    .tl-ul li {
+      font-size: 0.9rem; color: var(--muted); padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative; line-height: 1.6;
+    }
+    .tl-ul li::before {
+      content: '→'; position: absolute; left: 0; color: var(--sage); font-size: 0.8rem;
+    }
+
+    /* ─── EDUCATION ──────────────────────────────────────────── */
+    .edu-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
+    }
+    .edu-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.8rem;
+    }
+    .edu-year {
+      font-family: 'Space Mono', monospace; font-size: 0.72rem;
+      color: var(--gold); letter-spacing: 0.08em; margin-bottom: 0.5rem;
+    }
+    .edu-degree { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .edu-school {
+      font-family: 'DM Serif Display', serif; color: var(--sage);
+      font-size: 0.95rem; margin-bottom: 0.5rem;
+    }
+    .edu-note { font-size: 0.82rem; color: var(--muted); }
+
+    /* ─── CERTIFICATIONS ─────────────────────────────────────── */
+    .cert-subhead {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem; margin: 2.4rem 0 1.2rem;
+      color: var(--ink);
+    }
+    .cert-subhead:first-of-type { margin-top: 0; }
+    .cert-badge-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .cert-badge-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.4rem; text-align: center;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .cert-badge-card:hover { box-shadow: 0 8px 30px rgba(0,33,71,0.10); border-color: var(--sage); }
+    .cert-badge-visual {
+      width: 100%; aspect-ratio: 3/3.6; border-radius: 8px;
+      background: linear-gradient(160deg, var(--ink) 0%, var(--sage) 140%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.6rem; margin-bottom: 1rem; position: relative; overflow: hidden;
+      border: 2px solid var(--gold);
+    }
+    .cert-badge-visual::before {
+      content: ''; position: absolute; width: 140%; height: 140%;
+      border: 1px solid rgba(200,150,62,0.35); border-radius: 50%;
+    }
+    .cert-badge-ring {
+      width: 62px; height: 62px; border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Mono', monospace; font-weight: 700;
+      font-size: 0.95rem; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.25);
+      z-index: 1;
+    }
+    .cert-badge-provider {
+      font-family: 'Space Mono', monospace; font-size: 0.68rem;
+      color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase;
+      z-index: 1;
+    }
+    .cert-badge-name {
+      font-weight: 600; font-size: 0.85rem; color: var(--white);
+      padding: 0 0.6rem; line-height: 1.3; z-index: 1;
+    }
+    .cert-badge-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.3rem; }
+    .cert-badge-meta { font-size: 0.75rem; color: var(--muted); }
+    .cert-badge-id {
+      font-family: 'Space Mono', monospace; font-size: 0.65rem;
+      color: var(--muted); margin-top: 0.2rem; word-break: break-all;
+    }
+
+    .cert-list-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem;
+    }
+    .cert-list-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--sage);
+      border-radius: var(--radius); padding: 1.2rem 1.4rem;
+      transition: box-shadow 0.2s;
+    }
+    .cert-list-card:hover { box-shadow: 0 8px 30px rgba(0,33,71,0.08); }
+    .cert-list-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.3rem; }
+    .cert-list-issuer { font-size: 0.8rem; color: var(--sage); margin-bottom: 0.2rem; }
+    .cert-list-date { font-size: 0.75rem; color: var(--muted); }
+    .cert-list-verify { font-size: 0.72rem; margin-top: 0.4rem; display: inline-block; text-decoration: underline; color: var(--muted); }
+    .cert-list-verify:hover { color: var(--sage); }
+
+    /* ─── RESUME DOWNLOAD BUTTON ─────────────────────────────── */
+    .btn-download {
+      padding: 0.75rem 1.6rem;
+      background: var(--gold); color: var(--white);
+      border-radius: var(--radius); font-size: 0.88rem;
+      letter-spacing: 0.04em; transition: opacity 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-download:hover { opacity: 0.85; }
+
+    /* ─── PORTFOLIO & PUBLICATIONS ───────────────────────────── */
+    .portfolio-highlight {
+      margin: 0 0 3rem; padding: 1.8rem 0;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .ph-lead {
+      font-family: 'DM Serif Display', serif; font-style: italic;
+      font-size: clamp(1.3rem, 2.4vw, 1.7rem); color: var(--ink);
+      line-height: 1.4; max-width: 42ch; margin-bottom: 0.8rem;
+    }
+    .ph-note { font-size: 0.9rem; color: var(--muted); max-width: 56ch; line-height: 1.7; }
+    .pub-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem;
+      margin-bottom: 2.4rem;
+    }
+    .pub-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.4rem 1.5rem;
+    }
+    .pub-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.4rem; line-height: 1.4; }
+    .pub-title a { text-decoration: underline; text-underline-offset: 2px; }
+    .pub-title a:hover { color: var(--sage); }
+    .pub-venue {
+      font-family: 'DM Serif Display', serif; font-style: italic;
+      color: var(--sage); font-size: 0.88rem; margin-bottom: 0.6rem;
+    }
+    .pub-scope { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    .fw-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem;
+      margin-bottom: 2.4rem;
+    }
+    .fw-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius); padding: 1.4rem 1.5rem;
+    }
+    .fw-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.2rem; }
+    .fw-title a { text-decoration: underline; text-underline-offset: 2px; }
+    .fw-title a:hover { color: var(--sage); }
+    .fw-org { font-size: 0.78rem; color: var(--sage); margin-bottom: 0.6rem; }
+    .fw-impact { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.7rem; }
+
+    .kp-list { display: flex; flex-direction: column; gap: 1rem; }
+    .kp-item { border-left: 3px solid var(--sage); padding-left: 1rem; }
+    .kp-title { font-weight: 600; font-size: 0.88rem; color: var(--ink); }
+    .kp-note { font-size: 0.82rem; color: var(--muted); }
+
+    /* ─── LANGUAGES ──────────────────────────────────────────── */
+    .lang-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;
+    }
+    .lang-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.2rem 1.4rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .lang-flag { font-size: 1.8rem; }
+    .lang-name { font-weight: 600; font-size: 0.95rem; }
+    .lang-level { font-size: 0.78rem; color: var(--muted); }
+    .lang-bar {
+      height: 4px; background: var(--border); border-radius: 2px;
+      margin-top: 0.4rem; overflow: hidden;
+    }
+    .lang-fill { height: 100%; background: var(--sage); border-radius: 2px; }
+
+    /* ─── CONTACT ────────────────────────────────────────────── */
+    #contact { text-align: center; }
+    .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem; }
+    .contact-chip {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.7rem 1.4rem;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      font-size: 0.88rem; color: var(--muted);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-chip:hover { border-color: var(--sage); color: var(--sage); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--sage); color: rgba(255,255,255,0.45);
+      text-align: center; padding: 2rem 5vw;
+      font-size: 0.8rem; letter-spacing: 0.04em;
+    }
+    footer span { color: var(--gold); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      #home { grid-template-columns: 1fr; }
+      .hero-card { max-width: 400px; margin: 0 auto; }
+      .about-grid { grid-template-columns: 1fr; }
+      .skills-domains { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 1180px) {
+      nav { justify-content: space-between; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: flex; flex-direction: column; gap: 0; position: fixed; margin: 0; padding: 0;
+        top: var(--nav-h); left: 0; right: 0; background: var(--white);
+        border-bottom: 1px solid var(--border);
+        max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+      }
+      .nav-links.open { max-height: 80vh; overflow-y: auto; }
+      .nav-links li { border-top: 1px solid var(--border); }
+      .nav-links a { display: block; padding: 1rem 5vw; }
+      .nav-cta { display: none; }
+    }
+
+    /* ─── CAMPAIGN CARDS ─────────────────────────────────────── */
+    .camp-list { display: flex; flex-direction: column; gap: 1.6rem; }
+    .camp {
+      display: grid; grid-template-columns: 320px 1fr;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0,33,71,0.06);
+    }
+    .camp-side { background: var(--sage); color: var(--white); padding: 2rem 1.8rem; }
+    .camp-num {
+      font-family: 'Space Mono', monospace; font-size: 2.4rem; font-weight: 700;
+      color: var(--gold); line-height: 1; margin-bottom: 0.9rem;
+    }
+    .camp-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; line-height: 1.25; margin-bottom: 0.9rem; }
+    .camp-title a { text-decoration: underline; text-underline-offset: 3px; }
+    .camp-role {
+      display: inline-block; font-size: 0.74rem; letter-spacing: 0.03em;
+      padding: 0.3rem 0.7rem; border-radius: 999px;
+      background: rgba(255,255,255,0.12); margin-bottom: 1.1rem;
+    }
+    .camp-obj { font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.78); }
+    .camp-obj b { display: block; font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; font-weight: 400; }
+    .camp-main { padding: 1.8rem 2rem; display: flex; flex-direction: column; gap: 1.3rem; }
+    .camp-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.8rem; }
+    .camp-stat { background: var(--sage-lt); border-radius: var(--radius); padding: 0.9rem 1rem; }
+    .camp-stat-num { font-family: 'Space Mono', monospace; font-size: 1.45rem; font-weight: 700; color: var(--sage); line-height: 1.1; }
+    .camp-stat-lbl { font-size: 0.74rem; color: var(--muted); line-height: 1.35; margin-top: 0.3rem; }
+    .camp-row { display: grid; grid-template-columns: 88px 1fr; gap: 0.8rem; align-items: start; }
+    .camp-lbl { font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); padding-top: 0.25rem; }
+    .camp-text { font-size: 0.86rem; color: var(--ink); line-height: 1.55; }
+    .camp-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .camp-chip { font-size: 0.74rem; padding: 0.22rem 0.65rem; border: 1px solid var(--border); border-radius: 999px; color: var(--sage); background: var(--fog); }
+    .camp-ul { list-style: none; padding: 0; }
+    .camp-ul li { font-size: 0.85rem; color: var(--muted); padding: 0.15rem 0 0.15rem 1.1rem; position: relative; line-height: 1.5; }
+    .camp-ul li::before { content: '→'; position: absolute; left: 0; color: var(--sage); font-size: 0.78rem; }
+    .camp-note { font-size: 0.78rem; color: var(--muted); font-style: italic; }
+    @media (max-width: 900px) {
+      .camp { grid-template-columns: 1fr; }
+      .camp-main { padding: 1.4rem; }
+      .camp-row { grid-template-columns: 1fr; gap: 0.3rem; }
+    }
+
+    /* Role fit: 3 cards per row */
+    #rolefit .pub-grid { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 900px) { #rolefit .pub-grid { grid-template-columns: 1fr; } }
+
+    /* ─── EDUCATION / CERT ADDITIONS ─────────────────────────── */
+    .title-rule::after { content: ''; display: block; width: 56px; height: 3px; background: var(--gold); margin-top: 1rem; border-radius: 2px; }
+    .cred-toggle {
+      display: inline-flex; align-items: center; gap: 0.6rem; margin: 1.8rem 0 0.6rem;
+      padding: 0.75rem 1.3rem; min-height: 44px;
+      background: transparent; color: var(--sage); border: 1px solid var(--sage); border-radius: var(--radius);
+      font-family: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s;
+    }
+    .cred-toggle:hover { background: var(--sage); color: var(--white); }
+    .cred-more[hidden] { display: none; }
+    .cred-more { margin-top: 2rem; }
+
+    /* ─── MOBILE / TABLET HARDENING ──────────────────────────── */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    html, body { max-width: 100%; overflow-x: clip; }
+    img, svg, video { max-width: 100%; height: auto; }
+    nav { padding-left: max(5vw, env(safe-area-inset-left)); padding-right: max(5vw, env(safe-area-inset-right)); }
+    footer { padding-bottom: calc(2rem + env(safe-area-inset-bottom)); }
+    .pub-grid, .fw-grid, .edu-grid, .cert-list-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+    .cert-badge-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+    .lang-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr)); }
+    #rolefit .pub-grid { grid-template-columns: repeat(3, 1fr); }
+    .contact-chip, .meta-value, .camp-text, .tl-ul li, .edu-note, .pub-title { overflow-wrap: anywhere; }
+    .skill-tag, .camp-chip { max-width: 100%; white-space: normal; }
+    .nav-links a, .nav-toggle, .btn-primary, .btn-outline, .btn-download { min-height: 44px; }
+    .btn-primary, .btn-outline, .btn-download { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; }
+
+    @media (max-width: 1024px) {
+      #rolefit .pub-grid { grid-template-columns: repeat(2, 1fr); }
+      .camp { grid-template-columns: 1fr; }
+      .camp-side { padding: 1.8rem; }
+    }
+    @media (max-width: 900px) {
+      #home { padding-top: calc(var(--nav-h) + 2.5rem); padding-bottom: 3.5rem; gap: 2.2rem; min-height: auto; }
+      #rolefit .pub-grid { grid-template-columns: 1fr; }
+      .about-grid { gap: 2rem; }
+      .timeline { padding-left: 1.6rem; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 3.6rem 5vw; }
+      .section-title { font-size: clamp(1.7rem, 7vw, 2.1rem); }
+      .section-sub { margin-bottom: 2rem; }
+      .hero-name { line-height: 1.18; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions a { width: 100%; }
+      .hero-card { padding: 1.6rem 1.2rem; }
+      .hero-stats { gap: 0.4rem; }
+      .stat-num { font-size: 1.15rem; }
+      .stat-lbl { font-size: 0.66rem; }
+      .camp-stats { grid-template-columns: 1fr 1fr; }
+      .camp-side, .camp-main { padding: 1.4rem 1.2rem; }
+      .contact-links { flex-direction: column; align-items: stretch; }
+      .contact-chip { justify-content: center; text-align: center; }
+      .cred-toggle { width: 100%; justify-content: center; }
+      .tl-role { font-size: 1rem; }
+    }
+
+    /* ─── PROJECT FILTER CHIPS ───────────────────────────────── */
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 1.8rem; }
+    .filter-chip {
+      font-family: inherit; font-size: 0.9rem; color: var(--sage); background: var(--white);
+      border: 1px solid var(--border); border-radius: 999px; padding: 0.55rem 1.1rem; min-height: 44px;
+      cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .filter-chip:hover { border-color: var(--sage); }
+    .filter-chip.active { background: var(--sage); color: var(--white); border-color: var(--sage); }
+    .camp[hidden] { display: none; }
+
+    /* ─── Compact work + experience (ported from GCF layout) ─── */
+    .stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 2.4rem; }
+    .stat-strip > div { background: var(--white); padding: 1.1rem 1.2rem; }
+    .stat-strip .n { font-family: 'DM Serif Display', serif; font-size: 1.9rem; color: var(--sage); line-height: 1.1; }
+    .stat-strip .l { font-size: 0.74rem; color: var(--muted); line-height: 1.35; margin-top: 0.25rem; }
+    .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.6rem; }
+    .filters button { font: inherit; font-size: 0.8rem; padding: 0.4rem 0.95rem; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--border); background: var(--white); color: var(--muted); transition: all 0.2s; }
+    .filters button:hover { border-color: var(--sage); color: var(--sage); }
+    .filters button.on { background: var(--sage); border-color: var(--sage); color: var(--white); }
+    .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.3rem; }
+    .work-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--gold);
+      border-radius: var(--radius); padding: 1.5rem 1.6rem; display: flex; flex-direction: column; gap: 0.7rem; }
+    .work-card[hidden] { display: none; }
+    .work-top { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
+    .work-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+    .work-when { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+    .work-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; line-height: 1.25; color: var(--ink); }
+    .work-org { font-size: 0.8rem; color: var(--sage); font-weight: 600; margin-top: -0.4rem; }
+    .work-row { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .work-row b { color: var(--ink); font-weight: 600; }
+    .work-card ul { list-style: none; }
+    .work-card li { font-size: 0.82rem; color: var(--muted); line-height: 1.55; padding: 0.15rem 0 0.15rem 1rem; position: relative; }
+    .work-card li::before { content: ''; position: absolute; left: 0; top: 0.65rem; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+    .work-result { margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--ink); }
+    .work-note { font-size: 0.76rem; color: var(--muted); font-style: italic; }
+    @media (max-width: 420px) { .work-grid { grid-template-columns: 1fr; } }
+    .ico { margin-right: 0.45em; font-style: normal; }
+    .filters .ico { margin-right: 0.3em; }
+    .more-btn { display: block; margin: 1.6rem auto 0; font: inherit; font-size: 0.85rem; font-weight: 600; padding: 0.55rem 1.4rem;
+      border: 1px solid var(--sage); border-radius: var(--radius); background: none; color: var(--sage); cursor: pointer; }
+    .more-btn:hover { background: var(--sage); color: var(--white); }
+    .more-btn[hidden] { display: none; }
+    .org-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .org-card { display: grid; grid-template-columns: 240px 1fr; gap: 2rem; background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--sage); border-radius: var(--radius); padding: 1.6rem 1.8rem; }
+    .org-name { font-family: 'DM Serif Display', serif; font-size: 1.15rem; line-height: 1.25; color: var(--sage); margin-bottom: 0.3rem; }
+    .org-meta { font-size: 0.8rem; color: var(--muted); }
+    .org-span { margin-top: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; color: var(--gold); }
+    .role + .role { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+    .role-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+    .role-title { font-weight: 600; font-size: 1rem; color: var(--ink); }
+    .role-when { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+    .more > summary { cursor: pointer; list-style: none; font-size: 0.8rem; font-weight: 600; color: var(--sage); padding: 0.2rem 0 0.2rem 1.2rem; }
+    .more > summary::-webkit-details-marker { display: none; }
+    .more > summary::before { content: '＋'; margin-right: 0.4rem; }
+    .more[open] > summary::before { content: '－'; }
+    @media (max-width: 800px) { .org-card { grid-template-columns: 1fr; gap: 1rem; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#" aria-label="Timothy Castillon – home"><span class="nav-mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#rolefit">Role Fit</a></li>
+    <li><a href="science-comms.html">Design Samples</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#education">Education</a></li>
+    <li class="nav-extra"><a href="#certifications">Certifications</a></li>
+    <li class="nav-extra"><a href="#languages">Languages</a></li>
+    <li class="nav-extra"><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:timothyearlmateocastillon@gmail.com">Get In Touch</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Based in the Philippines · Home-based role · Applying to the UN Youth Office (UNOPS)</p>
+    <h1 class="hero-name">
+      <span class="ln">Young people engage with the UN</span>
+      <span class="ln">when its content is clear, well designed</span>
+      <span class="ln"><em>and built for the platforms they use.</em></span>
+    </h1>
+    <p class="hero-lead">
+      Communications, graphic design and digital content professional with 5+ years across the UN system and development organizations. I turn complex institutional mandates into youth-friendly digital assets and multimedia stories using Adobe Creative Cloud, Canva and Drupal, and I have grown organic audiences on LinkedIn and X/Twitter. Applying for the Communications Officer (Graphic Design &amp; Social Media) role at the UN Youth Office.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="science-comms.html">🎨 Design &amp; Social Media Samples</a>
+      <a class="btn-download" href="Castillon_CV_UNOPS.pdf" target="_blank" rel="noopener">⬇ Download CV</a>
+      <a class="btn-outline" href="#rolefit">Fit for the Role</a>
+      <a class="btn-outline" href="https://tmcastillon01.github.io/PhotoPortfolio/" target="_blank" rel="noopener noreferrer">📷 Visual Ethnography</a>
+      <a class="btn-outline" href="#contact">Get In Touch</a>
+    </div>
+    <a class="hero-notice" href="#contact">
+      <span class="hero-notice-icon">📎</span>
+      <span>Supplementary documents for my application (CV and cover letter) are available at the bottom of this page.</span>
+      <span class="hero-notice-arrow">↓</span>
+    </a>
+  </div>
+
+  <div class="hero-card">
+    <div class="hero-avatar"><img src="my_picture.png" alt="Timothy Earl Mateo Castillon"></div>
+    <p class="hero-card-name">Timothy Earl Mateo Castillon</p>
+    <p class="hero-card-role">Graphic Design · Social Media · Digital Communications</p>
+    <div class="badge-row">
+      <span class="badge">🎨 Graphic Design &amp; Visual Identity</span>
+      <span class="badge">📱 Social Media &amp; Audience Growth</span>
+      <span class="badge">🖥️ Drupal &amp; Web Content</span>
+      <span class="badge">🎬 Video &amp; Multimedia</span>
+      <span class="badge">🎤 Events &amp; Webinars</span>
+      <span class="badge">🌍 UN System Experience</span>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">109.7%</div><div class="stat-lbl">Organic LinkedIn follower growth in 6 months, UNHCR GPC</div></div>
+      <div><div class="stat-num">30+</div><div class="stat-lbl">Banners and infographic-style visuals, plus 4 campaign videos</div></div>
+      <div><div class="stat-num">300+</div><div class="stat-lbl">Materials uploaded and kept current on a public Drupal site</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <p class="section-eyebrow">🧭 Background</p>
+  <h2 class="section-title">About Me</h2>
+  <p class="section-sub">People trust communication that meets them where they are. That is the approach I bring to design and social media.</p>
+  <div class="about-grid">
+    <div class="about-body">
+      <p>
+        During fieldwork in Narok, Kenya, a family I had just met invited me to share their meal. The youngest child had burst into tears at the sight of me; hours later he was waving from the doorway. I think about that whenever I plan communications: people trust content that shows up with care and meets them on their terms.
+      </p>
+      <p>
+        At UNHCR’s Global Protection Cluster I owned the public Drupal website, designed publications, banners and campaign videos, and grew the Cluster’s organic LinkedIn following by 109.7% in six months. At the WMO I co-led the staff campaign for an intranet migration. At the Local Government Academy I led communications and visual materials for a national webinar series for newly elected local government and youth leaders. I would bring this mix of design, social media and web skills to the UN Youth Office, and I am keen to deepen my work with young audiences, including flagship initiatives such as the UN Youth Compass.
+      </p>
+    </div>
+    <div class="about-meta">
+      <div class="meta-item"><div class="meta-label">🎯 Target Role</div><div class="meta-value">Communications Officer (Graphic Design &amp; Social Media), UN Youth Office, via UNOPS Global Portfolios Office</div></div>
+      <div class="meta-item"><div class="meta-label">📄 Contract</div><div class="meta-value">Home-based · 6 months · LICA 8</div></div>
+      <div class="meta-item"><div class="meta-label">🌍 Location</div><div class="meta-value">Philippines (UTC+8), working remotely</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLE FIT -->
+<section id="rolefit" class="reveal">
+  <p class="section-eyebrow">🎯 Fit for the Role</p>
+  <h2 class="section-title">Mapped to the Communications Officer Role</h2>
+  <p class="section-sub">How my experience lines up with the main areas of the posting, including where I have gaps.</p>
+  <div class="pub-grid">
+    <div class="pub-card">
+      <div class="pub-title">🎨 Graphic design and visual identity</div>
+      <div class="pub-venue">UNHCR GPC · LGA · Adobe Creative Cloud · Canva · Videoscribe</div>
+      <div class="pub-scope">Reports, guidance, toolkits and 3 newsletters laid out and produced; 30+ banners and infographic-style visuals; 4 campaign videos edited. At the LGA, I designed visual identities, programme decks and training collateral.</div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-title">📱 Social media management</div>
+      <div class="pub-venue">LinkedIn · X/Twitter · Trello</div>
+      <div class="pub-scope">Organic LinkedIn followers +109.7% and X/Twitter +652 (124,373 tweet engagements) in six months; a Trello board built into the 2023 social media plan; a six-month calendar built around awareness days for a current client.</div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-title">🖥️ Web and digital platforms</div>
+      <div class="pub-venue">Drupal · SharePoint · Mailchimp</div>
+      <div class="pub-scope">Decision-owner for the GPC’s public Drupal site (300+ materials, 15 Areas of Focus pages). Kept 22 WMO Hub pages current with 13 content editors. Designed and sent segmented Mailchimp campaigns and newsletters.</div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-title">🎤 Campaigns, events and youth engagement</div>
+      <div class="pub-venue">UNHCR · WMO · Local Government Academy</div>
+      <div class="pub-scope">Technical support for all GPC webinars and events, a moderated session at the Global Protection Forum, a staff adoption campaign at WMO, and “L!stong Ugnayan,” a national webinar series for local government and youth leaders.</div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-title">🤝 Coordination and international teams</div>
+      <div class="pub-venue">WMO · UNHCR · executive boards</div>
+      <div class="pub-scope">Coordinated resource speakers, content editors and partners across UN agencies and government bodies, and reported outcomes to executive boards.</div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-title">🧩 Where I would be learning</div>
+      <div class="pub-venue">Stated plainly</div>
+      <div class="pub-scope">Running a dedicated youth-facing channel mix at the scale of a UN office, youth-focused campaigns as a full-time focus, illustration and merchandise design, and French (currently A2). My measured social media results are on LinkedIn and X/Twitter.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPAIGNS -->
+<section id="work" class="reveal">
+  <p class="section-eyebrow"><span class="ico">📣</span>Communication Work</p>
+  <h2 class="section-title">Campaigns, Products &amp; Platforms</h2>
+  <p class="section-sub">Selected examples with my role, audience, tools and results. My outcomes are mostly reach, adoption and participation, and I say so where it matters.</p>
+  <div class="stat-strip" id="statStrip"></div>
+  <div class="filters" id="workFilters" role="group" aria-label="Filter communication work"></div>
+  <div class="work-grid" id="workGrid"></div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="reveal">
+  <p class="section-eyebrow"><span class="ico">💼</span>Career</p>
+  <h2 class="section-title">Professional Experience</h2>
+  <p class="section-sub">Communications, graphic design, web content and stakeholder engagement across international organizations.</p>
+
+  <div class="org-list">
+    <article class="org-card">
+      <div class="org-side"><h3 class="org-name">Multiple International Development Clients</h3><div class="org-meta">Remote</div><div class="org-span">Feb 2025 – present</div></div>
+      <div class="org-roles">
+        <div class="role"><div class="role-head"><span class="role-title">Independent Consultant – Communications &amp; Knowledge Management</span><span class="role-when">February 2025 – Present</span></div>
+          <ul class="tl-ul"><li>Executed multi-channel digital content strategies and social media editorial scheduling for international humanitarian and protection initiatives, including a six-month calendar built around humanitarian and protection awareness days.</li><li>Designed and maintained visual branding assets, campaign toolkits and digital reporting workflows for global stakeholders.</li><li>Built and managed client web portals and knowledge repositories using Drupal, SharePoint and HTML/CSS.</li></ul>
+          <details class="more"><summary>More</summary><ul class="tl-ul"><li>Built two automated reporting systems using Microsoft Forms, Power Automate and Power BI, including a donor-reporting dashboard embedded in a client’s website.</li></ul></details>
+        </div>
+      </div>
+    </article>
+    <article class="org-card">
+      <div class="org-side"><h3 class="org-name">World Meteorological Organization (WMO)</h3><div class="org-meta">Geneva, Switzerland</div><div class="org-span">May 2023 – Oct 2024</div></div>
+      <div class="org-roles">
+        <div class="role"><div class="role-head"><span class="role-title">Knowledge and Information Management Support Officer (P1)</span><span class="role-when">November 2023 – October 2024</span></div>
+          <ul class="tl-ul"><li>Co-led the staff adoption campaign and training for a full intranet migration, using segmented Mailchimp emails and multi-platform training sessions, which reduced IT support tickets.</li><li>Kept 22 WMO Hub information pages updated with 13 content editors, ran short training sessions for the editors, and supported the Knowledge Management year-end video (Videoscribe).</li><li>Used participation data to review the Community-of-Practice networks, retiring 3 and launching 3, while sustaining participation at around 20% of staff (about 310 worldwide).</li></ul>
+          <details class="more"><summary>More</summary><ul class="tl-ul"><li>Administered SharePoint and the intranet, built a SharePoint list monitoring 100+ projects for Programme Managers, and reported outcomes to executive boards.</li><li>Tested new Microsoft tools for WMO’s systems: prototyped against business needs, piloted with primary users, revised from feedback, then opened to wider testing before rollout.</li><li>Produced infographic-style visuals and reviewed and edited documents in Word using Track Changes and comments.</li></ul></details>
+        </div>
+        <div class="role"><div class="role-head"><span class="role-title">Knowledge and Information Management Intern</span><span class="role-when">May 2023 – November 2023</span></div>
+          <ul class="tl-ul"><li>Supported the migration of institutional documents during the intranet redesign, including categorization and quality checks.</li><li>Helped establish the Community-of-Practice networks and produced analytics reports on their activity, setting a baseline participation rate of 20%.</li></ul>
+          <details class="more"><summary>More</summary><ul class="tl-ul"><li>Co-led two staff training sessions with my supervisor on Microsoft folder ownership and knowledge management practices.</li></ul></details>
+        </div>
+      </div>
+    </article>
+    <article class="org-card">
+      <div class="org-side"><h3 class="org-name">United Nations High Commissioner for Refugees (UNHCR)</h3><div class="org-meta">Geneva, Switzerland</div><div class="org-span">Sep 2022 – May 2023</div></div>
+      <div class="org-roles">
+        <div class="role"><div class="role-head"><span class="role-title">Communications and Advocacy Intern – Global Protection Cluster (GPC)</span><span class="role-when">September 2022 – May 2023</span></div>
+          <ul class="tl-ul"><li>Grew organic LinkedIn followers by 109.7% and X/Twitter followers by 652 in 6 months (124,373 tweet engagements); integrated a Trello board into the 2023 social media plan; designed and sent the GPC’s Mailchimp newsletters.</li><li>Handled the design and production of GPC publications (reports, guidance, toolkits, 3 Human Rights Engagement newsletters): layout, formatting and photo selection from UNHCR’s Refugee Media library, working from content written by protection officers. Made 30+ banners and infographic-style visuals and edited 4 campaign videos (Adobe Creative Cloud, Canva).</li><li>Designated by my supervisor as decision-owner for the GPC’s public Drupal website: uploaded 300+ materials, kept the 15 Areas of Focus pages updated, and built and archived the Global Protection Forum pages for 2018–2023, serving 15 global operations including conflict-affected contexts.</li></ul>
+          <details class="more"><summary>More</summary><ul class="tl-ul"><li>Provided technical support for all GPC Zoom and Teams webinars and in-person events, including the Humanitarian Networks and Partnerships Weeks (April 2023), and moderated a session at the Global Protection Forum.</li></ul></details>
+        </div>
+      </div>
+    </article>
+    <article class="org-card">
+      <div class="org-side"><h3 class="org-name">Local Government Academy (LGA)</h3><div class="org-meta">Manila, Philippines</div><div class="org-span">Jun 2018 – Sep 2020</div></div>
+      <div class="org-roles">
+        <div class="role"><div class="role-head"><span class="role-title">Project Officer</span><span class="role-when">November 2019 – September 2020</span></div>
+          <ul class="tl-ul"><li>Directed public communications and digital outreach for “L!stong Ugnayan,” a high-frequency national governance webinar series for newly minted local government and youth leaders (March to August 2020, 3 to 4 sessions per week): coordinated resource speakers and partners, hosted live sessions with Q&amp;A and reported on participant feedback.</li><li>Designed visual identities, multimedia programme decks and digital training collateral for national capacity-building programmes for local government units.</li></ul>
+          <details class="more"><summary>More</summary><ul class="tl-ul"><li>Designed and delivered 5 national asynchronous online training programmes for newly elected officials, in partnership with government agencies, development organizations and academia.</li><li>Produced analytical reports for national stakeholders on international benchmarking and government scholarships for officials studying abroad, using participation and outcome data to recommend programme improvements.</li></ul></details>
+        </div>
+        <div class="role"><div class="role-head"><span class="role-title">Project Assistant</span><span class="role-when">June 2018 – August 2019</span></div>
+          <ul class="tl-ul"><li>Researched and documented 50+ governance initiatives from uncatalogued data into a structured digital knowledge base (the “Innovative Solutions Bank”).</li><li>Supported the delivery of three national training programmes for local government personnel.</li></ul>
+        </div>
+      </div>
+    </article>
+    <article class="org-card">
+      <div class="org-side"><h3 class="org-name">University of the Philippines Diliman</h3><div class="org-meta">Quezon City, Philippines</div><div class="org-span">Aug 2015 – Jul 2017</div></div>
+      <div class="org-roles">
+        <div class="role"><div class="role-head"><span class="role-title">Student Assistantship, NCPAG Library</span><span class="role-when">August 2015 – July 2017</span></div>
+          <ul class="tl-ul"><li>Maintained academic and archival records and supported 20+ academic programmes and events, reducing request turnaround time by 10%.</li></ul>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="reveal">
+  <p class="section-eyebrow">🖥️ Communication Record</p>
+  <h2 class="section-title">Portfolio &amp; Publications</h2>
+  <p class="section-sub">The platforms and reports I helped produce at UNHCR, my own web platform, and earlier research.</p>
+
+  <h3 class="cert-subhead">🖥️ Communication Products &amp; Platforms</h3>
+  <div class="fw-grid">
+    <div class="fw-card">
+      <div class="fw-title"><a href="https://globalprotectioncluster.org/" target="_blank" rel="noopener">UNHCR Global Protection Cluster Public Website</a></div>
+      <div class="fw-org">UNHCR, Geneva</div>
+      <div class="fw-impact">Decision-owner for the Cluster's public Drupal site: 300+ materials uploaded and the 15 Areas of Focus pages kept up to date.</div>
+      <div class="skill-tags"><span class="skill-tag">Drupal</span><span class="skill-tag">Mailchimp</span></div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-title"><a href="https://globalprotectioncluster.org/node/918" target="_blank" rel="noopener">Global Protection Forum (2018–2023) Pages</a></div>
+      <div class="fw-org">UNHCR Global Protection Cluster</div>
+      <div class="fw-impact">Built and archived the Forum pages for 2018–2023.</div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-title"><a href="https://timothycastillon.com" target="_blank" rel="noopener">Personal Web Platform &amp; Data Portfolio</a></div>
+      <div class="fw-org">Self-built · timothycastillon.com</div>
+      <div class="fw-impact">Sole designer and developer of a data-centric site combining climate-migration research, JSON datasets and documentary field photography.</div>
+      <div class="skill-tags"><span class="skill-tag">HTML/CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">GitHub Pages</span></div>
+    </div>
+      <div class="fw-card">
+      <div class="fw-title"><a href="social-media-package.html">Sample Social Media Package</a></div>
+      <div class="fw-org">Independent sample · LinkedIn carousel, Instagram, X and Facebook formats</div>
+      <div class="fw-impact">One visual system adapted across platforms. Prepared for a separate science-communication application, so it shows my design approach rather than UN Youth Office content.</div>
+      <div class="skill-tags"><span class="skill-tag">Carousel design</span><span class="skill-tag">Platform formats</span></div>
+    </div>
+  </div>
+
+<h3 class="cert-subhead">📑 Reports</h3>
+  <div class="kp-list">
+    <div class="kp-item">
+      <div class="kp-title">GPC Annual Report 2022</div>
+      <div class="kp-note">Contributed as designer and data visualizer, translating humanitarian metrics into a narrative for donor and member-state advocacy.</div>
+    </div>
+    <div class="kp-item">
+      <div class="kp-title">2022 Global Protection Thematic Forum Report</div>
+      <div class="kp-note">Supported editorial design and synthesis of technical sessions into a policy-oriented reporting format.</div>
+    </div>
+  </div>
+
+<h3 class="cert-subhead">📚 Peer-Reviewed &amp; Scientific Research</h3>
+  <div class="pub-grid">
+    <div class="pub-card">
+      <div class="pub-title"><a href="https://repositorio-aberto.up.pt/handle/10216/147750" target="_blank" rel="noopener">Urban Risk Management and Building Resilience: Effective Disaster Risk Management Strategies in Narok County, Kenya</a></div>
+      <div class="pub-venue">University of Porto, Portugal · 2022</div>
+      <div class="pub-scope">Applied localized GIS and qualitative modeling to assess flood and drought resilience in rapidly urbanizing Kenyan corridors.</div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-title"><a href="https://static1.squarespace.com/static/6237a5a8cc3e680d21b1ea2f/t/63ebad5355c787128a2ee715/1676389761999/SESCAS22_Handout_2022.pdf" target="_blank" rel="noopener">Sex for Water: Assessment of Zimbabwe's Water Shortage and Gender-Based Vulnerabilities</a></div>
+      <div class="pub-venue">University of Basel, Switzerland · 2022 (panel presenter)</div>
+      <div class="pub-scope">Investigative research into the intersection of resource scarcity, governance failures, and human protection risks.</div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-title">Urbanization and the Right to Adequate Housing: Challenges and Opportunities in Dar es Salaam, Tanzania</div>
+      <div class="pub-venue">University of Bordeaux Montaigne, France · 2022</div>
+      <div class="pub-scope">Examined policy effectiveness in securing the right to adequate housing amid rapid urbanization.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="reveal">
+  <p class="section-eyebrow">🎓 Academic Background</p>
+  <h2 class="section-title title-rule">Education</h2>
+  <p class="section-sub">A foundation in public administration, climate resilience and data science, built across three continents.</p>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-year">2020 – 2022</div>
+      <div class="edu-degree">M.A., EMJMD — European Interdisciplinary Master in African Studies (Climate &amp; Resilience Focus)</div>
+      <div class="edu-school">University of Bordeaux Montaigne · University of Porto · University of Bayreuth</div>
+      <div class="edu-note">Mention Très Bien · Fieldwork in Narok and Nairobi, Kenya · Thesis: Urban Risk Management and Building Resilience</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2013 – 2019</div>
+      <div class="edu-degree">B.A., Public Administration</div>
+      <div class="edu-school">University of the Philippines – Diliman</div>
+      <div class="edu-note">Quezon City, Philippines</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2025 – Present</div>
+      <div class="edu-degree">Further Studies</div>
+      <div class="edu-school">Harvard Extension School · DataCamp</div>
+      <div class="edu-note"><strong>Advanced Professional Qualification, Data Science</strong> (Dec 2025 – present, remote)<br><strong>DataCamp Engineering Scholar</strong> (Feb 2026 – present)</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">International Academic Experience</div>
+      <div class="edu-degree">Exchange &amp; Training Programmes</div>
+      <div class="edu-school">Japan · Italy · Singapore · Indonesia</div>
+      <div class="edu-note">Ferris University &amp; Yokohama National University, Japan (2018); University of Trento, Italy (2017–2018); Singapore Management University, Southeast Asian Global Leaders Program (2017); Universitas Airlangga, Indonesia (2016).</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="reveal">
+  <p class="section-eyebrow">🏅 Credentials</p>
+  <h2 class="section-title title-rule">Certifications</h2>
+  <p class="section-sub">Verified credentials in project management, climate policy, data analytics and data governance, alongside UN-system compliance training.</p>
+
+  <h3 class="cert-subhead">🧭 Programme &amp; Sector</h3>
+  <div class="cert-list-grid">
+    <div class="cert-list-card">
+      <div class="cert-list-title">Google Project Management: Professional Certificate</div>
+      <div class="cert-list-issuer">Google · via Coursera (7 courses)</div>
+      <div class="cert-list-date">Completed Aug 8, 2025</div>
+      <a class="cert-list-verify" href="https://coursera.org/verify/professional-cert/61M3CD7NHHTW" target="_blank" rel="noopener">Verify credential →</a>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Operationalizing Article 6.2 of the Paris Agreement</div>
+      <div class="cert-list-issuer">UN Climate Change Regional Collaboration Centres · UNDP</div>
+      <div class="cert-list-date">Completed Jul 30, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Technical Project Management (TPM) in WASH Emergencies</div>
+      <div class="cert-list-issuer">Oxfam · via DisasterReady</div>
+      <div class="cert-list-date">Completed Aug 2, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Project Management Essentials Certificate</div>
+      <div class="cert-list-issuer">DisasterReady · Cornerstone OnDemand Foundation</div>
+      <div class="cert-list-date">Completed Aug 1, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">MEAL Essentials Certificate</div>
+      <div class="cert-list-issuer">DisasterReady · Cornerstone OnDemand Foundation</div>
+      <div class="cert-list-date">Completed Aug 9, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Grant Seeking Essentials Certificate Program</div>
+      <div class="cert-list-issuer">DisasterReady · Cornerstone OnDemand Foundation</div>
+      <div class="cert-list-date">Completed Aug 10, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Introduction to Cognitive Project Management in AI (CPMAI)™</div>
+      <div class="cert-list-issuer">Project Management Institute (PMI)</div>
+      <div class="cert-list-date">Completed Aug 5, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Practical Application of Generative AI for Project Managers</div>
+      <div class="cert-list-issuer">Project Management Institute (PMI)</div>
+      <div class="cert-list-date">Completed Aug 12, 2025</div>
+    </div>
+  </div>
+
+  <button class="cred-toggle" id="credToggle" type="button" aria-expanded="false" aria-controls="credMore">
+    <span class="cred-toggle-label">Show all credentials</span> <span class="cred-toggle-icon" aria-hidden="true">+</span>
+  </button>
+
+  <div id="credMore" class="cred-more" hidden>
+    <h3 class="cert-subhead">📊 Data &amp; Analytics</h3>
+  <div class="cert-badge-grid">
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">🎖️</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">Associate Data Analyst</div>
+      </div>
+      <div class="cert-badge-title">Associate Data Analyst</div>
+      <div class="cert-badge-meta">Certified and Valid to 01/07/2028</div>
+      <div class="cert-badge-id">DAA0012314347133</div>
+    </div>
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">SQL</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">SQL Associate</div>
+      </div>
+      <div class="cert-badge-title">SQL Associate</div>
+      <div class="cert-badge-meta">Certified and Valid to 06/07/2028</div>
+      <div class="cert-badge-id">SQA0012539546442</div>
+    </div>
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">AI</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">AI Fundamentals</div>
+      </div>
+      <div class="cert-badge-title">AI Fundamentals</div>
+      <div class="cert-badge-meta">Certified Jul 7, 2026</div>
+      <div class="cert-badge-id">AIF0025601443549</div>
+    </div>
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">DG</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">Data Governance Fundamentals</div>
+      </div>
+      <div class="cert-badge-title">Data Governance Fundamentals</div>
+      <div class="cert-badge-meta">Certified Jul 8, 2026</div>
+      <div class="cert-badge-id">DG0020408954566</div>
+    </div>
+  </div>
+  <p style="font-size:0.85rem;color:var(--muted);margin-bottom:2.4rem;">Also certified: <strong style="color:var(--ink);">Python Data Associate</strong> (DataCamp).</p>
+
+    <h3 class="cert-subhead">🛡️ UN Learning &amp; Compliance</h3>
+  <div class="skill-tags" style="gap:0.6rem;">
+    <span class="skill-tag">BSAFE (UNDSS)</span>
+    <span class="skill-tag">Protection Fundamentals</span>
+    <span class="skill-tag">Prevention of Sexual Exploitation &amp; Abuse (PSEA)</span>
+    <span class="skill-tag">Prevention of Harassment &amp; Abuse of Authority</span>
+    <span class="skill-tag">Fundamentals of Fraud &amp; Corruption Awareness</span>
+    <span class="skill-tag">Information Security Awareness</span>
+  </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages" class="reveal">
+  <p class="section-eyebrow">🌍 Communication</p>
+  <h2 class="section-title">Languages</h2>
+  
+  <div class="lang-grid">
+    <div class="lang-card">
+      <div class="lang-flag">🇵🇭</div>
+      <div>
+        <div class="lang-name">Filipino</div>
+        <div class="lang-level">Native · C2</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇺🇸</div>
+      <div>
+        <div class="lang-name">English</div>
+        <div class="lang-level">Native · C2</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇫🇷</div>
+      <div>
+        <div class="lang-name">French</div>
+        <div class="lang-level">Basic · A2</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:40%"></div></div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇵🇹</div>
+      <div>
+        <div class="lang-name">Portuguese</div>
+        <div class="lang-level">Basic · A1</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:25%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <p class="section-eyebrow">✉️ Let's Connect</p>
+  <h2 class="section-title">Get In Touch</h2>
+  <p class="section-sub" style="margin: 0 auto 0; text-align:center;">
+    Available for a home-based engagement. Referee contact details are available on request.
+  </p>
+  <div class="contact-links">
+    <a class="contact-chip" href="mailto:timothyearlmateocastillon@gmail.com"><span>✉️</span> timothyearlmateocastillon@gmail.com</a>
+    <a class="contact-chip" href="tel:+639618238674"><span>📞</span> +63 961 823 8674</a>
+    <a class="contact-chip" href="https://twitter.com/timothycastillon" target="_blank"><span>🐦</span> @timothycastillon</a>
+  </div>
+  <div style="margin-top:2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+    <a class="btn-download" href="Castillon_CV_UNOPS.pdf" target="_blank" rel="noopener">⬇ Download CV (PDF)</a>
+    <a class="btn-download" href="Castillon_Cover_Letter_UNOPS.pdf" target="_blank" rel="noopener">⬇ Cover Letter (PDF)</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span>Timothy Earl Mateo Castillon</span>. All rights reserved.</p>
+</footer>
+
+<script type="application/json" id="work-data">{"stats": [["109.7%", "LinkedIn organic follower growth in 6 months"], ["652", "new X/Twitter followers in 6 months"], ["124,373", "tweet engagements"], ["300+", "materials uploaded to the GPC website"], ["30+", "banners and visuals made; 4 campaign videos edited"], ["13", "content editors supported across 22 WMO Hub pages"]], "tags": ["Digital & social", "Publications & design", "Web", "Events & training", "Analytics"], "items": [{"tag": "Digital & social", "title": "GPC social media growth", "org": "UNHCR Global Protection Cluster", "when": "6 months, 2022–23", "role": "Managed channels and the 2023 social media plan", "aud": "Protection actors, humanitarian partners, the public", "tools": "LinkedIn · X/Twitter · Trello · Mailchimp", "did": ["Planned posts with a Trello board built into the 2023 social media plan", "Promoted webinars and sessions with banners and email"], "res": "LinkedIn organic followers +109.7%, X/Twitter +652, 124,373 tweet engagements.", "note": null}, {"tag": "Publications & design", "title": "GPC reports, toolkits, banners and videos", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Design and production, working from content written by protection officers", "aud": "Protection officers and humanitarian actors worldwide", "tools": "Adobe Creative Cloud · Canva · Word (Track Changes, comments)", "did": ["Laid out and formatted reports, guidance and toolkits, and selected photos from UNHCR’s Refugee Media library", "Designed and sent 3 Human Rights Engagement newsletters in Mailchimp", "Made 30+ banners and infographic-style visuals; edited 4 campaign videos"], "res": "Publication-ready products for 20+ advocacy campaigns.", "note": "Samples: GPC Annual Report; Global Protection Thematic Forum Report. The writing was by protection officers and team members."}, {"tag": "Events & training", "title": "“L!stong Ugnayan” webinar series", "org": "Local Government Academy, Manila", "when": "Mar – Aug 2020", "role": "Project Officer; directed communications and outreach, coordinated speakers, hosted", "aud": "Newly minted local government and youth leaders nationwide; partners across national agencies", "tools": "Live virtual sessions · partner networks · visual collateral", "did": ["Directed public communications and digital outreach for a high-frequency national governance series", "Coordinated resource speakers and partners; hosted live sessions with Q&A and reported participant feedback", "Designed the visual identity and multimedia programme decks for national capacity-building programmes"], "res": "3 to 4 sessions a week for about six months; 10,000+ cumulative attendances (not unique individuals).", "note": null}, {"tag": "Web", "title": "GPC public website and knowledge platform", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Decision-owner, with a part-time IT colleague and minimal day-to-day supervision", "aud": "Protection actors across 15 global operations, humanitarian partners, the public", "tools": "Drupal CMS", "did": ["Uploaded 300+ materials and kept the 15 Areas of Focus pages updated", "Updated the Protection Risk pages quarterly", "Built and archived the Global Protection Forum pages for 2018–2023"], "res": "One public hub for 15 field operations to find and share protection information.", "note": null}, {"tag": "Digital & social", "title": "Intranet adoption campaign", "org": "World Meteorological Organization", "when": "2023 – 2024", "role": "Co-lead for staff adoption and training", "aud": "WMO staff, segmented by department and role", "tools": "Segmented Mailchimp emails · SharePoint · training sessions", "did": ["Tailored emails and tiered training to each department’s workflow", "Put self-service guidance in place before launch"], "res": "Fewer IT support tickets after launch; no ticket figure was tracked.", "note": null}, {"tag": "Events & training", "title": "GPC webinars, forum and event support", "org": "UNHCR Global Protection Cluster", "when": "Sep 2022 – May 2023", "role": "Technical and communication support; session moderator", "aud": "Protection and humanitarian actors worldwide", "tools": "Zoom · Microsoft Teams · in-person events", "did": ["Provided technical support for all GPC Zoom and Teams webinars", "Supported the Humanitarian Networks and Partnerships Weeks (April 2023)", "Moderated a session at the Global Protection Forum"], "res": "Reliable online and in-person sessions for the protection community.", "note": null}, {"tag": "Web", "title": "WMO Hub content and editor network", "org": "World Meteorological Organization", "when": "2023 – 2024", "role": "Content coordination and editor training", "aud": "WMO staff worldwide", "tools": "SharePoint · Videoscribe · short editor training sessions", "did": ["Kept 22 WMO Hub information pages updated with 13 content editors", "Ran short training sessions for the editors", "Supported the Knowledge Management year-end video"], "res": "A maintained set of intranet pages with trained, named editors behind them.", "note": null}, {"tag": "Analytics", "title": "Communities of Practice review", "org": "World Meteorological Organization", "when": "2023 – 2024", "role": "Used participation data to review the networks; reported to executive boards", "aud": "Members of the Communities of Practice; executive boards", "tools": "SharePoint analytics · participation tracking", "did": ["Reviewed network activity using participation data", "Retired 3 networks and launched 3 priority thematic groups"], "res": "Participation sustained at around 20% of staff (about 310 worldwide), against a baseline set during my internship.", "note": null}, {"tag": "Analytics", "title": "Automated reporting systems", "org": "Independent consultancy", "when": "Feb 2025 – present", "role": "Designer and builder", "aud": "International development clients and their donors", "tools": "Microsoft Forms · Power Automate · Power BI", "did": ["Built two automated reporting systems", "Embedded a donor-reporting dashboard in a client’s website", "Built a six-month social media calendar around awareness days"], "res": "Reporting that clients can update and share without manual compilation; no time-saved figure was tracked.", "note": null}, {"tag": "Publications & design", "title": "Sample social media package", "org": "Independent sample, not for a client", "when": "2026", "role": "Sole designer", "aud": "Non-specialist audiences on LinkedIn, Instagram, X and Facebook", "tools": "Platform-specific templates and carousels", "did": ["A five-slide LinkedIn carousel plus Instagram, X and Facebook formats from one visual system", "Plain-language headlines, sourced figures and a consistent colour palette"], "res": "Shows my carousel and cross-platform template approach. It was prepared for a separate science-communication application, so the subject matter is not UN Youth Office content.", "note": "Open it from the Design Samples page."}, {"tag": "Publications & design", "title": "field/notes", "org": "Personal documentary project", "when": "Ongoing", "role": "Sole writer, photographer and developer", "aud": "Development professionals and hiring panels", "tools": "Photography · field writing · HTML/CSS/JavaScript · GitHub Pages", "did": ["Documents places and the people who live and work in them, including hopeful stories from hard situations", "Coded the site by hand, without commercial templates"], "res": "A self-directed visual storytelling project at timothycastillon.com; no audience metrics.", "note": null}]}</script>
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll-reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Active nav-link highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navAnchors.forEach(a => a.style.color = (a.getAttribute('href') === '#' + entry.target.id) ? 'var(--sage)' : '');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => navObserver.observe(s));
+
+  // Credentials toggle
+  const credToggle = document.getElementById('credToggle');
+  const credMore = document.getElementById('credMore');
+  if (credToggle && credMore) {
+    credToggle.addEventListener('click', () => {
+      const open = credMore.hasAttribute('hidden');
+      if (open) credMore.removeAttribute('hidden'); else credMore.setAttribute('hidden', '');
+      credToggle.setAttribute('aria-expanded', open);
+      credToggle.querySelector('.cred-toggle-label').textContent = open ? 'Show fewer credentials' : 'Show all credentials';
+      credToggle.querySelector('.cred-toggle-icon').textContent = open ? '–' : '+';
+    });
+  }
+
+  // Communication work (rendered from JSON)
+  (function () {
+    const d = JSON.parse(document.getElementById('work-data').textContent);
+    const ic = {'Web':'🌐','Publications & design':'🎨','Digital & social':'📱','Events & training':'🎤','Analytics':'📊'};
+    const esc = t => String(t).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+    document.getElementById('statStrip').innerHTML = d.stats.map(x => `<div><div class="n">${esc(x[0])}</div><div class="l">${esc(x[1])}</div></div>`).join('');
+    const grid = document.getElementById('workGrid'), bar = document.getElementById('workFilters');
+    grid.innerHTML = d.items.map(i => `<article class="work-card" data-tag="${esc(i.tag)}">
+      <div class="work-top"><span class="work-tag"><span class="ico">${ic[i.tag] || ''}</span>${esc(i.tag)}</span><span class="work-when">${esc(i.when)}</span></div>
+      <h3 class="work-title">${esc(i.title)}</h3><div class="work-org">${esc(i.org)}</div>
+      <div class="work-row"><b>Role:</b> ${esc(i.role)}</div>
+      <div class="work-row"><b>Audience:</b> ${esc(i.aud)}</div>
+      <div class="work-row"><b>Tools:</b> ${esc(i.tools)}</div>
+      <ul>${i.did.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+      <div class="work-result"><b>Result:</b> ${esc(i.res)}${i.note ? `<div class="work-note">${esc(i.note)}</div>` : ''}</div>
+    </article>`).join('');
+    const cards = [...grid.querySelectorAll('.work-card')], LIMIT = 6;
+    let cur = 'All', all = false;
+    const more = document.createElement('button'); more.type = 'button'; more.className = 'more-btn';
+    grid.after(more);
+    const apply = () => {
+      cards.forEach((c, i) => { c.hidden = cur === 'All' ? (!all && i >= LIMIT) : c.dataset.tag !== cur; });
+      more.hidden = cur !== 'All' || cards.length <= LIMIT;
+      more.textContent = all ? 'Show fewer' : 'Show all ' + cards.length + ' examples';
+    };
+    more.addEventListener('click', () => { all = !all; apply(); });
+    ['All'].concat(d.tags).forEach((t, k) => {
+      const b = document.createElement('button'); b.type = 'button';
+      b.innerHTML = (ic[t] ? '<span class="ico">' + ic[t] + '</span>' : '') + esc(t); if (!k) b.className = 'on';
+      b.addEventListener('click', () => {
+        cur = t; bar.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); apply();
+      });
+      bar.appendChild(b);
+    });
+    apply();
+  })();
+</script>
+
+</body>
+</html>
