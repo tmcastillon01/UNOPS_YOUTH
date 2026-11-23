@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data story · Timothy Castillon</title>
+  <!-- Same type system as the other samples: Montserrat, DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg-paper:#F7F9F8;--sage:#0F2942;--sage-lt:#E8EEF3;--gold:#E08E26;--gold-lt:#F6C376;--nav-h:56px;--radius:8px;--border:#DCE3E0;--bg-card:#E8EEF3;
+ --ink-primary:#0B1420;--ink-secondary:#556170;--ink-muted:#6B7886;--border-hairline:rgba(11,20,32,.14);
+ --youth-cobalt:#1D5D8F;--climate-emerald:#2F7D63;--voice-terracotta:#B8332A;--digital-amber:#D9822B;--compass-teal:#2B8A8E;--slate-neutral:#435768;--solar-gold:#F6C376;--beam-copper:#E08E26;
+ --navy:#0F2942;--navy-lt:#E8EEF3;--amber:#E08E26;--amber-dk:#9A5B07;--amber-lt:#F6C376;--green:#1B6B4A;--green-lt:#E3F0E9;--line:#DCE3E0;--muted:#556170;--ink:#0B1420;--fog:#F7F9F8;--r:8px;--wrap:1120px;
+ --fh:'Montserrat',system-ui,sans-serif;--fb:'DM Sans',system-ui,sans-serif}
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-paper);
+      color: var(--ink-primary);
+      font-family: var(--fb);
+      padding-top: var(--nav-h);
+      line-height: 1.5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── nav ───────────────────────────── */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--nav-h);display:flex;align-items:center;gap:1.2rem;padding:0 max(5vw,calc((100vw - var(--wrap))/2));background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;font-family:var(--fh);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);white-space:nowrap}
+.mark{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--navy);color:#fff;font-family:var(--fh);font-weight:800;font-size:.82rem;letter-spacing:0;box-shadow:0 3px 0 var(--amber);margin-bottom:3px}
+.series{display:flex;gap:.25rem;margin-left:auto;list-style:none}
+.series a{display:block;padding:.35rem .7rem;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;color:var(--muted);white-space:nowrap}
+.series a b{font-family:var(--fh);font-weight:800;color:var(--amber-dk);margin-right:.3rem}
+.series a:hover{background:var(--navy-lt);color:var(--navy)}
+.series a[aria-current=page]{background:var(--navy);color:#fff}
+.series a[aria-current=page] b{color:var(--amber-lt)}
+.back{font-size:.78rem;font-weight:700;text-decoration:none;color:var(--navy);padding:.4rem .9rem;border:1px solid var(--navy);border-radius:var(--r);white-space:nowrap}
+.back:hover{background:var(--navy);color:#fff}
+@media(max-width:860px){.brand span:last-child{display:none}.series a{padding:.35rem .5rem}.series a span{display:none}}
+@media(max-width:480px){.back{display:none}.series{margin-left:auto}}
+
+/* ── footer ────────────────────────── */
+footer{background:var(--navy);color:rgba(255,255,255,.72);padding:1rem max(5vw,calc((100vw - var(--wrap))/2)) calc(1.4rem + env(safe-area-inset-bottom));font-size:.8rem;display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;align-items:center}
+footer p{max-width:70ch}footer b{color:var(--amber-lt)}
+footer nav{display:flex;gap:1.2rem}footer a{color:#fff;font-weight:700;text-decoration:none}footer a:hover{color:var(--amber-lt)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:300;background:var(--navy);color:#fff;font-size:.82rem;padding:.55rem 1rem;border-radius:var(--r);border-bottom:3px solid var(--amber);opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+
+.page-shell {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 2.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .page-shell {
+        padding: 2.75rem 3rem 3.25rem;
+      }
+    }
+
+    .header-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    @media (min-width: 1024px) {
+      .header-grid {
+        grid-template-columns: 1.05fr 1.15fr;
+        gap: 2.5rem;
+        align-items: start;
+      }
+    }
+
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-secondary);
+      margin-bottom: 0.55rem;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--beam-copper);
+    }
+
+    h1.main-title {
+      font-family: var(--fh); font-weight: 800;
+      font-size: clamp(2rem, 3.6vw, 3.15rem);
+      
+      line-height: 1.06;
+      letter-spacing: 0;
+      color: var(--ink-primary);
+    }
+
+    .subtitle {
+      font-family: var(--fh); font-weight: 800;
+      font-style: italic;
+      font-size: clamp(1.08rem, 1.55vw, 1.38rem);
+      color: var(--ink-secondary);
+      margin-top: 0.5rem;
+      line-height: 1.32;
+    }
+
+    .header-narrative {
+      font-size: 0.84rem;
+      color: #0b1420;
+      line-height: 1.58;
+    }
+
+    .plain-lead { font-size: 0.95rem; color: var(--ink-primary); line-height: 1.6; }
+
+    .intro3 { display: grid; gap: .7rem; margin-top: .8rem; }
+    .intro3 div { display: flex; gap: .7rem; align-items: flex-start; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: .7rem .9rem; font-size: .9rem; }
+    .intro3 i { flex: none; width: 12px; height: 12px; border-radius: 50%; margin-top: .35rem; }
+    .intro3 b { display: block; font-weight: 600; }
+    .intro3 span { color: #3b434d; }
+
+    .oneline {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--ink-primary);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius);
+      padding: .9rem 1.1rem;
+      margin: 1.2rem 0 1rem;
+    }
+
+    .ans3 {
+      display: grid;
+      gap: .9rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-bottom: .4rem;
+    }
+
+    .ans {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--gold);
+      border-radius: 12px;
+      padding: 1.2rem 1.3rem;
+    }
+
+    .ans .q {
+      font-family: var(--fh); font-weight: 700;
+      font-size: .7rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--amber-dk);
+    }
+
+    .ans .big {
+      font-family: var(--fh); font-weight: 800;
+      font-size: clamp(2.4rem, 9vw, 3.2rem);
+      line-height: 1.05;
+      color: var(--sage);
+      margin: .3rem 0 .1rem;
+    }
+
+    .ans .what {
+      font-size: .95rem;
+      color: #3b434d;
+      margin-bottom: .8rem;
+    }
+
+    .bar {
+      display: flex;
+      height: 14px;
+      border-radius: 7px;
+      overflow: hidden;
+      gap: 2px;
+    }
+
+    .bar i { display: block; }
+
+    .bl {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .2rem .8rem;
+      font-size: .74rem;
+      color: #3b434d;
+      margin-top: .5rem;
+    }
+
+    .trow {
+      display: grid;
+      grid-template-columns: 6.4rem 1fr 3.2rem;
+      align-items: center;
+      gap: .5rem;
+      font-size: .76rem;
+      margin-top: .35rem;
+      width: 100%;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      color: #3b434d;
+      padding: .15rem 0;
+    }
+
+    .trow span.b { display: block; height: 12px; border-radius: 6px; }
+    .trow:hover b { color: var(--sage); }
+
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      margin-top: 1.4rem;
+    }
+
+    .controls-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .btn-synthesize {
+      appearance: none;
+      background: #FFFFFF;
+      color: var(--ink-primary);
+      border: 1px solid var(--sage);
+      border-radius: var(--radius);
+      padding: 0.52rem 1.15rem;
+      font-family: var(--fb);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.48rem;
+      box-shadow: 0 2px 8px rgba(11, 20, 32, 0.05);
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .btn-synthesize:hover {
+      border-color: var(--ink-primary);
+      transform: translateY(-1px);
+      box-shadow: 0 5px 14px rgba(11, 20, 32, 0.09);
+    }
+
+    .btn-synthesize.is-active {
+      background: var(--sage);
+      color: #fff;
+      border-color: var(--sage);
+    }
+
+    .ssp-filter-group {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--sage-lt);
+      padding: 0.25rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-hairline);
+    }
+
+    .ssp-pill {
+      appearance: none;
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      padding: 0.3rem 0.68rem;
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.69rem;
+      color: var(--ink-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .ssp-pill:hover {
+      color: var(--ink-primary);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .ssp-pill.active {
+      background: var(--sage);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 1px 4px rgba(11, 20, 32, 0.08);
+    }
+
+    .status-caption {
+      font-family: var(--fh); font-weight: 800;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--ink-secondary);
+    }
+
+    .explain-row { display: grid; gap: .8rem; margin-top: .9rem; }
+    @media (min-width: 800px) { .explain-row { grid-template-columns: 1fr 1fr; } }
+    .note { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: .8rem 1rem; font-size: .84rem; line-height: 1.6; color: #3b434d; }
+    .note b { color: var(--ink-primary); }
+
+    .swipe { display: none; font-size: .78rem; color: var(--ink-secondary); margin: .3rem 0; }
+    @media (max-width: 760px) { .swipe { display: block; } .controls-bar .ssp-filter-group { width: 100%; } }
+
+    .observatory-stage {
+      position: relative;
+      width: 100%;
+      margin: 1rem 0 0.9rem;
+      border-radius: 16px;
+      overflow-x: auto;
+    }
+
+    canvas#observatoryCanvas {
+      display: block;
+      width: 100%;
+      min-width: 760px;
+      height: auto;
+      cursor: crosshair;
+      touch-action: manipulation;
+    }
+
+    .keystrip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem 1.1rem;
+      font-size: .78rem;
+      color: #3b434d;
+      align-items: center;
+      margin: -.4rem 0 1rem;
+    }
+
+    .keystrip span { display: inline-flex; align-items: center; gap: .35rem; }
+    .keystrip i { width: 10px; height: 14px; clip-path: polygon(50% 0, 100% 65%, 50% 100%, 0 65%); display: inline-block; }
+
+    .infopanel {
+      background: var(--sage);
+      color: #fff;
+      border-radius: 12px;
+      border-left: 5px solid var(--gold);
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.8rem;
+      min-height: 104px;
+    }
+
+    .infopanel .k { font-family: var(--fh); font-weight: 700; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-lt); }
+    .infopanel .t { font-family: var(--fh); font-weight: 800; font-size: 1.25rem; margin: .15rem 0; }
+    .infopanel .m { font-family: var(--fh); font-weight: 700; font-size: .78rem; color: #d6e1e8; }
+    .infopanel .d { font-size: .84rem; color: rgba(255,255,255,.82); margin-top: .3rem; line-height: 1.55; }
+
+    .editorial-tooltip {
+      position: fixed;
+      z-index: 50;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.16s ease, transform 0.16s ease;
+      background: rgba(11, 20, 32, 0.96);
+      color: #F7F9F8;
+      padding: 0.75rem 0.95rem;
+      border-radius: 10px;
+      max-width: 295px;
+      box-shadow: 0 12px 28px rgba(15, 22, 28, 0.22);
+      border: 1px solid rgba(244, 242, 238, 0.14);
+      backdrop-filter: blur(6px);
+    }
+
+    .editorial-tooltip.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tooltip-kicker {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #F6C376;
+      margin-bottom: 0.2rem;
+    }
+
+    .tooltip-title {
+      font-family: var(--fh); font-weight: 800;
+      font-size: 1.02rem;
+      font-weight: 500;
+      line-height: 1.25;
+      color: #FFFFFF;
+    }
+
+    .tooltip-metric {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.78rem;
+      color: #D6E1E8;
+      margin-top: 0.3rem;
+      padding-top: 0.3rem;
+      border-top: 1px solid rgba(244, 242, 238, 0.12);
+    }
+
+    .tooltip-desc {
+      font-size: 0.74rem;
+      color: #B8C4CC;
+      margin-top: 0.28rem;
+      line-height: 1.4;
+    }
+
+    /* Editorial Sections */
+    .blk { border-top: 1px solid var(--border-hairline); padding-top: 1.4rem; margin-bottom: 2rem; }
+    .blk h2 { font-family: var(--fh); font-weight: 800;  font-size: clamp(1.7rem, 3vw, 2.3rem); color: var(--sage); line-height: 1.1; }
+    .blk .sub { color: var(--ink-secondary); margin: .4rem 0 1.2rem; font-size: 1rem; }
+
+    .cards4 { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .c4 { background: #fff; border: 1px solid var(--border); border-top: 4px solid var(--gold); border-radius: var(--radius); padding: 1.1rem 1.2rem; transition: transform .2s, box-shadow .2s; }
+    .c4:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,33,71,.1); }
+    .c4 .n { width: 34px; height: 34px; border-radius: 50%; background: var(--sage); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-weight: 800; margin-bottom: .6rem; }
+    .c4 h3 { font-size: 1.02rem; color: var(--sage); margin-bottom: .3rem; }
+    .c4 p { font-size: .88rem; color: #3b434d; line-height: 1.6; }
+
+    /* Brand System Visual Kit Showcase Grid */
+    .brand-kit-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+    @media (min-width: 900px) {
+      .brand-kit-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .kit-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .kit-preview {
+      padding: 1.5rem;
+      background: var(--sage-lt);
+      border-bottom: 1px solid var(--border);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .kit-body { padding: 1.2rem 1.3rem; }
+    .kit-tag {
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--amber-dk);
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+    .kit-body h3 {
+      font-family: var(--fh); font-weight: 800;
+      font-size: 1.2rem;
+      
+      color: var(--sage);
+      margin-bottom: 0.45rem;
+    }
+    .kit-body p { font-size: 0.85rem; color: #3b434d; line-height: 1.58; }
+
+    /* Swatch & Typography Specimens inside Brand Kit */
+    .palette-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-bottom: 1rem;
+    }
+    .swatch-box {
+      height: 54px;
+      border-radius: 6px;
+      display: flex;
+      align-items: flex-end;
+      padding: 5px;
+      font-family: var(--fh); font-weight: 700;
+      font-size: 0.58rem;
+      color: #fff;
+      font-weight: 700;
+    }
+    .type-specimen {
+      background: #fff;
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .type-specimen .t-serif { font-family: var(--fh); font-weight: 800; font-size: 1.25rem; color: var(--sage); line-height: 1.15; }
+    .type-specimen .t-sans { font-family: var(--fb); font-size: 0.78rem; color: var(--ink-secondary); margin-top: 0.25rem; }
+    .type-specimen .t-mono { font-family: var(--fh); font-weight: 700; font-size: 0.65rem; color: var(--amber-dk); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* Print-to-Digital Collateral Mockup */
+    .collateral-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .mock-badge {
+      background: var(--sage);
+      color: #fff;
+      border-radius: 8px;
+      padding: 0.85rem;
+      border-bottom: 4px solid var(--gold);
+      box-shadow: 0 8px 20px rgba(0,33,71,0.16);
+    }
+    .mock-badge .mb-top { font-family: var(--fh); font-weight: 700; font-size: 0.58rem; letter-spacing: 0.1em; color: var(--gold-lt); text-transform: uppercase; }
+    .mock-badge .mb-name { font-family: var(--fh); font-weight: 800; font-size: 1rem; margin: 0.25rem 0 0.1rem; }
+    .mock-badge .mb-role { font-size: 0.68rem; color: rgba(255,255,255,0.8); }
+    .mock-social {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.8rem;
+      box-shadow: 0 6px 16px rgba(11,20,32,0.08);
+    }
+    .mock-social .ms-pill { display: inline-block; background: #2F7D63; color: #fff; font-family: var(--fh); font-weight: 700; font-size: 0.55rem; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; }
+    .mock-social .ms-head { font-family: var(--fh); font-weight: 800; font-size: 0.92rem; color: var(--ink-primary); margin-top: 0.35rem; line-height: 1.2; }
+    .mock-social .ms-stat { font-family: var(--fh); font-weight: 700; font-size: 0.72rem; color: var(--amber-dk); font-weight: 700; margin-top: 0.35rem; }
+
+    /* Youth-Friendly Graphic Card Preview */
+    .youth-card-mock {
+      background: #0F2942;
+      color: #fff;
+      border-radius: 10px;
+      padding: 1.1rem;
+      position: relative;
+      overflow: hidden;
+      border-left: 4px solid #2B8A8E;
+    }
+    .youth-card-mock .yc-kicker { font-family: var(--fh); font-weight: 700; font-size: 0.6rem; color: #F6C376; letter-spacing: 0.09em; text-transform: uppercase; }
+    .youth-card-mock .yc-title { font-family: var(--fh); font-weight: 800; font-size: 1.15rem; margin: 0.25rem 0 0.45rem; line-height: 1.2; }
+    .youth-card-mock .yc-bars { display: grid; gap: 5px; margin-top: 0.5rem; }
+    .youth-card-mock .yc-bar-row { display: flex; align-items: center; gap: 6px; font-size: 0.68rem; }
+    .youth-card-mock .yc-bar-fill { height: 7px; border-radius: 4px; background: #2B8A8E; }
+
+    .stats { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 1rem; }
+    .stat { background: linear-gradient(135deg, #fff 60%, #f6ecd6); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.3rem; position: relative; overflow: hidden; }
+    .stat::after { content: ''; position: absolute; left: 0; bottom: 0; height: 4px; width: 100%; background: var(--gold); transform-origin: left; transform: scaleX(0); transition: transform 1.4s ease; }
+    .stat.on::after { transform: scaleX(1); }
+    .stat strong { display: block; font-family: var(--fh); font-weight: 800;  font-size: 2.8rem; line-height: 1; color: var(--amber-dk); }
+    .stat b { display: block; color: var(--sage); margin: .3rem 0 .15rem; }
+    .stat span { font-size: .84rem; color: #3b434d; line-height: 1.5; display: block; }
+
+    .tl { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.2rem; min-height: 110px; }
+    .tl h3 { font-size: 1.25rem; color: var(--sage); margin-bottom: .25rem; font-family: var(--fh); font-weight: 800;  }
+    .tl p { font-size: .88rem; color: #3b434d; }
+    .tl.dash { border: 1.5px dashed var(--gold); }
+
+    .atlas-btn { display: inline-block; margin-top: 1.1rem; padding: .8rem 1.3rem; border: 1.5px solid var(--sage); border-radius: var(--radius); font-weight: 600; color: var(--sage); background: #fff; transition: all .2s; }
+    .atlas-btn:hover { background: var(--sage); color: #fff; }
+    .atlas-hint { font-size: .84rem; color: var(--ink-secondary); margin-top: .5rem; }
+
+    .tbl-wrap { overflow-x: auto; margin-top: 0.4rem; }
+    table.src { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 0.8rem; }
+    .src th { text-align: left; font-family: var(--fh); font-weight: 700; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase;  color: var(--sage); padding: 0.5rem 0.8rem 0.5rem 0; border-bottom: 1px solid var(--border-hairline); }
+    .src td { padding: 0.7rem 0.8rem 0.7rem 0; vertical-align: top; border-bottom: 1px solid var(--border-hairline); line-height: 1.55; color: #3b434d; }
+    .src td:first-child { color: var(--ink-primary); font-weight: 600; white-space: nowrap; }
+
+    details.srcs { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.3rem; margin-bottom: 2rem; }
+    details.srcs summary { cursor: pointer; font-weight: 600; color: var(--sage); font-size: 1.05rem; list-style: none; }
+    details.srcs summary::before { content: '▸ '; color: var(--amber-dk); }
+    details.srcs[open] summary::before { content: '▾ '; }
+    details.srcs ul { margin: .9rem 0 0 1.1rem; display: grid; gap: .5rem; font-size: .86rem; color: #3b434d; line-height: 1.55; }
+    details.srcs a { color: var(--sage); text-decoration: underline; text-underline-offset: 2px; }
+
+    .tcx { background: #F7F9F8; color: #0b1420; font-family: var(--fb); padding: 3.5rem 5vw; border-top: 1px solid #DCE3E0; line-height: 1.65; position: relative; z-index: 1; width: 100%; }
+    .tcx-wrap { max-width: 1200px; margin: 0 auto; display: grid; gap: 1.5rem; grid-template-columns: 1.35fr 1fr; align-items: start; }
+    @media (max-width: 860px) { .tcx-wrap { grid-template-columns: 1fr; } }
+    .tcx-k { font-family: var(--fh); font-weight: 700; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: #9A5B07; margin-bottom: .5rem; }
+    .tcx-note { background: #fff; border: 1px solid #DCE3E0; border-top: 3px solid #E08E26; border-radius: 8px; padding: 1.6rem 1.7rem; }
+    .tcx-note h2 { font-family: var(--fh); font-weight: 800;  font-size: 1.5rem; line-height: 1.25; margin-bottom: .9rem; color: #0b1420; }
+    .tcx-note ul { list-style: none; display: grid; gap: .75rem; }
+    .tcx-note li { position: relative; padding-left: 1.4rem; font-size: .9rem; color: #3b434d; }
+    .tcx-note li::before { content: ''; position: absolute; left: 0; top: .6em; width: .5rem; height: .5rem; border-radius: 50%; background: #E08E26; }
+    .tcx-disc { background: #0F2942; color: #fff; border-radius: 12px; border-left: 5px solid #E08E26; padding: 1.6rem 1.7rem; box-shadow: 0 16px 40px rgba(0,33,71,.18); }
+    .tcx-disc .tcx-k { color: #F6C376; }
+    .tcx-disc p { font-size: .9rem; color: rgba(255,255,255,.88); }
+    .tcx-disc p + p { margin-top: .7rem; font-size: .82rem; color: rgba(255,255,255,.7); }
+  
+.main-title{font-size:clamp(1.6rem,3.4vw,2.5rem)!important;line-height:1.1!important;text-transform:uppercase;letter-spacing:-.01em}
+.ans .big{font-size:2.6rem!important;line-height:1}
+.ans h3,.blk h2,.blk h3,.tl h3,.c4 h3{text-transform:none}
+.page-shell{padding-top:1.2rem!important;padding-bottom:1.5rem!important}
+.blk{margin-top:1.4rem!important}
+</style>
+<meta name="googlebot" content="noindex, nofollow">
+<style id="tcx-protect-css">
+  html, body { -webkit-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, select, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
+  img { -webkit-user-drag: none; user-drag: none; }
+</style>
+<script id="tcx-protect-js">
+  /* Deterrence only. It stops casual saving and copying, not a determined person. */
+  (function () {
+    var msg = 'Sample by Timothy Castillon. Copying and source download are disabled.';
+    function toast() {
+      var t = document.getElementById('tcxToast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'tcxToast'; t.setAttribute('role', 'status');
+        t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99999;background:#0F2942;color:#fff;font:500 13px/1.4 Inter,system-ui,sans-serif;padding:10px 16px;border-radius:8px;border-bottom:3px solid #E08E26;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg; t.style.opacity = '1';
+      clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = '0'; }, 2200);
+    }
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); toast(); });
+    document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+      var k = (e.key || '').toLowerCase();
+      var mod = e.ctrlKey || e.metaKey;
+      var block =
+        e.key === 'F12' ||
+        (mod && e.shiftKey && (k === 'i' || k === 'j' || k === 'c')) ||   /* DevTools */
+        (e.metaKey && e.altKey && (k === 'i' || k === 'j' || k === 'c' || k === 'u')) || /* Mac DevTools / source (Option changes the key on some layouts) */
+        (mod && (k === 'u' || k === 's' || k === 'p'));                   /* view source, save, print */
+      if (block) { e.preventDefault(); toast(); }
+    });
+  })();
+</script>
+</head>
+<body>
+  <nav class="nav" aria-label="Sample work"><a class="brand" href="../index.html" aria-label="Timothy Castillon, back to main application site"><span class="mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a><ul class="series"><li><a href="data-story.html" aria-current="page"><b>01</b><span>Data story</span></a></li><li><a href="orientation-deck.html"><b>02</b><span>Orientation deck</span></a></li><li><a href="social-package.html"><b>03</b><span>Social package</span></a></li><li><a href="content-calendar.html"><b>04</b><span>Content calendar</span></a></li></ul><a class="back" href="sample-work.html">All samples</a></nav>
+
+  <div class="page-shell">
+    <header class="header-grid">
+      <div>
+        <div class="eyebrow-tag"><span class="eyebrow-dot"></span><span>UN Youth Office · Visual Identity & Data Storytelling Sample</span></div>
+        <h1 class="main-title">Youth, Climate &<br />Global Decision-Making</h1>
+        <p class="subtitle">Three questions connecting climate risk, youth demographics, and the UN Youth Office mandate: who bears the long-term impact, who sits in the room, and how the UN Youth Compass bridges the gap.</p>
+      </div>
+      <div class="header-narrative">
+        <p class="plain-lead"><strong>Why visualize the Youth-Climate Nexus?</strong> Young people carry the longest exposure to climate and displacement risks, yet institutional policy often stays locked inside dense reports. Each circle below turns global youth and climate data into countable shapes.</p>
+        <div class="intro3">
+          <div><i style="background:#1D5D8F"></i><p><b>1 · Who carries the climate timeline?</b><span>Over 85% of the world’s 1.2 billion young people live in developing regions facing acute climate exposure.</span></p></div>
+          <div><i style="background:#B8332A"></i><p><b>2 · Who sits in decision-making rooms?</b><span>People under 30 make up half the global population, yet hold less than 3% of parliamentary seats worldwide.</span></p></div>
+          <div><i style="background:#2B8A8E"></i><p><b>3 · How does the UN Youth Compass shift participation?</b><span>Moving youth engagement from one-off consultation to co-designed governance across UN entities.</span></p></div>
+        </div>
+      </div>
+    </header>
+
+    <p class="oneline"><strong>In one line:</strong> 85% of youth live in climate-vulnerable developing regions, under-30s hold just 2.8% of global parliamentary seats, and the UN Youth Compass provides four operational pathways to turn token presence into real institutional voice.</p>
+
+    <div class="ans3">
+      <div class="ans">
+        <div class="q">Pillar 1 · Demographics & Exposure</div>
+        <h3 style="font-size:1.15rem;color:var(--sage)">Where do young people live?</h3>
+        <div class="big">85%</div>
+        <div class="what">of youth (ages 15–24) live in developing regions on the frontlines of climate change.</div>
+        <div class="bar" role="img" aria-label="Developing regions 85, High-income regions 15 percent">
+          <i style="width:85%;background:#1D5D8F"></i>
+          <i style="width:15%;background:#5FA8C8"></i>
+        </div>
+        <div class="bl"><span>Developing Regions 85%</span><span>High-Income Regions 15%</span></div>
+      </div>
+
+      <div class="ans">
+        <div class="q">Pillar 2 · Representation Gap</div>
+        <h3 style="font-size:1.15rem;color:var(--sage)">Who writes the policies?</h3>
+        <div class="big">2.8%</div>
+        <div class="what">of parliamentarians globally are under age 30, despite youth being half the world.</div>
+        <div class="bar" role="img" aria-label="Over 30 decision makers 97.2, Under 30 decision makers 2.8 percent">
+          <i style="width:97%;background:#435768"></i>
+          <i style="width:3%;background:#B8332A"></i>
+        </div>
+        <div class="bl"><span>Age 30+ 97.2%</span><span>Under 30 2.8%</span></div>
+      </div>
+
+      <div class="ans">
+        <div class="q">Pillar 3 · UN Youth Compass</div>
+        <h3 style="font-size:1.15rem;color:var(--sage)">Levels of Youth Engagement</h3>
+        <div class="big">4 Shifts</div>
+        <div class="what">from passive attendance to institutional co-ownership. Tap a level to isolate it below.</div>
+        <button class="trow" data-ssp="inform" type="button"><b>1 · Inform</b><span class="b" style="width:28%;background:#435768"></span><b>Access</b></button>
+        <button class="trow" data-ssp="consult" type="button"><b>2 · Consult</b><span class="b" style="width:52%;background:#D9822B"></span><b>Input</b></button>
+        <button class="trow" data-ssp="partner" type="button"><b>3 · Partner</b><span class="b" style="width:76%;background:#2F7D63"></span><b>Co-Design</b></button>
+        <button class="trow" data-ssp="lead" type="button"><b>4 · Co-Lead</b><span class="b" style="width:100%;background:#2B8A8E"></span><b>Mandate</b></button>
+      </div>
+    </div>
+
+    <div class="controls-bar">
+      <div class="controls-left">
+        <button id="synthesizeBtn" class="btn-synthesize" type="button" aria-pressed="false"><span>✦ Merge into one Youth-Climate System</span></button>
+        <div class="ssp-filter-group" role="group" aria-label="Highlight an engagement tier">
+          <button class="ssp-pill active" data-ssp="all" type="button">All tiers</button>
+          <button class="ssp-pill" data-ssp="inform" type="button">1 · Inform</button>
+          <button class="ssp-pill" data-ssp="consult" type="button">2 · Consult</button>
+          <button class="ssp-pill" data-ssp="partner" type="button">3 · Partner</button>
+          <button class="ssp-pill" data-ssp="lead" type="button">4 · Co-Lead</button>
+        </div>
+      </div>
+      <span id="statusCaption" class="status-caption">Three separate circles · 280 shapes</span>
+    </div>
+
+    <div class="explain-row">
+      <div class="note" id="modeNote"><b>Separate view.</b> Each question has its own circle. Press <b>Merge</b> to pull all 280 shapes into one system, showing how climate demographics, governance gaps, and UN Youth Compass mechanisms connect.</div>
+      <div class="note" id="sspNote"><b>What is the UN Youth Compass?</b> Developed by the UN Youth Office, it is the system-wide operational guide helping UN entities move beyond symbolic youth panels toward structured, accountable youth participation in policy and climate action.</div>
+    </div>
+
+    <p class="swipe">Swipe sideways to explore the full picture →</p>
+    <main class="observatory-stage">
+      <canvas id="observatoryCanvas" role="img" aria-label="Interactive visualization of youth demographics, political representation gap, and the four operational engagement tiers of the UN Youth Compass."></canvas>
+    </main>
+
+    <div class="keystrip" aria-label="Key">
+      <span><i style="background:#1D5D8F"></i>Developing Regions Youth (85%)</span>
+      <span><i style="background:#B8332A"></i>Under-30 Parliamentarians (2.8%)</span>
+      <span><i style="background:#2F7D63"></i>Climate & Co-Design Action</span>
+      <span><i style="background:#2B8A8E"></i>UN Youth Compass Mandate</span>
+      <span>1 shape = 1% share or 1 engagement unit</span>
+      <span>🛰 Small nodes = UNOPS / UN Youth Office digital infrastructure</span>
+    </div>
+
+    <div class="infopanel" id="infoPanel" aria-live="polite">
+      <div class="k" id="ipK">Hover or tap anything</div>
+      <div class="t" id="ipT">Try the blue demographic ring on the left</div>
+      <div class="m" id="ipM">Each shape opens its metric and context here</div>
+      <div class="d" id="ipD">Pointing at any prism, core, or connecting beam displays the underlying UN data and communication takeaway right here.</div>
+    </div>
+
+    <!-- VISUAL IDENTITY & BRAND SYSTEM SHOWCASE -->
+    <section class="blk" aria-labelledby="h-brand">
+      <h2 id="h-brand">Visual Identity & Brand System Pieces</h2>
+      <p class="sub">How this visual language scales across a multi-asset UN Youth Office campaign—from Canva/Adobe templates to print event collateral and youth-friendly social cards.</p>
+
+      <div class="brand-kit-grid">
+        <!-- 1. Multi-Asset Campaign Kit -->
+        <div class="kit-card">
+          <div class="kit-preview">
+            <div class="palette-strip" aria-label="Campaign color palette">
+              <div class="swatch-box" style="background:#0F2942;">#0F2942</div>
+              <div class="swatch-box" style="background:#1D5D8F;">#1D5D8F</div>
+              <div class="swatch-box" style="background:#2B8A8E;">#2B8A8E</div>
+              <div class="swatch-box" style="background:#2F7D63;">#2F7D63</div>
+              <div class="swatch-box" style="background:#E08E26;">#E08E26</div>
+            </div>
+            <div class="type-specimen">
+              <div class="t-serif">Montserrat ExtraBold · Headlines</div>
+              <div class="t-sans">DM Sans · High-legibility body copy, labels and sources</div>
+              <div class="t-mono">Navy, amber and green · One palette across all four samples</div>
+            </div>
+          </div>
+          <div class="kit-body">
+            <span class="kit-tag">01 · Multi-Asset Campaign Kit</span>
+            <h3>Color, Typography & Reusable Templates</h3>
+            <p>Built as modular Adobe Creative Cloud & Canva brand kits. Pairs authoritative UN navy and warm editorial paper with high-contrast teal and emerald accents so regional offices and youth contributors can localize assets without breaking visual cohesion.</p>
+          </div>
+        </div>
+
+        <!-- 2. Print-to-Digital Event Collateral -->
+        <div class="kit-card">
+          <div class="kit-preview">
+            <div class="collateral-stack">
+              <div class="mock-badge">
+                <div class="mb-top">UN Youth Forum · 2026</div>
+                <div class="mb-name">Youth Delegate Pass</div>
+                <div class="mb-role">Climate & Policy Track · Geneva / NY</div>
+              </div>
+              <div class="mock-social">
+                <span class="ms-pill">Instagram / LinkedIn</span>
+                <div class="ms-head">Why 85% of youth sit on climate frontlines</div>
+                <div class="ms-stat">Swipe for 4 policy shifts →</div>
+              </div>
+            </div>
+          </div>
+          <div class="kit-body">
+            <span class="kit-tag">02 · Print-to-Digital Event Collateral</span>
+            <h3>Consistent Signage, Decks & Live Event Kits</h3>
+            <p>Unified grid system connecting physical forum signage, delegate badges, and executive briefing decks for the Assistant Secretary-General with real-time social quote cards and vertical video lower-thirds.</p>
+          </div>
+        </div>
+
+        <!-- 3. Accessible, Youth-Friendly Graphics -->
+        <div class="kit-card">
+          <div class="kit-preview">
+            <div class="youth-card-mock">
+              <div class="yc-kicker">UN Youth Compass · Plain-Language Explainer</div>
+              <div class="yc-title">Turning Youth Consultation into Co-Leadership</div>
+              <div class="yc-bars">
+                <div class="yc-bar-row"><span style="width:68px;">Consultation</span><div class="yc-bar-fill" style="width:45%;background:#D9822B;"></div></div>
+                <div class="yc-bar-row"><span style="width:68px;">Co-Design</span><div class="yc-bar-fill" style="width:75%;background:#2F7D63;"></div></div>
+                <div class="yc-bar-row"><span style="width:68px;">Co-Leadership</span><div class="yc-bar-fill" style="width:100%;background:#2B8A8E;"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="kit-body">
+            <span class="kit-tag">03 · Accessible, Youth-Friendly Graphics</span>
+            <h3>Data Visualizations Built for Mobile Scrollers</h3>
+            <p>Replaces dense policy PDFs with scannable visual cards, high-contrast WCAG-compliant color pairings, and clear alt-text hierarchies designed for Instagram carousels, TikTok explainers, and Threads.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW UNOPS & THE UN YOUTH OFFICE OPERATIONALIZE THIS -->
+    <section class="blk" aria-labelledby="h-made">
+      <h2 id="h-made">How UNOPS & the UN Youth Office Deliver Impact</h2>
+      <p class="sub">Bridging operational execution under UNOPS DSIP with system-wide youth advocacy under GA Resolution 76/306.</p>
+      <div class="cards4">
+        <div class="c4"><div class="n">1</div><h3>Operational Backbone</h3><p>UNOPS DSIP provides agile project management, digital infrastructure, and global staffing to execute the UN Youth Office mandate.</p></div>
+        <div class="c4"><div class="n">2</div><h3>System-Wide Coherence</h3><p>Aligning youth strategies across UN agencies, climate negotiations, and peacebuilding processes through the UN Youth Compass.</p></div>
+        <div class="c4"><div class="n">3</div><h3>Youth-Centered Storytelling</h3><p>Translating institutional milestones and ASG missions into accessible visual narratives across Instagram, TikTok, LinkedIn, and X.</p></div>
+        <div class="c4"><div class="n">4</div><h3>Two-Way Accountability</h3><p>Tracking engagement metrics and regional feedback so youth voices directly inform UN policy rather than remaining decorative.</p></div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong data-to="1.2" data-dec="1">1.2B</strong><b>young people globally</b><span>The largest youth generation in history, aged 15–24.</span></div>
+        <div class="stat"><strong data-to="85" data-pct="1">85%</strong><b>in developing regions</b><span>Where climate vulnerability and adaptation needs are highest.</span></div>
+        <div class="stat"><strong data-to="193">193</strong><b>Member States</b><span>Mandating system-wide youth coordination via GA Resolution 76/306.</span></div>
+      </div>
+    </section>
+
+    <!-- CAMPAIGN & EDITORIAL ROLLOUT ROADMAP -->
+    <section class="blk" aria-labelledby="h-now">
+      <h2 id="h-now">From Brand Kit to Global Rollout</h2>
+      <p class="sub">How a unified visual identity powers key UN Youth Office advocacy moments across digital platforms and Drupal web hubs.</p>
+      <div class="cards4">
+        <div class="tl"><h3>Phase 01 · Identity</h3><p>Establish modular Canva & Adobe templates, icon libraries, and accessibility rules.</p></div>
+        <div class="tl"><h3>Phase 02 · Drupal Hub</h3><p>Structure downloadable toolkits and interactive explainers on the UN Youth Office web portal.</p></div>
+        <div class="tl"><h3>Phase 03 · Campaigns</h3><p>Deploy multi-platform social kits for UN Youth Compass, Mental Health, and Young Leaders for SDGs.</p></div>
+        <div class="tl dash"><h3>Phase 04 · Analytics</h3><p>Track reach, saves, and youth engagement across regions to refine visual storytelling.</p></div>
+      </div>
+
+      <details class="srcs" style="margin-top:1.4rem">
+        <summary>How this visual system adapts across audiences & channels</summary>
+        <div class="tbl-wrap"><table class="src">
+          <thead><tr><th>Channel / Format</th><th>Visual Approach</th><th>Core Message</th><th>Accessibility & Brand Check</th></tr></thead>
+          <tbody>
+            <tr><td>Instagram & LinkedIn Carousels</td><td>Modular 4:5 cards using the warm paper & navy system with step-by-step data bars.</td><td>Breaks down one Youth Compass pillar or climate-youth stat per slide.</td><td>Minimum 16pt equivalent body text; full alt-text descriptions on every slide.</td></tr>
+            <tr><td>TikTok, Reels & X / Threads</td><td>High-contrast vertical motion graphics and punchy single-stat quote cards.</td><td>Amplifies young leaders’ voices from field missions and high-level UN forums.</td><td>Burned-in captions with high-contrast background pills; concise plain language.</td></tr>
+            <tr><td>Drupal Knowledge Portal</td><td>Clean editorial landing pages pairing interactive charts with downloadable PDF toolkits.</td><td>Serves as the central home for the UN Youth Compass and policy guidance.</td><td>Structured metadata, fast-loading SVG/Canvas assets, and clear CC attribution.</td></tr>
+            <tr><td>Executive Decks & Event Signage</td><td>Print-ready vector layouts matching digital campaign typography and color tokens.</td><td>Supports Assistant Secretary-General missions, bilateral briefings, and youth forums.</td><td>Strict grid margins and scalable vector logos for both screens and banners.</td></tr>
+          </tbody>
+        </table></div>
+      </details>
+    </section>
+
+    <details class="srcs">
+      <summary>Sources and data references</summary>
+      <ul>
+        <li>Youth Demographics (1.2 billion youth aged 15–24; ~85% residing in developing regions): <a href="https://www.un.org/en/global-issues/youth" target="_blank" rel="noopener">United Nations Global Issues: Youth</a> & UN DESA World Youth Report.</li>
+        <li>Youth Political Representation (~2.8% of parliamentarians worldwide under age 30): <a href="https://www.ipu.org/our-impact/youth-empowerment" target="_blank" rel="noopener">Inter-Parliamentary Union (IPU) Youth Participation Report</a>.</li>
+        <li>Mandate & Structure of the United Nations Youth Office: <a href="https://documents.un.org/doc/undoc/gen/n22/588/29/pdf/n2258829.pdf" target="_blank" rel="noopener">UN General Assembly Resolution 76/306</a>.</li>
+        <li>Climate Exposure & Intergenerational Equity: IPCC AR6 Synthesis Report & UNICEF Children’s Climate Risk Index.</li>
+        <li>Independent visual identity and communications sample created by Timothy Castillon for the UNOPS Communications Officer (Graphic Design & Social Media) application.</li>
+      </ul>
+    </details>
+  </div>
+
+  <section class="tcx" aria-labelledby="tcxHeading">
+    <div class="tcx-wrap">
+      <div class="tcx-note">
+        <p class="tcx-k">Process note</p>
+        <h2 id="tcxHeading">How I built this sample</h2>
+        <ul>
+          <li><strong>Design System Continuity:</strong> Built on the same design system as the other three samples (Montserrat and DM Sans; navy, amber and green) to demonstrate how complex UN mandates can be made visually approachable for young audiences.</li>
+          <li><strong>Interactive Data Storytelling:</strong> Uses HTML5 Canvas to render 280 countable geometric prisms that smoothly morph between three standalone questions and a unified Youth-Climate system.</li>
+          <li><strong>End-to-End Campaign Thinking:</strong> Connects high-level data visualization directly to practical deliverables required in the UN Youth Office role—Canva/Adobe templates, event collateral, Drupal publishing, and mobile-first social formats.</li>
+        </ul>
+      </div>
+      <aside class="tcx-disc" role="note" aria-label="Disclaimer">
+        <p class="tcx-k">Disclaimer</p>
+        <p>Prepared as an <strong>independent sample for a job application</strong> to the UNOPS Development and Special Initiatives Portfolio (Communications Officer – Graphic Design & Social Media, supporting the United Nations Youth Office).</p>
+        <p>This page is independent portfolio work by Timothy Castillon. It is not an official UNOPS or United Nations publication and has not been reviewed or endorsed by either organization.</p>
+      </aside>
+    </div>
+  </section>
+
+  <footer><p><b>&copy; 2026 Timothy Earl Mateo Castillon.</b> Independent sample prepared for the Communications Officer (Graphic Design &amp; Social Media) role. Not official United Nations Youth Office or UNOPS material; no UN or UNOPS logo is used.</p><nav aria-label="Next sample"><a href="orientation-deck.html">Orientation deck &rarr;</a></nav></footer>
+
+  <div id="tooltip" class="editorial-tooltip" role="tooltip">
+    <div id="tooltipKicker" class="tooltip-kicker"></div>
+    <div id="tooltipTitle" class="tooltip-title"></div>
+    <div id="tooltipMetric" class="tooltip-metric"></div>
+    <div id="tooltipDesc" class="tooltip-desc"></div>
+  </div>
+
+  <script>
+    (function () {
+      const canvas = document.getElementById('observatoryCanvas');
+      const ctx = canvas.getContext('2d');
+
+      const synthesizeBtn = document.getElementById('synthesizeBtn');
+      const statusCaption = document.getElementById('statusCaption');
+      const sspPills = document.querySelectorAll('.ssp-pill');
+
+      const tooltipEl = document.getElementById('tooltip');
+      const tooltipKicker = document.getElementById('tooltipKicker');
+      const tooltipTitle = document.getElementById('tooltipTitle');
+      const tooltipMetric = document.getElementById('tooltipMetric');
+      const tooltipDesc = document.getElementById('tooltipDesc');
+
+      const LOGICAL_W = 1280;
+      const LOGICAL_H = 680;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      let isSynthesized = false;
+      let synthProgress = 0;
+      let activeSspFilter = 'all';
+      let hoveredEntity = null;
+      let animTime = 0;
+
+      const PILLARS = [
+        {
+          id: 'demographics',
+          kicker: 'PILLAR 1 · UN DESA YOUTH DATA',
+          title: 'Where do young people live?',
+          subtitle: '1.2 billion youth globally (ages 15–24)',
+          metricSummary: '85% Developing Regions · 15% High-Income Regions',
+          description: 'The vast majority of the world’s youth live in developing economies experiencing the sharpest climate and displacement pressures.',
+          cx: 330,
+          cy: 255,
+          coreRadius: 48,
+          coreLabel: '1.2B',
+          coreSub: 'Youth 15–24',
+          labelAlign: 'center',
+          labelOffset: { x: 0, y: -185 },
+          rings: [
+            {
+              counts: [24, 34, 42],
+              segments: [
+                { key: 'developing', label: 'Developing Regions Youth', count: 85, color: '#1D5D8F', unitText: '1% of global youth (~12 million young people)', citation: 'UN DESA World Youth Report: ~85% of the world’s 1.2 billion young people reside in developing regions.' },
+                { key: 'developed', label: 'High-Income Regions Youth', count: 15, color: '#5FA8C8', unitText: '1% of global youth (~12 million young people)', citation: 'UN DESA World Youth Report: ~15% of young people aged 15–24 reside in high-income countries.' }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'representation',
+          kicker: 'PILLAR 2 · IPU GOVERNANCE DATA',
+          title: 'Who writes the policies?',
+          subtitle: 'Share of global parliamentary seats by age',
+          metricSummary: '97.2% Age 30+ · 2.8% Under Age 30',
+          description: 'Despite representing roughly half the global population, young people under 30 hold less than 3% of national parliamentary seats.',
+          cx: 950,
+          cy: 265,
+          coreRadius: 41,
+          coreLabel: '2.8%',
+          coreSub: 'Under 30',
+          labelAlign: 'center',
+          labelOffset: { x: 0, y: -195 },
+          rings: [
+            {
+              counts: [24, 34, 42],
+              segments: [
+                { key: 'over30', label: 'Parliamentarians Age 30+', count: 97, color: '#435768', unitText: '1% of national parliamentary seats globally', citation: 'Inter-Parliamentary Union (IPU): Over 97% of global parliamentary seats are held by representatives aged 30 and older.' },
+                { key: 'under30', label: 'Parliamentarians Under 30', count: 3, color: '#B8332A', unitText: '1% of national parliamentary seats globally', citation: 'Inter-Parliamentary Union (IPU): Only ~2.8% of parliamentarians worldwide are under the age of 30.' }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'compass',
+          kicker: 'PILLAR 3 · UN YOUTH COMPASS FRAMEWORK',
+          title: 'How do we close the gap?',
+          subtitle: 'Four operational shifts toward meaningful youth engagement',
+          metricSummary: 'Inform · Consult · Partner · Co-Lead',
+          description: 'The UN Youth Compass equips UN entities to move from one-way information sharing to genuine youth co-leadership in decisions.',
+          cx: 640,
+          cy: 485,
+          coreRadius: 34,
+          coreLabel: '76/306',
+          coreSub: 'UN Mandate',
+          labelAlign: 'left',
+          labelOffset: { x: -600, y: 85 },
+          isMultiBand: true,
+          bands: [
+            { sspKey: 'inform', label: 'Tier 1 · Inform (Accessible Knowledge)', valueText: 'Baseline Access', count: 12, radius: 56, color: '#435768', citation: 'UN Youth Compass: Translating UN processes and climate science into accessible, youth-friendly formats.' },
+            { sspKey: 'consult', label: 'Tier 2 · Consult (Structured Youth Input)', valueText: 'Active Listening', count: 18, radius: 78, color: '#D9822B', citation: 'UN Youth Compass: Creating inclusive feedback loops that reach marginalized and climate-affected youth.' },
+            { sspKey: 'partner', label: 'Tier 3 · Partner (Co-Designed Programs)', valueText: 'Joint Action', count: 22, radius: 100, color: '#2F7D63', citation: 'UN Youth Compass: Collaborating with youth-led networks to co-design campaigns, toolkits, and SDG initiatives.' },
+            { sspKey: 'lead', label: 'Tier 4 · Co-Lead (Institutional Voice)', valueText: 'Shared Mandate', count: 28, radius: 122, color: '#2B8A8E', citation: 'UN Youth Compass & GA Res. 76/306: Embedding youth leadership directly within UN governance and policy rooms.' }
+          ]
+        }
+      ];
+
+      const FLUX_BEAMS = [
+        { id: 'beam-demo-rep', p0: { x: 472, y: 185 }, p1: { x: 640, y: 105 }, p2: { x: 812, y: 192 }, quote: 'Most affected by climate, least represented in policy', textOffsetY: -12, citation: 'Connecting UN DESA youth demographics with IPU parliamentary representation data.' },
+        { id: 'beam-demo-compass', p0: { x: 375, y: 398 }, p1: { x: 425, y: 475 }, p2: { x: 492, y: 492 }, quote: 'Accessible design turns data into youth agency', textOffsetY: 18, citation: 'UN Youth Office Communications Strategy: Meeting young people where they are with clear visual storytelling.' },
+        { id: 'beam-rep-compass', p0: { x: 788, y: 492 }, p1: { x: 858, y: 472 }, p2: { x: 908, y: 398 }, quote: 'UN Youth Compass embeds youth into UN decisions', textOffsetY: 18, citation: 'UN General Assembly Resolution 76/306: Advancing system-wide coordination and meaningful youth participation.' }
+      ];
+
+      const PROBES = [
+        { id: 'probe-unops', label: 'UNOPS DSIP Delivery', kicker: 'OPERATIONAL PARTNER', metric: 'Project Management, Systems & Staffing', desc: 'UNOPS Development and Special Initiatives Portfolio operationalizes activities, digital infrastructure, and global communications for the UN Youth Office.', baseX: 150, baseY: 460, orbitRx: 16, orbitRy: 10, speed: 0.5, phase: 5.2 },
+        { id: 'probe-drupal', label: 'UN Youth Compass Hub', kicker: 'DIGITAL INFRASTRUCTURE', metric: 'Drupal CMS & Multi-Channel Rollout', desc: 'Centralized knowledge repository and campaign hub connecting youth networks, Member States, and UN agencies.', baseX: 640, baseY: 282, orbitRx: 22, orbitRy: 11, speed: 0.6, phase: 2.4 }
+      ];
+
+      const allPrisms = [];
+
+      function buildPrisms() {
+        allPrisms.length = 0;
+
+        [PILLARS[0], PILLARS[1]].forEach((pillar, pIdx) => {
+          const ringDef = pillar.rings[0];
+          const unitList = [];
+          ringDef.segments.forEach((seg) => {
+            for (let i = 0; i < seg.count; i++) unitList.push(seg);
+          });
+
+          let cursor = 0;
+          ringDef.counts.forEach((countInRing, rIdx) => {
+            const radius = pillar.coreRadius + 22 + rIdx * 23;
+            const step = (Math.PI * 2) / countInRing;
+            const startAngle = -Math.PI / 2 + (rIdx % 2 === 1 ? step / 2 : 0);
+
+            for (let i = 0; i < countInRing; i++) {
+              const seg = unitList[cursor++];
+              const theta = startAngle + i * step;
+              const hx = pillar.cx + Math.cos(theta) * radius;
+              const hy = pillar.cy + Math.sin(theta) * radius;
+
+              const synthRadius = pIdx === 0 ? 158 + rIdx * 17 : 212 + rIdx * 17;
+              const synthTheta = theta + (pIdx === 0 ? 0 : 0.14);
+              const sx = 640 + Math.cos(synthTheta) * synthRadius;
+              const sy = 340 + Math.sin(synthTheta) * synthRadius;
+
+              allPrisms.push({
+                pillarId: pillar.id,
+                sspKey: 'none',
+                label: seg.label,
+                color: seg.color,
+                unitText: seg.unitText,
+                citation: seg.citation,
+                kicker: pillar.kicker,
+                hx, hy,
+                hAngle: theta + Math.PI / 2,
+                sx, sy,
+                sAngle: synthTheta + Math.PI / 2,
+                x: hx, y: hy,
+                angle: theta + Math.PI / 2,
+                size: 1.0
+              });
+            }
+          });
+        });
+
+        const compassPillar = PILLARS[2];
+        compassPillar.bands.forEach((band, bIdx) => {
+          const step = (Math.PI * 2) / band.count;
+          const startAngle = -Math.PI / 2;
+
+          for (let i = 0; i < band.count; i++) {
+            const theta = startAngle + i * step;
+            const hx = compassPillar.cx + Math.cos(theta) * band.radius;
+            const hy = compassPillar.cy + Math.sin(theta) * band.radius;
+
+            const synthRadius = 62 + bIdx * 19;
+            const sx = 640 + Math.cos(theta) * synthRadius;
+            const sy = 340 + Math.sin(theta) * synthRadius;
+
+            allPrisms.push({
+              pillarId: compassPillar.id,
+              sspKey: band.sspKey,
+              label: `${band.label}`,
+              color: band.color,
+              unitText: band.valueText,
+              citation: band.citation,
+              kicker: compassPillar.kicker,
+              hx, hy,
+              hAngle: theta + Math.PI / 2,
+              sx, sy,
+              sAngle: theta + Math.PI / 2,
+              x: hx, y: hy,
+              angle: theta + Math.PI / 2,
+              size: 0.92
+            });
+          }
+        });
+      }
+
+      buildPrisms();
+
+      function resizeCanvas() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = LOGICAL_W * dpr;
+        canvas.height = LOGICAL_H * dpr;
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      function lerp(a, b, t) {
+        return a + (b - a) * t;
+      }
+
+      function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+
+      function drawCurvedText(text, p0, p1, p2, offsetY, alpha) {
+        if (alpha <= 0.02) return;
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.font = '700 11.5px "Montserrat", sans-serif';
+        ctx.fillStyle = '#26323B';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        const steps = 60;
+        const pts = [];
+        let totalLen = 0;
+        let prev = p0;
+
+        for (let i = 0; i <= steps; i++) {
+          const t = i / steps;
+          const mt = 1 - t;
+          const x = mt * mt * p0.x + 2 * mt * t * p1.x + t * t * p2.x;
+          const y = mt * mt * p0.y + 2 * mt * t * p1.y + t * t * p2.y;
+          totalLen += Math.hypot(x - prev.x, y - prev.y);
+          pts.push({ x, y, len: totalLen });
+          prev = { x, y };
+        }
+
+        const textWidth = ctx.measureText(text).width;
+        let currentDist = (totalLen - textWidth) / 2;
+
+        for (let c = 0; c < text.length; c++) {
+          const ch = text[c];
+          const chW = ctx.measureText(ch).width;
+          const targetDist = currentDist + chW / 2;
+
+          let idx = 1;
+          while (idx < pts.length - 1 && pts[idx].len < targetDist) idx++;
+          const a = pts[idx - 1];
+          const b = pts[idx];
+          const segRatio = b.len === a.len ? 0 : (targetDist - a.len) / (b.len - a.len);
+          const px = lerp(a.x, b.x, segRatio);
+          const py = lerp(a.y, b.y, segRatio);
+          const angle = Math.atan2(b.y - a.y, b.x - a.x);
+
+          ctx.save();
+          ctx.translate(px, py);
+          ctx.rotate(angle);
+          ctx.fillText(ch, 0, offsetY);
+          ctx.restore();
+
+          currentDist += chW;
+        }
+        ctx.restore();
+      }
+
+      function drawSpectralPrism(x, y, angle, color, scale, alpha, isHighlighted) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(angle);
+        ctx.scale(scale, scale);
+        ctx.globalAlpha = alpha;
+
+        ctx.beginPath();
+        ctx.moveTo(0, -10.5);
+        ctx.lineTo(5.2, 1.5);
+        ctx.lineTo(0, 7.5);
+        ctx.lineTo(-5.2, 1.5);
+        ctx.closePath();
+
+        ctx.fillStyle = color;
+        ctx.fill();
+
+        ctx.lineWidth = isHighlighted ? 1.8 : 1.05;
+        ctx.strokeStyle = isHighlighted ? '#0b1420' : '#F7F9F8';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(0, -8.5);
+        ctx.lineTo(0, 5.5);
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+        ctx.lineWidth = 0.7;
+        ctx.stroke();
+
+        ctx.restore();
+      }
+
+      function drawPlanetaryCore(cx, cy, radius, title, sub, alpha) {
+        if (alpha <= 0.02) return;
+        ctx.save();
+        ctx.globalAlpha = alpha;
+
+        const halo = ctx.createRadialGradient(cx, cy, radius * 0.4, cx, cy, radius * 1.45);
+        halo.addColorStop(0, 'rgba(226, 161, 54, 0.25)');
+        halo.addColorStop(1, 'rgba(226, 161, 54, 0)');
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius * 1.45, 0, Math.PI * 2);
+        ctx.fill();
+
+        const grad = ctx.createRadialGradient(cx - radius * 0.25, cy - radius * 0.25, 4, cx, cy, radius);
+        grad.addColorStop(0, '#F5C96B');
+        grad.addColorStop(0.68, '#F6C376');
+        grad.addColorStop(1, '#C47E22');
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        ctx.lineWidth = 2.2;
+        ctx.strokeStyle = '#F7F9F8';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius - 5.5, 0, Math.PI * 2);
+        ctx.lineWidth = 0.75;
+        ctx.strokeStyle = 'rgba(11, 20, 32, 0.25)';
+        ctx.stroke();
+
+        ctx.fillStyle = '#0b1420';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.font = '700 11.9px "DM Sans", sans-serif';
+        ctx.fillText(title, cx, cy - 6);
+
+        ctx.font = '500 9.5px "DM Sans", sans-serif';
+        ctx.fillStyle = 'rgba(11, 20, 32, 0.82)';
+        ctx.fillText(sub, cx, cy + 8);
+
+        ctx.restore();
+      }
+
+      function drawSatelliteProbe(x, y, headingAngle, label, isHovered) {
+        ctx.save();
+        ctx.translate(x, y);
+
+        const pulse = (Math.sin(animTime * 2.4 + x * 0.02) + 1) * 0.5;
+        ctx.beginPath();
+        ctx.arc(0, 0, 14 + pulse * 5, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(171, 125, 44, ${0.28 - pulse * 0.18})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        ctx.save();
+        ctx.rotate(headingAngle);
+
+        ctx.fillStyle = isHovered ? '#2B8A8E' : '#1D5D8F';
+        ctx.strokeStyle = '#0b1420';
+        ctx.lineWidth = 1.1;
+
+        ctx.beginPath();
+        ctx.roundRect(-18, -4.5, 10, 9, 1.5);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.roundRect(8, -4.5, 10, 9, 1.5);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.strokeStyle = 'rgba(244, 242, 238, 0.55)';
+        ctx.lineWidth = 0.65;
+        ctx.beginPath();
+        ctx.moveTo(-13, -4.5);
+        ctx.lineTo(-13, 4.5);
+        ctx.moveTo(13, -4.5);
+        ctx.lineTo(13, 4.5);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(0, 0, 5.2, 0, Math.PI * 2);
+        ctx.fillStyle = '#F6C376';
+        ctx.fill();
+        ctx.strokeStyle = '#0b1420';
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(0, 6.5, 3.8, Math.PI * 1.15, Math.PI * 1.85);
+        ctx.strokeStyle = '#E08E26';
+        ctx.lineWidth = 1.3;
+        ctx.stroke();
+
+        ctx.restore();
+
+        ctx.font = `${isHovered ? '700' : '400'} 9.5px "DM Sans", sans-serif`;
+        const textW = ctx.measureText(label).width;
+        const padX = 7;
+        const boxW = textW + padX * 2;
+        const boxH = 18;
+
+        ctx.fillStyle = isHovered ? '#0b1420' : 'rgba(244, 242, 238, 0.88)';
+        ctx.strokeStyle = isHovered ? '#0b1420' : 'rgba(11, 20, 32, 0.2)';
+        ctx.lineWidth = 0.9;
+        ctx.beginPath();
+        ctx.roundRect(-boxW / 2, 13, boxW, boxH, 9);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = isHovered ? '#F7F9F8' : '#0b1420';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(label, 0, 22);
+
+        ctx.restore();
+      }
+
+      function render(timestamp) {
+        animTime = timestamp * 0.001;
+
+        const targetSynth = isSynthesized ? 1 : 0;
+        synthProgress += (targetSynth - synthProgress) * 0.075;
+        if (Math.abs(targetSynth - synthProgress) < 0.0005) synthProgress = targetSynth;
+        const easeT = easeInOutCubic(synthProgress);
+
+        ctx.save();
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, LOGICAL_W, LOGICAL_H);
+
+        ctx.save();
+        ctx.strokeStyle = 'rgba(11, 20, 32, 0.065)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3, 6]);
+        ctx.beginPath();
+        ctx.ellipse(640, 340, 540, 265, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(60, 340);
+        ctx.lineTo(1220, 340);
+        ctx.moveTo(640, 30);
+        ctx.lineTo(640, 650);
+        ctx.stroke();
+        ctx.restore();
+
+        const decomposedAlpha = 1 - easeT;
+        if (decomposedAlpha > 0.01) {
+          FLUX_BEAMS.forEach((beam, idx) => {
+            ctx.save();
+            ctx.globalAlpha = decomposedAlpha;
+
+            ctx.beginPath();
+            ctx.moveTo(beam.p0.x, beam.p0.y);
+            ctx.quadraticCurveTo(beam.p1.x, beam.p1.y, beam.p2.x, beam.p2.y);
+            ctx.strokeStyle = 'rgba(171, 125, 44, 0.11)';
+            ctx.lineWidth = 14;
+            ctx.lineCap = 'round';
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(beam.p0.x, beam.p0.y);
+            ctx.quadraticCurveTo(beam.p1.x, beam.p1.y, beam.p2.x, beam.p2.y);
+            ctx.strokeStyle = 'rgba(171, 125, 44, 0.62)';
+            ctx.lineWidth = 1.4;
+            ctx.setLineDash([4, 6]);
+            ctx.lineDashOffset = -animTime * 16 + idx * 10;
+            ctx.stroke();
+            ctx.restore();
+
+            drawCurvedText(beam.quote, beam.p0, beam.p1, beam.p2, beam.textOffsetY, decomposedAlpha);
+          });
+        }
+
+        if (easeT > 0.01) {
+          ctx.save();
+          ctx.globalAlpha = easeT;
+
+          [62, 81, 100, 119, 158, 175, 192, 212, 229, 246].forEach((r, i) => {
+            ctx.beginPath();
+            ctx.arc(640, 340, r, 0, Math.PI * 2);
+            ctx.strokeStyle = i < 4 ? 'rgba(43, 138, 142, 0.16)' : 'rgba(29, 93, 143, 0.14)';
+            ctx.lineWidth = 0.85;
+            ctx.setLineDash([2, 5]);
+            ctx.stroke();
+          });
+
+          drawPlanetaryCore(640, 340, 44, 'ONE MANDATE', 'Youth2030', easeT);
+
+          ctx.font = '600 13px "DM Sans", sans-serif';
+          ctx.fillStyle = '#0b1420';
+          ctx.textAlign = 'left';
+          ctx.fillText('Demographics, governance & youth action, together', 60, 618);
+          ctx.font = '700 11.5px "Montserrat", sans-serif';
+          ctx.fillStyle = '#5b626d';
+          ctx.fillText('Inner rings: UN Youth Compass · Middle rings: Demographics · Outer rings: Representation', 60, 638);
+
+          ctx.restore();
+        }
+
+        PILLARS.forEach((pillar) => {
+          if (decomposedAlpha > 0.01) {
+            ctx.save();
+            ctx.globalAlpha = decomposedAlpha;
+
+            if (pillar.isMultiBand) {
+              pillar.bands.forEach((b) => {
+                ctx.beginPath();
+                ctx.arc(pillar.cx, pillar.cy, b.radius, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(11, 20, 32, 0.09)';
+                ctx.lineWidth = 0.9;
+                ctx.stroke();
+              });
+            } else {
+              [0, 1, 2].forEach((rIdx) => {
+                const r = pillar.coreRadius + 22 + rIdx * 23;
+                ctx.beginPath();
+                ctx.arc(pillar.cx, pillar.cy, r, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(11, 20, 32, 0.08)';
+                ctx.lineWidth = 0.9;
+                ctx.stroke();
+              });
+            }
+
+            drawPlanetaryCore(pillar.cx, pillar.cy, pillar.coreRadius, pillar.coreLabel, pillar.coreSub, decomposedAlpha);
+
+            const lx = pillar.cx + pillar.labelOffset.x;
+            const ly = pillar.cy + pillar.labelOffset.y;
+
+            ctx.textAlign = pillar.labelAlign;
+            ctx.font = '700 9.5px "DM Sans", sans-serif';
+            ctx.fillStyle = '#E08E26';
+            ctx.fillText(pillar.kicker, lx, ly - 18);
+
+            ctx.font = '800 15px "Montserrat", sans-serif';
+            ctx.fillStyle = '#0b1420';
+            ctx.fillText(pillar.title, lx, ly);
+
+            ctx.font = '500 11px "DM Sans", sans-serif';
+            ctx.fillStyle = '#5b626d';
+            ctx.fillText(pillar.subtitle, lx, ly + 16);
+
+            ctx.font = '400 10.0px "DM Sans", sans-serif';
+            ctx.fillStyle = '#2E3A44';
+            ctx.fillText(pillar.metricSummary, lx, ly + 32);
+
+            ctx.restore();
+          }
+        });
+
+        allPrisms.forEach((prism, idx) => {
+          const breathe = Math.sin(animTime * 1.4 + idx * 0.13) * 1.2;
+          const baseX = lerp(prism.hx, prism.sx, easeT);
+          const baseY = lerp(prism.hy, prism.sy, easeT);
+          const angle = lerp(prism.hAngle, prism.sAngle, easeT);
+
+          const radialDirX = Math.cos(angle - Math.PI / 2);
+          const radialDirY = Math.sin(angle - Math.PI / 2);
+
+          prism.x = baseX + radialDirX * breathe;
+          prism.y = baseY + radialDirY * breathe;
+          prism.angle = angle;
+
+          let alpha = 1;
+          if (activeSspFilter !== 'all') {
+            if (prism.pillarId === 'compass') {
+              alpha = prism.sspKey === activeSspFilter ? 1 : 0.16;
+            } else {
+              alpha = 0.26;
+            }
+          }
+
+          const isHovered = hoveredEntity && hoveredEntity.type === 'prism' && hoveredEntity.data === prism;
+          const scale = isHovered ? prism.size * 1.38 : prism.size;
+
+          drawSpectralPrism(prism.x, prism.y, prism.angle, prism.color, scale, alpha, isHovered);
+        });
+
+        PROBES.forEach((probe) => {
+          const t = animTime * probe.speed + probe.phase;
+          const px = probe.baseX + Math.cos(t) * probe.orbitRx;
+          const py = probe.baseY + Math.sin(t) * probe.orbitRy;
+          probe.currentX = px;
+          probe.currentY = py;
+
+          const isHovered = hoveredEntity && hoveredEntity.type === 'probe' && hoveredEntity.data === probe;
+          const heading = Math.sin(t) * 0.25 - 0.35;
+
+          drawSatelliteProbe(px, py, heading, probe.label, isHovered);
+        });
+
+        ctx.restore();
+        requestAnimationFrame(render);
+      }
+
+      function getLogicalCoords(clientX, clientY) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+          x: ((clientX - rect.left) / rect.width) * LOGICAL_W,
+          y: ((clientY - rect.top) / rect.height) * LOGICAL_H
+        };
+      }
+
+      function showInfo(f) {
+        document.getElementById('ipK').textContent = f.kicker;
+        document.getElementById('ipT').textContent = f.title;
+        document.getElementById('ipM').textContent = f.metric;
+        document.getElementById('ipD').textContent = f.desc;
+      }
+
+      function updateHover(clientX, clientY) {
+        const pt = getLogicalCoords(clientX, clientY);
+        let found = null;
+
+        for (let i = 0; i < PROBES.length; i++) {
+          const p = PROBES[i];
+          if (Math.hypot(pt.x - p.currentX, pt.y - p.currentY) < 24) {
+            found = { type: 'probe', data: p, kicker: p.kicker, title: p.label, metric: p.metric, desc: p.desc };
+            break;
+          }
+        }
+
+        if (!found) {
+          let minDist = 13;
+          for (let i = 0; i < allPrisms.length; i++) {
+            const pr = allPrisms[i];
+            const d = Math.hypot(pt.x - pr.x, pt.y - pr.y);
+            if (d < minDist) {
+              minDist = d;
+              found = { type: 'prism', data: pr, kicker: pr.kicker, title: pr.label, metric: pr.unitText, desc: pr.citation };
+            }
+          }
+        }
+
+        if (!found && synthProgress < 0.5) {
+          for (let i = 0; i < PILLARS.length; i++) {
+            const pil = PILLARS[i];
+            if (Math.hypot(pt.x - pil.cx, pt.y - pil.cy) <= pil.coreRadius + 6) {
+              found = { type: 'core', data: pil, kicker: pil.kicker, title: pil.title, metric: pil.metricSummary, desc: pil.description };
+              break;
+            }
+          }
+        }
+
+        if (!found && synthProgress < 0.5) {
+          for (let i = 0; i < FLUX_BEAMS.length; i++) {
+            const b = FLUX_BEAMS[i];
+            const midX = 0.25 * b.p0.x + 0.5 * b.p1.x + 0.25 * b.p2.x;
+            const midY = 0.25 * b.p0.y + 0.5 * b.p1.y + 0.25 * b.p2.y;
+            if (Math.hypot(pt.x - midX, pt.y - midY) < 42) {
+              found = { type: 'beam', data: b, kicker: 'SYSTEM CONNECTION', title: b.quote, metric: 'How youth realities connect to UN action', desc: b.citation };
+              break;
+            }
+          }
+        }
+
+        hoveredEntity = found;
+        if (found) showInfo(found);
+
+        if (found) {
+          canvas.style.cursor = 'pointer';
+          tooltipKicker.textContent = found.kicker;
+          tooltipTitle.textContent = found.title;
+          tooltipMetric.textContent = found.metric;
+          tooltipDesc.textContent = found.desc;
+
+          tooltipEl.classList.add('visible');
+
+          const pad = 16;
+          const rect = tooltipEl.getBoundingClientRect();
+          let tx = clientX + pad;
+          let ty = clientY + pad;
+          if (tx + rect.width > window.innerWidth - 12) tx = clientX - rect.width - pad;
+          if (ty + rect.height > window.innerHeight - 12) ty = clientY - rect.height - pad;
+          tooltipEl.style.left = `${tx}px`;
+          tooltipEl.style.top = `${ty}px`;
+        } else {
+          canvas.style.cursor = 'crosshair';
+          tooltipEl.classList.remove('visible');
+        }
+      }
+
+      canvas.addEventListener('mousemove', (e) => updateHover(e.clientX, e.clientY));
+      canvas.addEventListener('mouseleave', () => {
+        hoveredEntity = null;
+        tooltipEl.classList.remove('visible');
+      });
+      canvas.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches[0]) updateHover(e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive: true });
+
+      synthesizeBtn.addEventListener('click', () => {
+        isSynthesized = !isSynthesized;
+        synthesizeBtn.classList.toggle('is-active', isSynthesized);
+        synthesizeBtn.setAttribute('aria-pressed', String(isSynthesized));
+
+        if (isSynthesized) {
+          synthesizeBtn.innerHTML = '<span>↺ Split back apart</span>';
+          statusCaption.textContent = 'One merged Youth-Climate system · 280 shapes';
+        } else {
+          synthesizeBtn.innerHTML = '<span>✦ Merge into one Youth-Climate System</span>';
+          statusCaption.textContent = 'Three separate circles · 280 shapes';
+        }
+      });
+
+      const SSPN = {
+        all: '<b>What is the UN Youth Compass?</b> Developed by the UN Youth Office, it is the system-wide operational guide helping UN entities move beyond symbolic youth panels toward structured, accountable youth participation in policy and climate action.',
+        inform: '<b>Tier 1 · Inform.</b> Making UN processes, climate data, and policy decisions legible and accessible to young people through clear visual design and youth-friendly channels.',
+        consult: '<b>Tier 2 · Consult.</b> Gathering structured youth perspectives across regions—especially from marginalized and climate-affected communities—before policy frameworks are finalized.',
+        partner: '<b>Tier 3 · Partner.</b> Co-designing campaigns, toolkits, and SDG programs alongside youth-led organizations rather than treating young people solely as end beneficiaries.',
+        lead: '<b>Tier 4 · Co-Lead.</b> Institutionalizing youth representation inside decision-making rooms so young people help shape mandates, budgets, and climate outcomes.'
+      };
+
+      sspPills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          sspPills.forEach((p) => p.classList.remove('active'));
+          pill.classList.add('active');
+          activeSspFilter = pill.dataset.ssp;
+          document.getElementById('sspNote').innerHTML = SSPN[pill.dataset.ssp];
+        });
+      });
+
+      synthesizeBtn.addEventListener('click', () => {
+        document.getElementById('modeNote').innerHTML = isSynthesized
+          ? '<b>Merged view.</b> All 280 shapes now orbit one shared Youth2030 mandate. Inner rings show UN Youth Compass tiers, middle rings show youth demographics, outer rings show representation. Hover to inspect each data point.'
+          : '<b>Separate view.</b> Each question has its own circle. Press <b>Merge</b> to pull all 280 shapes into one system, showing how climate demographics, governance gaps, and UN Youth Compass mechanisms connect.';
+      });
+
+      const io = new IntersectionObserver((es) => es.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target; el.parentElement.classList.add('on'); io.unobserve(el);
+        const to = parseFloat(el.dataset.to), t0 = performance.now();
+        const isDec = el.dataset.dec === '1';
+        const isPct = el.dataset.pct === '1';
+        (function step(t) {
+          const k = Math.min((t - t0) / 1400, 1);
+          const ease = 1 - Math.pow(1 - k, 3);
+          const val = to * ease;
+          if (isDec) {
+            el.textContent = val.toFixed(1) + 'B';
+          } else if (isPct) {
+            el.textContent = Math.round(val) + '%';
+          } else {
+            el.textContent = Math.round(val).toLocaleString();
+          }
+          if (k < 1) requestAnimationFrame(step);
+        })(t0);
+      }), { threshold: 0.5 });
+      document.querySelectorAll('.stat strong').forEach((s) => io.observe(s));
+
+      document.querySelectorAll('.trow').forEach((r) => r.addEventListener('click', () => {
+        const p = document.querySelector('.ssp-pill[data-ssp="' + r.dataset.ssp + '"]'); if (p) p.click();
+        document.getElementById('observatoryCanvas').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }));
+
+      requestAnimationFrame(render);
+    })();
+  </script>
+</body>
+</html>

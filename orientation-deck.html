@@ -65,9 +65,44 @@
 .pn ul{list-style:none;display:grid;gap:.55rem;font-size:.9rem}.pn li{padding-left:1.1rem;position:relative}.pn li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--amber)}
 .disc{background:var(--navy);color:rgba(255,255,255,.88);border-left:5px solid var(--amber);padding:1rem 1.2rem;font-size:.86rem}.disc b{display:block;font-family:var(--fh);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-lt);margin-bottom:.3rem}
 </style>
+<meta name="googlebot" content="noindex, nofollow">
+<style id="tcx-protect-css">
+  html, body { -webkit-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, select, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
+  img { -webkit-user-drag: none; user-drag: none; }
+</style>
+<script id="tcx-protect-js">
+  /* Deterrence only. It stops casual saving and copying, not a determined person. */
+  (function () {
+    var msg = 'Sample by Timothy Castillon. Copying and source download are disabled.';
+    function toast() {
+      var t = document.getElementById('tcxToast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'tcxToast'; t.setAttribute('role', 'status');
+        t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99999;background:#0F2942;color:#fff;font:500 13px/1.4 Inter,system-ui,sans-serif;padding:10px 16px;border-radius:8px;border-bottom:3px solid #E08E26;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg; t.style.opacity = '1';
+      clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = '0'; }, 2200);
+    }
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); toast(); });
+    document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+      var k = (e.key || '').toLowerCase();
+      var mod = e.ctrlKey || e.metaKey;
+      var block =
+        e.key === 'F12' ||
+        (mod && e.shiftKey && (k === 'i' || k === 'j' || k === 'c')) ||   /* DevTools */
+        (e.metaKey && e.altKey && (k === 'i' || k === 'j' || k === 'c' || k === 'u')) || /* Mac DevTools / source (Option changes the key on some layouts) */
+        (mod && (k === 'u' || k === 's' || k === 'p'));                   /* view source, save, print */
+      if (block) { e.preventDefault(); toast(); }
+    });
+  })();
+</script>
 </head>
 <body>
-<nav class="nav" aria-label="Sample work"><a class="brand" href="sample-work.html" aria-label="Sample work home"><span class="mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a><ul class="series"><li><a href="data-story.html"><b>01</b><span>Data story</span></a></li><li><a href="orientation-deck.html" aria-current="page"><b>02</b><span>Orientation deck</span></a></li><li><a href="social-package.html"><b>03</b><span>Social package</span></a></li><li><a href="content-calendar.html"><b>04</b><span>Content calendar</span></a></li></ul><a class="back" href="sample-work.html">All samples</a></nav>
+<nav class="nav" aria-label="Sample work"><a class="brand" href="../index.html" aria-label="Timothy Castillon, back to main application site"><span class="mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a><ul class="series"><li><a href="data-story.html"><b>01</b><span>Data story</span></a></li><li><a href="orientation-deck.html" aria-current="page"><b>02</b><span>Orientation deck</span></a></li><li><a href="social-package.html"><b>03</b><span>Social package</span></a></li><li><a href="content-calendar.html"><b>04</b><span>Content calendar</span></a></li></ul><a class="back" href="sample-work.html">All samples</a></nav>
 <header class="hero">
 <p class="eyebrow">Output 02 &middot; Orientation deck</p>
 <h1>30 below 30, <em>to get to 2030</em></h1>
@@ -97,11 +132,11 @@
 <script>
 var S=[
 {t:'Why youth',h:'We build the physical world. Youth inherit it.',
- p:'<p>UNOPS delivers infrastructure, procurement and project management. What gets built today serves people for decades, and the people who will use it longest are young.</p><p><b>Half the world is under 30.</b> UN DESA counts 1.3 billion people aged 15&ndash;24, the largest youth generation in history.</p>',
- v:'<div class="ring" id="ring"><svg viewBox="0 0 200 200"><circle class="bg" cx="100" cy="100" r="80"/><circle class="fg" cx="100" cy="100" r="80"/></svg><b><div><span>1/2</span>under 30</div></b></div><div class="mini"><div><b>1.3B</b>aged 15&ndash;24</div><div><b>~9 in 10</b>in developing countries</div><div><b>2.8%</b>of MPs are 30 or under</div></div>',
+ p:'<p>UNOPS delivers infrastructure, procurement and project management. What gets built today serves people for decades, and the people who will use it longest are young.</p><p><b>Half the world is under 30.</b> The UN counts 1.2 billion people aged 15&ndash;24, the largest youth generation in history.</p>',
+ v:'<div class="ring" id="ring"><svg viewBox="0 0 200 200"><circle class="bg" cx="100" cy="100" r="80"/><circle class="fg" cx="100" cy="100" r="80"/></svg><b><div><span>1/2</span>under 30</div></b></div><div class="mini"><div><b>1.2B</b>aged 15&ndash;24</div><div><b>85%</b>in developing regions</div><div><b>2.8%</b>of MPs are 30 or under</div></div>',
  k:'Young people are the long-term users of every asset UNOPS delivers.',
  n:'Start here if you come from procurement, engineering or finance. This is not a charity side project: it is about the people who live with our results.',
- s:'UNOPS; UN DESA World Population Highlights 2026: Youth; FAO; IPU 2025'},
+ s:'UNOPS; UN Global Issues: Youth; IPU'},
 {t:'The data',h:'Infrastructure shapes climate, and climate shapes youth.',
  p:'<p>UNOPS research with the University of Oxford finds that infrastructure heavily influences the Sustainable Development Goals and most of the emissions and adaptation costs the climate agenda must tackle.</p>',
  v:'<div class="hb"><div><span>SDG targets influenced <em>up to 92%</em></span><u><i style="--w:92%"></i></u></div><div><span>Greenhouse gas emissions <em>79%</em></span><u><i style="--w:79%"></i></u></div><div><span>Adaptation costs <em>88%</em></span><u><i style="--w:88%"></i></u></div></div>',

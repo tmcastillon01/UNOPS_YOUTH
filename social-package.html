@@ -55,10 +55,91 @@
 @media(max-width:860px){.bgrid{grid-template-columns:1fr}}
 .tpl{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
 .tpl figure{font-size:.74rem;line-height:1.3}.tpl img{width:100%;border-radius:6px;border:1px solid var(--line);display:block;margin-bottom:.25rem}.tpl b{display:block;color:var(--navy)}
+
+/* interactive stage */
+.stage{--z:.8;display:grid;grid-template-columns:minmax(0,1fr) calc(480px*var(--z));gap:1.5rem;align-items:start}
+.stage .post{zoom:var(--z);max-width:480px}
+.trow{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;margin-bottom:.8rem}.trow .tabs{margin:0}
+.zoombar{display:flex;align-items:center;gap:.3rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.2rem .35rem}
+.zb{min-width:34px;height:34px;border-radius:999px;font-weight:700;color:var(--navy)}.zb:hover{background:var(--navy-lt)}.zb.fit{font-size:.74rem;padding:0 .7rem}
+.zoombar span{font-size:.78rem;font-weight:700;min-width:3ch;text-align:center;color:var(--muted)}
+@media(max-width:900px){.stage{grid-template-columns:1fr}.stage .post{zoom:1}.zoombar{display:none}}
+.acts-bar{display:flex;border-top:1px solid var(--line);padding:.2rem .4rem}
+.ab{flex:1;min-height:44px;font-size:.84rem;font-weight:700;color:var(--muted);border-radius:6px}.ab:hover{background:var(--navy-lt)}.ab.on{color:var(--green)}.ab.on b{color:var(--green)}
+.igbar{display:flex;gap:.2rem;padding:.2rem .5rem}.igbar .ab{flex:0 0 44px;font-size:1.3rem}.igbar .ab.on{color:#c0392b}
+.iglk{padding:0 .9rem .3rem;font-size:.88rem}
+.cbox{display:flex;gap:.5rem;padding:.5rem .8rem;border-top:1px solid var(--line)}.cbox[hidden]{display:none}.cbox input{flex:1;min-width:0;border:1px solid var(--line);border-radius:999px;padding:.4rem .8rem;font:inherit;font-size:.86rem}.cbox .btn{min-height:36px;padding:.3rem .9rem}
+.cm{padding:.35rem .9rem;font-size:.86rem;border-top:1px solid var(--line)}.cm b{margin-right:.4rem}
+.mtoast{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);background:var(--navy);color:#fff;font-size:.78rem;padding:.4rem .8rem;border-radius:8px;border-bottom:3px solid var(--amber);z-index:5;pointer-events:none}
+.post{position:relative}
+/* reel */
+.post.reel{background:transparent;border:0;box-shadow:none}
+.phone{container-type:inline-size;position:relative;width:100%;max-width:340px;aspect-ratio:9/16;margin:0 auto;border:6px solid var(--ink);border-radius:28px;overflow:hidden;background:var(--navy);color:#fff;box-shadow:0 10px 30px rgba(15,41,66,.25)}
+.rbars{position:absolute;z-index:3;left:4cqw;right:4cqw;top:3cqw;display:flex;gap:1.5cqw}.rbars i{flex:1;height:1.1cqw;border-radius:9px;background:rgba(255,255,255,.28);overflow:hidden;position:relative}
+.rbars i::after{content:"";position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left}
+.rbars i.done::after{transform:scaleX(1)}.rbars i.run::after{animation:rfill var(--d,3.6s) linear forwards}
+@keyframes rfill{to{transform:scaleX(1)}}
+.rhead{position:absolute;z-index:3;top:7cqw;left:4cqw;display:flex;align-items:center;gap:2cqw;font-size:max(3.4cqw,.7rem)}.rhead small{opacity:.7}
+.rav{display:grid;place-items:center;width:7.5cqw;height:7.5cqw;border-radius:50%;background:var(--amber);color:var(--ink);font-family:var(--fh);font-weight:800;font-size:3cqw}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:3cqw;padding:20cqw 9cqw 14cqw}
+.scene>*{animation:rin .6s ease-out both}
+@keyframes rin{from{opacity:0;transform:translateY(3cqw)}to{opacity:1;transform:none}}
+.rk{font-family:var(--fh);font-weight:700;font-size:max(3.3cqw,.68rem);letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.rt2{font-family:var(--fh);font-weight:800;text-transform:uppercase;font-size:max(9cqw,1.35rem);line-height:1.08}.rt2 em{font-style:normal;color:var(--amber)}
+.rs{font-size:max(4.4cqw,.9rem);line-height:1.4;color:rgba(255,255,255,.92)}
+.rring{width:44cqw;position:relative}.rring svg{display:block;width:100%;transform:rotate(-90deg)}.rring circle{fill:none;stroke-width:14}.rring .a{stroke:rgba(255,255,255,.22)}
+.rring .b{stroke:var(--amber);stroke-linecap:round;stroke-dasharray:314;stroke-dashoffset:314;animation:ringf 1.6s .2s ease-out forwards}
+@keyframes ringf{to{stroke-dashoffset:157}}
+.rring b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--fh);font-weight:800;font-size:13cqw}
+.rb{font-family:var(--fh);font-weight:800;font-size:20cqw;line-height:1;color:var(--amber-lt)}
+.rdots{display:grid;grid-template-columns:repeat(10,1fr);gap:1.6cqw}.rdots i{aspect-ratio:1;border-radius:50%;background:var(--amber-lt);transform:scale(0);animation:pop .3s ease-out forwards;animation-delay:calc(var(--i)*55ms + .4s)}
+@keyframes pop{to{transform:scale(1)}}
+.rchips{display:grid;gap:2.2cqw;justify-items:start;animation:none}.rchips span{font-family:var(--fh);font-weight:800;text-transform:uppercase;font-size:max(4.6cqw,.85rem);border:.8cqw solid var(--amber);border-radius:99px;padding:1.6cqw 5cqw;opacity:0;animation:rin .5s ease-out forwards;animation-delay:calc(var(--i)*.45s + .3s)}
+.rcta{align-self:flex-start;background:var(--amber);color:var(--ink);font-family:var(--fh);font-weight:800;text-transform:uppercase;border-radius:3cqw;padding:3cqw 6cqw;font-size:max(4.6cqw,.85rem);animation:rin .6s .5s ease-out both,pulse 1.6s 1.2s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.05)}}
+.rsrc{position:absolute;z-index:3;left:9cqw;right:9cqw;bottom:5cqw;font-size:max(3cqw,.62rem);color:rgba(255,255,255,.7)}
+.phone.paused *,.phone.paused *::after{animation-play-state:paused!important}
+.rctl{display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:.7rem}.rctl span{font-size:.8rem;color:var(--muted);min-width:9ch}
+@media(prefers-reduced-motion:reduce){.rchips span,.scene>*{opacity:1!important;transform:none!important}.rdots i{transform:none!important}.rring .b{stroke-dashoffset:157!important}.rbars i.run::after{transform:scaleX(1)}}
 </style>
+<meta name="googlebot" content="noindex, nofollow">
+<style id="tcx-protect-css">
+  html, body { -webkit-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, select, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
+  img { -webkit-user-drag: none; user-drag: none; }
+</style>
+<script id="tcx-protect-js">
+  /* Deterrence only. It stops casual saving and copying, not a determined person. */
+  (function () {
+    var msg = 'Sample by Timothy Castillon. Copying and source download are disabled.';
+    function toast() {
+      var t = document.getElementById('tcxToast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'tcxToast'; t.setAttribute('role', 'status');
+        t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99999;background:#0F2942;color:#fff;font:500 13px/1.4 Inter,system-ui,sans-serif;padding:10px 16px;border-radius:8px;border-bottom:3px solid #E08E26;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg; t.style.opacity = '1';
+      clearTimeout(t._h); t._h = setTimeout(function () { t.style.opacity = '0'; }, 2200);
+    }
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); toast(); });
+    document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+      var k = (e.key || '').toLowerCase();
+      var mod = e.ctrlKey || e.metaKey;
+      var block =
+        e.key === 'F12' ||
+        (mod && e.shiftKey && (k === 'i' || k === 'j' || k === 'c')) ||   /* DevTools */
+        (e.metaKey && e.altKey && (k === 'i' || k === 'j' || k === 'c' || k === 'u')) || /* Mac DevTools / source (Option changes the key on some layouts) */
+        (mod && (k === 'u' || k === 's' || k === 'p'));                   /* view source, save, print */
+      if (block) { e.preventDefault(); toast(); }
+    });
+  })();
+</script>
 </head>
 <body>
-<nav class="nav" aria-label="Sample work"><a class="brand" href="sample-work.html" aria-label="Sample work home"><span class="mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a><ul class="series"><li><a href="data-story.html"><b>01</b><span>Data story</span></a></li><li><a href="orientation-deck.html"><b>02</b><span>Orientation deck</span></a></li><li><a href="social-package.html" aria-current="page"><b>03</b><span>Social package</span></a></li><li><a href="content-calendar.html"><b>04</b><span>Content calendar</span></a></li></ul><a class="back" href="sample-work.html">All samples</a></nav>
+<nav class="nav" aria-label="Sample work"><a class="brand" href="../index.html" aria-label="Timothy Castillon, back to main application site"><span class="mark" aria-hidden="true">TC</span><span>Timothy Castillon</span></a><ul class="series"><li><a href="data-story.html"><b>01</b><span>Data story</span></a></li><li><a href="orientation-deck.html"><b>02</b><span>Orientation deck</span></a></li><li><a href="social-package.html" aria-current="page"><b>03</b><span>Social package</span></a></li><li><a href="content-calendar.html"><b>04</b><span>Content calendar</span></a></li></ul><a class="back" href="sample-work.html">All samples</a></nav>
 <header class="hero">
 <p class="eyebrow">Output 03 &middot; Social media package</p>
 <h1>Under-30 voices, <em>in plain words and clear design</em></h1>
@@ -79,8 +160,8 @@
 <tr><td>Reels and TikTok</td><td>35-second 9:16 video</td><td>Reach new viewers with a hook in 2 seconds</td><td>Watch-through and comments</td></tr></table></div></section>
 
 <section class="alt" id="posts"><div class="k">Post samples</div><h2>One story, five ways</h2>
-<div class="tabs" role="tablist" aria-label="Platform" id="ptabs">
-<button class="tab" role="tab" aria-selected="true" data-p="li">LinkedIn</button><button class="tab" role="tab" aria-selected="false" data-p="fb">Facebook</button><button class="tab" role="tab" aria-selected="false" data-p="x">X and Threads</button><button class="tab" role="tab" aria-selected="false" data-p="ig">Instagram</button><button class="tab" role="tab" aria-selected="false" data-p="reel">Reel and TikTok</button></div>
+<div class="trow"><div class="tabs" role="tablist" aria-label="Platform" id="ptabs">
+<button class="tab" role="tab" aria-selected="true" data-p="li">LinkedIn</button><button class="tab" role="tab" aria-selected="false" data-p="fb">Facebook</button><button class="tab" role="tab" aria-selected="false" data-p="x">X and Threads</button><button class="tab" role="tab" aria-selected="false" data-p="ig">Instagram</button><button class="tab" role="tab" aria-selected="false" data-p="reel">Reel and TikTok</button></div><div class="zoombar" aria-label="Zoom the post preview"><button class="zb" data-z="-1" aria-label="Zoom out">&minus;</button><span id="zv">80%</span><button class="zb" data-z="1" aria-label="Zoom in">+</button><button class="zb fit" data-z="0">Reset</button></div></div>
 <div class="stage"><aside class="info" aria-live="polite"><h3 id="sh"></h3><p id="st"></p><dl id="sd"></dl><div class="dl" id="dl"></div><p class="note">Engagement numbers and the handle are placeholders for layout only. Sources: UNOPS news and pages on the Youth Engagement Platform.</p></aside>
 <div><div class="post" id="p-li"><div class="ph"><div class="av" aria-hidden="true">TC</div><div class="who"><b>Timothy Castillon</b><small>Communications &middot; independent sample, not speaking for UNOPS or the UN Youth Office</small><small>1h &middot; &#127760;</small></div><span class="fol">+ Follow</span></div>
 <div class="cap"><span class="clip"><b>&#127757; Half the world is under 30. So who should help design the infrastructure it will inherit?</b> <button class="moreb" data-more>&hellip;more</button></span><span class="more"><b>&#127757; Half the world is under 30. So who should help design the infrastructure it will inherit?</b>
@@ -105,7 +186,7 @@ Independent sample for a portfolio; not official UN Youth Office or UNOPS materi
 <img src="assets/social/linkedin-card-3.png" alt="The first cohort took part in COP30 and the Sevilla financing forum; resilient energy, circularity and adaptation." width="1080" height="1350" loading="lazy">
 <img src="assets/social/linkedin-card-4.png" alt="30 members, all under 30, in an advisory role at UNOPS." width="1080" height="1350" loading="lazy">
 <img src="assets/social/linkedin-card-5.png" alt="Call to action: 2030 is closer than it looks. Share with a young builder, researcher or advocate." width="1080" height="1350" loading="lazy"></div></div>
-<div class="dots" id="dots"></div><div class="stats"><span>&#128077;&#10084;&#65039;&#128161; 389</span><span>78 comments &middot; 41 reposts</span></div><div class="acts"><span>Like</span><span>Comment</span><span>Repost</span><span>Send</span></div></div><div class="post fb" id="p-fb" hidden><div class="ph"><div class="av" aria-hidden="true">TC</div><div class="who"><b>Timothy Castillon</b><small>Just now &middot; &#127760;</small></div></div>
+<div class="dots" id="dots"></div><div class="stats"><span>&#128077;&#10084;&#65039;&#128161; 389</span><span>78 comments &middot; 41 reposts</span></div><div class="acts-bar"><button class="ab" data-a="like">&#128077; Like</button><button class="ab" data-a="comment">&#128172; Comment</button><button class="ab" data-a="share">&#128257; Repost</button><button class="ab" data-a="share">&#10148; Send</button></div><div class="cbox" hidden><input type="text" maxlength="140" placeholder="Add a comment (sample only)" aria-label="Add a comment"><button class="btn amber">Post</button></div></div><div class="post fb" id="p-fb" hidden><div class="ph"><div class="av" aria-hidden="true">TC</div><div class="who"><b>Timothy Castillon</b><small>Just now &middot; &#127760;</small></div></div>
 <div class="cap">Half the world is under 30, and the infrastructure planned today will serve them for decades. &#127757;
 
 But young people are rarely in the room when grids, buildings and adaptation plans take shape. UNOPS is working on that: its Youth Engagement Platform seats 30 advisors, all under 30, and a second cohort has now been announced.
@@ -114,7 +195,7 @@ Therefore the question comes home: what climate-resilient solution needs urgent 
 
 Independent sample, not official UNOPS or UN Youth Office material.</div>
 <img class="pimg" src="assets/social/facebook-post.png" alt="Who should help design the infrastructure we inherit? A community question." width="1080" height="1350" loading="lazy">
-<div class="stats"><span>&#128077;&#10084;&#65039; 212</span><span>56 comments &middot; 88 shares</span></div><div class="acts"><span>Like</span><span>Comment</span><span>Share</span></div></div><div class="post x" id="p-x" hidden><div class="ph"><div class="av" aria-hidden="true">TC</div><div class="who"><b>Timothy Castillon</b><small>@tcastillon &middot; now</small></div></div>
+<div class="stats"><span>&#128077;&#10084;&#65039; 212</span><span>56 comments &middot; 88 shares</span></div><div class="acts-bar"><button class="ab" data-a="like">&#128077; Like</button><button class="ab" data-a="comment">&#128172; Comment</button><button class="ab" data-a="share">&#10148; Share</button></div><div class="cbox" hidden><input type="text" maxlength="140" placeholder="Add a comment (sample only)" aria-label="Add a comment"><button class="btn amber">Post</button></div></div><div class="post x" id="p-x" hidden><div class="ph"><div class="av" aria-hidden="true">TC</div><div class="who"><b>Timothy Castillon</b><small>@tcastillon &middot; now</small></div></div>
 <div class="cap" id="xcap">Half the world is under 30. UNOPS puts 30 of them in an advisory seat on climate action and resilience.
 
 &#127757; First cohort: COP30 and the Sevilla financing forum
@@ -122,9 +203,9 @@ Independent sample, not official UNOPS or UN Youth Office material.</div>
 
 What should they be asked first?</div>
 <img class="ximg" src="assets/social/x-post.png" alt="Stat card: 30 below 30, to get to 2030. Young advisors for climate-resilient development." width="1600" height="900" loading="lazy">
-<div class="ctr"><span id="chars"></span><span>Source: UNOPS</span></div><div class="acts"><span>&#9825; 934</span><span>&#8635; 212</span><span>&#128172; 47</span></div></div><div class="post ig" id="p-ig" hidden><div class="ph"><div class="av" aria-hidden="true">TC</div><div class="who"><b>tcastillon</b><small>Independent sample</small></div></div>
+<div class="ctr"><span id="chars"></span><span>Source: UNOPS</span></div><div class="acts-bar"><button class="ab" data-a="like">&#9825; <b>934</b></button><button class="ab" data-a="share">&#8635; 212</button><button class="ab" data-a="comment">&#128172; 47</button></div><div class="cbox" hidden><input type="text" maxlength="140" placeholder="Add a comment (sample only)" aria-label="Add a comment"><button class="btn amber">Post</button></div></div><div class="post ig" id="p-ig" hidden><div class="ph"><div class="av" aria-hidden="true">TC</div><div class="who"><b>tcastillon</b><small>Independent sample</small></div></div>
 <img class="pimg" src="assets/social/instagram-post.png" alt="Infrastructure built for the future we inherit. Under-30 voices shaping resilient grids, circular construction and adaptation." width="1080" height="1350" loading="lazy">
-<div class="iglk">1,204 likes</div>
+<div class="igbar"><button class="ab" data-a="like" aria-label="Like">&#9825;</button><button class="ab" data-a="comment" aria-label="Comment">&#128172;</button><button class="ab" data-a="share" aria-label="Share">&#10148;</button></div><div class="iglk"><b id="igl">1,204</b> likes</div><div class="cbox" hidden><input type="text" maxlength="140" placeholder="Add a comment (sample only)" aria-label="Add a comment"><button class="btn amber">Post</button></div>
 <div class="cap"><b>tcastillon</b> Half the world is under 30, and what we build today defines their next decade. &#127959;&#65039;&#127793;
 
 UNOPS&rsquo;s second &ldquo;30 below 30, to get to 2030&rdquo; cohort brings young advisors into climate action and resilience work, building on the first cohort&rsquo;s presence at COP30 and in Sevilla.
@@ -135,8 +216,8 @@ What climate-resilient solution in your community needs urgent investment right 
 
 <span class="tag">#YouthClimateAction #UNOPS #SDGs #Resilience</span>
 
-Independent sample for a portfolio; not official UN Youth Office or UNOPS material.</div></div><div class="post reel" id="p-reel" hidden><div class="phone" role="img" aria-label="Animated preview of the 35-second reel: half the world is under 30; 30 below 30; resilient grids, circular approaches, adaptation; what needs to change first?"><img src="assets/social/reel-preview.gif" alt="" width="540" height="960" loading="lazy"></div>
-<div class="sb"><a href="assets/social/reel-frame-1.png" download><img src="assets/social/reel-frame-1.png" alt="" loading="lazy"><b>0:00 Hook</b>Half the world</a><a href="assets/social/reel-frame-2.png" download><img src="assets/social/reel-frame-2.png" alt="" loading="lazy"><b>0:06 Platform</b>30 below 30</a><a href="assets/social/reel-frame-3.png" download><img src="assets/social/reel-frame-3.png" alt="" loading="lazy"><b>0:15 Themes</b>Three shifts</a><a href="assets/social/reel-frame-4.png" download><img src="assets/social/reel-frame-4.png" alt="" loading="lazy"><b>0:26 Question</b>End card</a></div></div></div></div></section>
+Independent sample for a portfolio; not official UN Youth Office or UNOPS material.</div></div><div class="post reel" id="p-reel" hidden><div class="phone" id="phone" role="img" aria-label="Animated 14-second preview of the reel: half the world is under 30; 30 below 30; three practical shifts; what needs to change first?"><div class="rbars" id="rbars"><i></i><i></i><i></i><i></i></div><div class="rhead"><span class="rav">TC</span><b>tcastillon</b><small>Independent sample</small></div><div class="scene" id="scene"></div><div class="rsrc" id="rsrc"></div></div>
+<div class="rctl"><button class="btn ghost" id="rpl">&#10074;&#10074; Pause</button><button class="btn ghost" id="rrp">&#8635; Replay</button><span id="rt">Scene 1 / 4</span></div></div></div></div></section>
 
 <section id="review"><div class="k">Role fit</div><h2>What the posting asks for, and what I adjusted</h2>
 <p class="sub">Checked against the Communications Officer (Graphic Design &amp; Social Media) posting, the campaign brief and published pages. Filter to see what fits, what changed and what was added.</p>
@@ -183,12 +264,59 @@ function copy(txt,msg){try{navigator.clipboard.writeText(txt).then(function(){to
   var x0=null;car.addEventListener('pointerdown',function(e){x0=e.clientX});car.addEventListener('pointerup',function(e){if(x0!==null){var d=e.clientX-x0;if(Math.abs(d)>45)go(i+(d<0?1:-1));x0=null}});go(0);
   $$('[data-more]').forEach(function(b){b.onclick=function(){b.closest('.cap').classList.add('open')}});
   $('#chars').textContent=$('#xcap').textContent.length+' / 280 characters';
+
+  // zoom
+  var z=.8,stage=$('.stage');
+  function setZ(v){z=Math.max(.5,Math.min(1.3,Math.round(v*10)/10));stage.style.setProperty('--z',z);$('#zv').textContent=Math.round(z*100)+'%'}
+  $$('.zb').forEach(function(b){b.onclick=function(){var d=+b.dataset.z;setZ(d===0?.8:z+d*.1)}});
+  // actions
+  function mt(p,m){var t=document.createElement('div');t.className='mtoast';t.textContent=m;p.appendChild(t);setTimeout(function(){t.remove()},1600)}
+  $$('.post').forEach(function(p){
+    $$('.ab',p).forEach(function(b){b.onclick=function(){
+      var a=b.dataset.a;
+      if(a==='like'){var on=b.classList.toggle('on');var n=$('b',b);if(n){var v=parseInt(n.textContent.replace(/,/g,''),10)+(on?1:-1);n.textContent=v.toLocaleString('en')}
+        if(b.closest('.igbar')){b.innerHTML=on?'&#10084;&#65039;':'&#9825;';var g=$('#igl');var c=parseInt(g.textContent.replace(/,/g,''),10)+(on?1:-1);g.textContent=c.toLocaleString('en')}
+        else if(b.textContent.indexOf('\u2661')>-1||b.textContent.indexOf('\u2665')>-1){}
+        mt(p,on?'Liked (sample only)':'Like removed')}
+      else if(a==='comment'){var cb=$('.cbox',p);cb.hidden=!cb.hidden;if(!cb.hidden)$('input',cb).focus()}
+      else mt(p,'Sample only: nothing is posted')}});
+    var cb=$('.cbox',p);if(cb){var go=function(){var i=$('input',cb),v=i.value.trim();if(!v)return;var d=document.createElement('div');d.className='cm';d.innerHTML='<b>You</b>';d.appendChild(document.createTextNode(v));p.insertBefore(d,cb);i.value=''};$('.btn',cb).onclick=go;$('input',cb).addEventListener('keydown',function(e){if(e.key==='Enter')go()})}
+  });
+  var igi=$('#p-ig .pimg');if(igi)igi.addEventListener('dblclick',function(){var b=$('#p-ig .igbar .ab');if(!b.classList.contains('on'))b.click()});
+  // reel engine
+  var D=3600,S=[
+   {k:'UNOPS Youth Engagement Platform',ring:1,t:'Half the world is <em>under 30</em>',s:'So who should help shape the infrastructure built for their future?',src:'Source: UNOPS',bg:'linear-gradient(170deg,#173a5e,#0F2942)'},
+   {k:'The platform',num:1,t:'30 below 30, to get to <em>2030</em>',dots:1,s:'30 young advisors, all under 30, advising UNOPS leadership.',src:'Source: UNOPS, Youth at the table',bg:'linear-gradient(170deg,#1B6B4A,#124a34)'},
+   {k:'What resilience means',t:'Three practical shifts',chips:['Stronger grids','Circular approaches','Adaptation'],s:'Solutions for communities on the front lines.',src:'Theme summary',bg:'linear-gradient(170deg,#173a5e,#0F2942)'},
+   {k:'Community question',t:'What needs to <em>change first?</em>',s:'Which climate-resilient solution in your community needs urgent investment?',cta:'Tell us below',src:'#YouthClimateAction #UNOPS',bg:'linear-gradient(170deg,#0F2942,#0B1420)'}];
+  var ph=$('#phone'),sc=$('#scene'),bars=$$('#rbars i'),idx=0,tm=null,t0=0,rem=D,paused=false,live=false;
+  function draw(){
+    var r=S[idx],h='<div class="rk">'+r.k+'</div>';
+    if(r.ring)h+='<div class="rring"><svg viewBox="0 0 120 120"><circle class="a" cx="60" cy="60" r="50"/><circle class="b" cx="60" cy="60" r="50"/></svg><b>1/2</b></div>';
+    if(r.num)h+='<div class="rb" id="rn">0</div>';
+    h+='<div class="rt2">'+r.t+'</div>';
+    if(r.dots){h+='<div class="rdots">';for(var i=0;i<30;i++)h+='<i style="--i:'+i+'"></i>';h+='</div>'}
+    if(r.chips)h+='<div class="rchips">'+r.chips.map(function(c,i){return '<span style="--i:'+i+'">'+c+'</span>'}).join('')+'</div>';
+    h+='<div class="rs">'+r.s+'</div>';
+    if(r.cta)h+='<div class="rcta">'+r.cta+'</div>';
+    sc.innerHTML=h;sc.style.background=r.bg;$('#rsrc').textContent=r.src;
+    bars.forEach(function(b,i){b.className=i<idx?'done':'';b.style.setProperty('--d',D+'ms')});
+    void bars[idx].offsetWidth;bars[idx].className='run';
+    $('#rt').textContent='Scene '+(idx+1)+' / 4';
+    var n=$('#rn');if(n){var st=Date.now();(function f(){if(!n.isConnected)return;var p=Math.min(1,(Date.now()-st)/1200);n.textContent=Math.round(30*p);if(p<1)requestAnimationFrame(f)})()}
+  }
+  function arm(ms){clearTimeout(tm);t0=Date.now();rem=ms;tm=setTimeout(function(){idx=(idx+1)%S.length;draw();arm(D)},ms)}
+  function start(){if(live)return;live=true;paused=false;ph.classList.remove('paused');$('#rpl').innerHTML='&#10074;&#10074; Pause';idx=0;draw();arm(D)}
+  function stop(){live=false;clearTimeout(tm)}
+  $('#rpl').onclick=function(){if(!live)return;if(!paused){paused=true;clearTimeout(tm);rem=Math.max(200,rem-(Date.now()-t0));ph.classList.add('paused');this.innerHTML='&#9654; Play'}else{paused=false;ph.classList.remove('paused');arm(rem);this.innerHTML='&#10074;&#10074; Pause'}};
+  $('#rrp').onclick=function(){live=false;start()};
+  // info + tabs
   var INFO={
-   li:{h:'LinkedIn: carousel for professionals',t:'Five cards, one idea each, every card sourced. Upload the PDF as a document post and it appears as a swipeable carousel.',g:'Explain why youth advice matters for delivery',a:'Practitioners, partners, students',f:[['Carousel (PDF)','assets/social/linkedin-carousel.pdf']]},
+   li:{h:'LinkedIn: carousel for professionals',t:'Five cards, one idea each, every card sourced. Upload the PDF as a document post and it appears as a swipeable carousel. Try the Like and Comment buttons.',g:'Explain why youth advice matters for delivery',a:'Practitioners, partners, students',f:[['Carousel (PDF)','assets/social/linkedin-carousel.pdf'],['Card 1','assets/social/linkedin-card-1.png'],['Card 2','assets/social/linkedin-card-2.png'],['Card 3','assets/social/linkedin-card-3.png'],['Card 4','assets/social/linkedin-card-4.png'],['Card 5','assets/social/linkedin-card-5.png']]},
    fb:{h:'Facebook: one image, one question',t:'A fact, a gap and a local question, in an And/But/Therefore shape. One image reads fast and travels well into community groups.',g:'Start a conversation in community groups',a:'Local communities and parents, students',f:[['Image (PNG)','assets/social/facebook-post.png']]},
    x:{h:'X and Threads: one stat card',t:'One number that reads in a second, with a short post under 280 characters. The same copy works on Threads; a reply can link to the LinkedIn carousel.',g:'A fast, shareable takeaway',a:'Followers who scan quickly, journalists',f:[['Image (PNG)','assets/social/x-post.png']]},
-   ig:{h:'Instagram: one message, one action',t:'A bold headline on the brand grid, a caption that earns the save, and one question to start comments.',g:'A saveable message with a clear call to act',a:'Young builders, students, creators',f:[['Image (PNG)','assets/social/instagram-post.png']]},
-   reel:{h:'Reel and TikTok: 35 seconds, four scenes',t:'The hook (0:00), the platform (0:06), the three themes (0:15) and the question (0:26). The GIF plays the four scenes in 14 seconds as a quick preview. Voiceover: Half the world is under 30, so who should help shape the infrastructure built for their future? UNOPS has a Youth Engagement Platform: 30 young advisors, all under 30. Resilience means stronger grids, circular approaches and practical solutions for communities on the front lines. What needs to change first? Tell us below.',g:'Reach new viewers with a hook in two seconds',a:'Viewers aged 16 to 29',f:[['Preview (GIF)','assets/social/reel-preview.gif'],['Frame 1','assets/social/reel-frame-1.png'],['Frame 2','assets/social/reel-frame-2.png'],['Frame 3','assets/social/reel-frame-3.png'],['Frame 4','assets/social/reel-frame-4.png']]}
+   ig:{h:'Instagram: one message, one action',t:'A bold headline on the brand grid, a caption that earns the save, and one question to start comments. Double-tap the image to like it.',g:'A saveable message with a clear call to act',a:'Young builders, students, creators',f:[['Image (PNG)','assets/social/instagram-post.png']]},
+   reel:{h:'Reel and TikTok: 35 seconds, four scenes',t:'The hook (0:00), the platform (0:06), the three themes (0:15) and the question (0:26). The preview plays the four scenes in 14 seconds; use Pause and Replay to study each one. Voiceover: Half the world is under 30, so who should help shape the infrastructure built for their future? UNOPS has a Youth Engagement Platform: 30 young advisors, all under 30. Resilience means stronger grids, circular approaches and practical solutions for communities on the front lines. What needs to change first? Tell us below.',g:'Reach new viewers with a hook in two seconds',a:'Viewers aged 16 to 29',f:[['Preview (GIF)','assets/social/reel-preview.gif'],['Frame 1','assets/social/reel-frame-1.png'],['Frame 2','assets/social/reel-frame-2.png'],['Frame 3','assets/social/reel-frame-3.png'],['Frame 4','assets/social/reel-frame-4.png']]}
   };
   function show(p){
     $$('#ptabs .tab').forEach(function(t){t.setAttribute('aria-selected',t.dataset.p===p)});
@@ -196,8 +324,10 @@ function copy(txt,msg){try{navigator.clipboard.writeText(txt).then(function(){to
     var d=INFO[p];$('#sh').textContent=d.h;$('#st').textContent=d.t;
     $('#sd').innerHTML='<dt>Goal</dt><dd>'+d.g+'</dd><dt>Audience</dt><dd>'+d.a+'</dd>';
     $('#dl').innerHTML=d.f.map(function(f){return '<a class="btn ghost" href="'+f[1]+'" download>&darr; '+f[0]+'</a>'}).join('');
+    if(p==='reel')start();else stop();
   }
-  $$('#ptabs .tab').forEach(function(t){t.onclick=function(){show(t.dataset.p)}});show('li');
+  $$('#ptabs .tab').forEach(function(t){t.onclick=function(){show(t.dataset.p)}});
+  show('li');
   $$('#rvf .tab').forEach(function(t){t.onclick=function(){$$('#rvf .tab').forEach(function(x){x.setAttribute('aria-pressed',x===t)});$$('#rv .item').forEach(function(c){c.hidden=!(t.dataset.f==='all'||c.dataset.k===t.dataset.f)})}});
   var COL=[['Navy','#0F2942','#fff'],['Amber','#E08E26','#0B1420'],['Green','#1B6B4A','#fff'],['Fog','#F7F9F8','#0B1420'],['Light amber','#F6C376','#0B1420']];
   COL.forEach(function(c){var b=document.createElement('button');b.style.background=c[1];b.style.color=c[2];b.innerHTML='<b>'+c[0]+'</b>'+c[1];b.onclick=function(){copy(c[1],c[0]+' '+c[1]+' copied')};$('#sw').appendChild(b)});
